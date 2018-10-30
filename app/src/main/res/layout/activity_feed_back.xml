@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_feed_back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/vg_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></RelativeLayout>
+        <android.support.v4.widget.NestedScrollView
+            android:background="@color/back_grey"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:background="@color/back_grey"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/font_grey"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin35dp"
+                    android:background="@color/back_grey"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/margin15dp"
+                    android:text="分类标签"
+                    android:textStyle="bold"></TextView>
+
+                <RadioGroup
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/readioGroupFeedback"
+                    android:paddingLeft="@dimen/margin15dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin80dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:textColor="@color/login_selector_color02"
+                        android:id="@+id/radio01"
+                        android:button="@null"
+                        android:background="@drawable/feed_back_selector"
+                        android:gravity="center"
+                        android:text="问题咨询"
+                        android:padding="@dimen/margin12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></RadioButton>
+                    <RadioButton
+                        android:textColor="@color/login_selector_color02"
+
+                        android:id="@+id/radio02"
+                        android:layout_marginLeft="@dimen/margin25dp"
+                        android:button="@null"
+                        android:background="@drawable/feed_back_selector"
+                        android:gravity="center"
+                        android:text="意见和建议"
+                        android:padding="@dimen/margin12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></RadioButton>
+                    <RadioButton
+                        android:textColor="@color/login_selector_color02"
+                        android:id="@+id/radio03"
+                        android:layout_marginLeft="@dimen/margin25dp"
+                        android:button="@null"
+                        android:background="@drawable/feed_back_selector"
+                        android:gravity="center"
+                        android:text="其它"
+                        android:padding="@dimen/margin12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></RadioButton>
+                </RadioGroup>
+
+                <TextView
+                    android:textColor="@color/font_grey"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin35dp"
+                    android:background="@color/back_grey"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/margin15dp"
+                    android:text="问题描述"
+                    android:textStyle="bold"></TextView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vg_title"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <EditText
+
+                        android:background="@null"
+                        android:id="@+id/edittext_feed_back"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/screenwith_half"
+                        android:layout_margin="@dimen/margin10dp"
+                        android:gravity="top"
+                        android:hint="请您在此填写您对欧伶猪的意见，我们将不断改进，感谢您的支持。"
+                        android:inputType="textMultiLine"
+                        android:maxLength="150"
+                        android:paddingLeft="@dimen/margin5dp"
+                        android:paddingTop="@dimen/margin5dp"
+                        android:singleLine="false"
+                        android:textColor="@color/txt_737373"
+                        android:textColorHint="@color/hint_color_normol"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/textView_feedback_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/edittext_feed_back"
+                        android:layout_margin="@dimen/margin5dp"
+                        android:layout_marginRight="@dimen/margin17dp"
+                        android:gravity="right"
+                        android:paddingRight="@dimen/margin10dp"
+                        android:text="0/1000"
+                        android:textColor="@color/hint_color_normol" />
+
+
+                </RelativeLayout>
+                <TextView
+                    android:textColor="@color/font_grey"
+                    android:textSize="13sp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/margin15dp"
+                    android:text="添加图片说明"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:background="@color/white"
+                    android:padding="@dimen/margin15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerFeedBack"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"></android.support.v7.widget.RecyclerView>
+                </RelativeLayout>
+
+                <TextView
+                    android:textColor="@color/font_grey"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin35dp"
+                    android:background="@color/back_grey"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/margin15dp"
+                    android:text="联系方式"
+                    android:textStyle="bold"></TextView>
+                <EditText
+                    android:id="@+id/edittextFeedbackPhone"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:textSize="12sp"
+                    android:paddingLeft="@dimen/margin15dp"
+                    android:hint="建议留下常用手机号，方便我们联系您"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin35dp" />
+                <RelativeLayout
+                    android:background="@color/back_grey"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin120dp">
+                    <Button
+                        android:id="@+id/btn_confirm_feedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/margin50dp"
+                        android:layout_marginRight="@dimen/margin50dp"
+                        android:layout_marginBottom="@dimen/margin25dp"
+                        android:background="@drawable/shape_login_input_bg"
+                        android:text="提交"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+</LinearLayout>

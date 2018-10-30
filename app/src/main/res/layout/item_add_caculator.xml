@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <View
+        android:layout_marginTop="@dimen/margin5dp"
+        android:background="@color/lineColor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"></View>
+    <LinearLayout
+        android:background="@color/white"
+        android:paddingRight="@dimen/margin15dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin45dp"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin15dp">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="被扶养人年龄"
+            android:textColor="@color/txt_4D4D4D" />
+        <View
+            android:background="@color/lineColor"
+            android:layout_width="@dimen/margin0.5dp"
+            android:layout_height="match_parent"></View>
+        <EditText
+            android:inputType="number"
+            android:gravity="center_vertical"
+            android:background="@null"
+            android:id="@+id/editextAge"
+            android:layout_weight="1"
+            android:layout_width="0px"
+            android:layout_height="match_parent"></EditText>
+    </LinearLayout>
+    <View
+        android:background="@color/lineColor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"></View>
+    <LinearLayout
+        android:background="@color/white"
+        android:paddingRight="@dimen/margin15dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin45dp"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin15dp">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="承担抚养义务的人数"
+            android:textColor="@color/txt_4D4D4D" />
+        <View
+            android:background="@color/lineColor"
+            android:layout_width="@dimen/margin0.5dp"
+            android:layout_height="match_parent"></View>
+        <EditText
+            android:inputType="number"
+            android:gravity="center_vertical"
+            android:background="@null"
+            android:id="@+id/editextNum"
+            android:layout_weight="1"
+            android:layout_width="0px"
+            android:layout_height="match_parent"></EditText>
+    </LinearLayout>
+    <View
+        android:background="@color/lineColor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"></View>
+</LinearLayout>

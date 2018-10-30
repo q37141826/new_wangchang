@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义能够清空数据的输入框-->
+    <declare-styleable name="MyEditTextView">
+        <!--<attr name="my_edittext_height" format="dimension"/>-->
+        <!--<attr name="my_edittext_with" format="dimension"/>-->
+        <attr name="my_edittext_text_color" format="color" />
+        <attr name="my_edittext_text_size" format="dimension" />
+        <attr name="my_edittext_backgroud" format="reference" />
+        <attr name="my_edittext_left_image" format="reference" />
+        <attr name="my_edittext_text" format="string" />
+        <attr name="my_edittext_hint" format="string" />
+        <attr name="my_edittext_hint_color" format="color" />
+        <attr name="my_edittext_max_lenth" format="integer" />
+        <attr name="my_edittext_drawble_left" format="reference" />
+        <attr name="input_type">
+            <enum name="text_password" value="0"></enum>
+            <enum name="number" value="1"></enum>
+        </attr>
+        <attr name="my_edittext_gravity">
+            <enum name="top" value="1"></enum>
+            <enum name="right" value="2"></enum>
+            <enum name="left" value="3"></enum>
+            <enum name="bottom" value="4"></enum>
+            <enum name="center" value="5"></enum>
+            <enum name="center_vertical" value="6"></enum>
+            <enum name="center_horizental" value="7"></enum>
+            <enum name="center_horizental_top" value="8"></enum>
+            <enum name="center_horizental_bottom" value="9"></enum>
+            <enum name="center_vertical_left" value="10"></enum>
+            <enum name="center_vertical_right" value="11"></enum>
+
+        </attr>
+    </declare-styleable>
+
+    <!--五颗星-->
+    <declare-styleable name="FiveStar">
+        <attr name="selected_image" format="reference" />
+        <attr name="not_selected_image" format="reference" />
+        <attr name="starNum" format="integer" />
+
+        <!--<attr name="my_edittext_height" format="dimension"/>-->
+        <!--<attr name="my_edittext_with" format="dimension"/>-->
+        <!--<attr name="my_edittext_text_color" format="color" />-->
+        <!--<attr name="my_edittext_text_size" format="dimension" />-->
+        <!--<attr name="my_edittext_backgroud" format="reference" />-->
+        <!--<attr name="my_edittext_text" format="string" />-->
+        <!--<attr name="my_edittext_hint" format="string" />-->
+        <!--<attr name="my_edittext_hint_color" format="color" />-->
+        <!--<attr name="my_edittext_max_lenth" format="integer" />-->
+        <!--<attr name="input_type">-->
+        <!--<enum name="text_password" value="0"></enum>-->
+        <!--<enum name="number" value="1"></enum>-->
+        <!--</attr>-->
+        <!--<attr name="my_edittext_gravity">-->
+        <!--<enum name="top" value="1"></enum>-->
+        <!--<enum name="right" value="2"></enum>-->
+        <!--<enum name="left" value="3"></enum>-->
+        <!--<enum name="bottom" value="4"></enum>-->
+        <!--<enum name="center" value="5"></enum>-->
+        <!--<enum name="center_vertical" value="6"></enum>-->
+        <!--<enum name="center_horizental" value="7"></enum>-->
+        <!--<enum name="center_horizental_top" value="8"></enum>-->
+        <!--<enum name="center_horizental_bottom" value="9"></enum>-->
+        <!--<enum name="center_vertical_left" value="10"></enum>-->
+        <!--<enum name="center_vertical_right" value="11"></enum>-->
+
+        <!--</attr>-->
+    </declare-styleable>
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.mine.myorderdetails.OrderDetailsActivity">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/margin100dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin60dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/margin15dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circular_head_order_detauls"
+                        android:layout_width="@dimen/margin40dp"
+                        android:layout_height="@dimen/margin40dp" />
+
+                    <LinearLayout
+                        android:layout_width="@dimen/margin150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewNameOrderDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/font_grey"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textViewTimeOrderDetails"
+                            style="@style/text_normal" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeFinished"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin45dp"
+                        android:gravity="right|center_vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@mipmap/triangle2x" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin20dp"
+                            android:text="已完成"
+                            android:textColor="@color/theme_color" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textViewContent"
+                    style="@style/text_normal"
+                    android:paddingLeft="@dimen/margin15dp"
+                    android:paddingRight="@dimen/margin15dp"
+                    android:text="正文" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/screenwith"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_marginRight="@dimen/margin15dp"
+                    android:layout_marginTop="@dimen/margin10dp"></android.support.v7.widget.RecyclerView>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="@dimen/margin100dp"></View>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/btnGotoCominucate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/margin30dp"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:layout_marginRight="@dimen/margin20dp"
+            android:background="@mipmap/btn_bg2x"
+            android:text="去沟通"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+</LinearLayout>

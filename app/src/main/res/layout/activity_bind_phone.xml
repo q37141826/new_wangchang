@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.mine.edit.BindPhoneActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/vg_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/margin25dp">
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/margin50dp"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/login_mobile2x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <com.qixiu.wigit.myedittext.MyEditTextView
+                    app:my_edittext_text_size="13sp"
+                    android:id="@+id/edittextPhoneBind"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40dp"
+                    app:input_type="number"
+                    app:my_edittext_hint="请输入您的手机号码"
+                    app:my_edittext_max_lenth="11"></com.qixiu.wigit.myedittext.MyEditTextView>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin0.5dp"
+                android:background="@color/lineColor"></View>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin10dp"
+                android:paddingRight="@dimen/margin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/login_password2x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <com.qixiu.wigit.myedittext.MyEditTextView
+                    app:my_edittext_text_size="13sp"
+                    android:id="@+id/edittextPswBind"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40dp"
+                    app:my_edittext_hint="请输入您的密码"
+                    app:my_edittext_max_lenth="20"></com.qixiu.wigit.myedittext.MyEditTextView>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin0.5dp"
+                android:background="@color/lineColor"></View>
+            <LinearLayout
+                android:paddingLeft="@dimen/margin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@mipmap/login_ver_code2x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <com.qixiu.wigit.myedittext.MyEditTextView
+                    app:my_edittext_text_size="13sp"
+                    app:input_type="number"
+                    android:id="@+id/edittextVercodeBind"
+                    android:layout_width="@dimen/margin120dp"
+                    android:layout_height="@dimen/margin40dp"
+                    app:my_edittext_hint="输入验证码"
+                    app:my_edittext_max_lenth="6"></com.qixiu.wigit.myedittext.MyEditTextView>
+
+                <Button
+                    android:id="@+id/btnGetVercode"
+                    android:layout_width="@dimen/margin100dp"
+                    android:layout_height="@dimen/margin25dp"
+                    android:background="@drawable/shape_stroke_vercode"
+                    android:gravity="center"
+                    android:text="获取验证码" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/margin140dp"
+                android:layout_height="@dimen/margin0.5dp"
+                android:background="@color/lineColor"></View>
+
+            <Button
+                android:id="@+id/btnBindPhone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginTop="@dimen/margin30dp"
+                android:background="@mipmap/btn_bg2x"
+                android:text="绑定"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin50dp"
+                android:layout_marginTop="@dimen/margin20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin40dp"
+                    android:gravity="center"
+                    android:text="用户绑定则代表同意"
+                    android:textColor="@color/font_grey" />
+
+                <TextView
+                    android:id="@+id/textViewUserRules"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin40dp"
+                    android:gravity="center"
+                    android:text="《用户使用协议》"
+                    android:textColor="@color/theme_color" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

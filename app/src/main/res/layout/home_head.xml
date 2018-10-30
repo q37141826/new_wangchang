@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin150dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/rl_consult"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/text_normal"
+                        android:drawablePadding="@dimen/margin10dp"
+                        android:drawableTop="@mipmap/home_consulting2x"
+                        android:text="我要咨询"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        style="@style/text_normal"
+                        android:text="实时在线，为您解答" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/margin0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/back_grey"></View>
+
+                <LinearLayout
+                    android:id="@+id/rl_writ_template"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/text_normal"
+                        android:drawablePadding="@dimen/margin10dp"
+                        android:drawableTop="@mipmap/home_custom2x"
+                        android:text="个人定制"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        style="@style/text_normal"
+                        android:text="为您提供全方位的法律服务" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin7dp"
+            android:background="@color/back_grey"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin100dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/rl_bottom_one"
+                style="@style/text_normal"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/home_case2x"
+                android:gravity="center"
+                android:text="经典案例" />
+
+            <TextView
+                android:id="@+id/rl_bottom_two"
+                style="@style/text_normal"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/home_template2x"
+                android:gravity="center"
+                android:text="文书模板" />
+
+            <TextView
+                android:id="@+id/rl_bottom_three"
+                style="@style/text_normal"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/home_calculator2x"
+                android:gravity="center"
+                android:text="法务计算器" />
+
+            <TextView
+                android:id="@+id/rl_bottom_four"
+                style="@style/text_normal"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/home_cus_service2x"
+                android:gravity="center"
+                android:text="在线客服" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin7dp"
+            android:background="@color/back_grey"></View>
+
+        <LinearLayout
+            android:id="@+id/linearlayoutGotoData"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+
+            android:background="@color/white"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="@dimen/margin5dp"
+                android:layout_height="@dimen/margin20dp"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:background="@drawable/home_information_mark" />
+
+            <TextView
+                style="@style/text_normal"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:text="最新资讯"
+                android:textColor="@color/text_515151"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            <TextView
+                android:paddingRight="@dimen/margin5dp"
+                android:textColor="@color/font_grey"
+                android:text="查看更多"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

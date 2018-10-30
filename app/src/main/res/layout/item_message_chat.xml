@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circularChatMessage"
+            android:layout_width="@dimen/margin35dp"
+            android:layout_height="@dimen/margin35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="@dimen/margin15dp" />
+        <TextView
+            android:layout_marginTop="@dimen/margin10dp"
+            android:layout_alignRight="@+id/circularChatMessage"
+            android:background="@drawable/shape_red_circel"
+            android:id="@+id/tv_message_count"
+            android:layout_width="@dimen/margin19dp"
+            android:layout_height="@dimen/margin18dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="10sp"/>
+        <RelativeLayout
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:id="@+id/relativeLayoutContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:layout_toRightOf="@+id/circularChatMessage">
+
+            <TextView
+                android:id="@+id/textViewChatMessageTypeName"
+                style="@style/text_normal"
+                android:text="问题分类"
+                android:textColor="@color/mark_start"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textViewTimeChatMessage"
+                style="@style/text_normal"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:text="时间"
+                android:textColor="@color/txt_8D8D8D" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:text="正文"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:id="@+id/textViewChatMessageContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayoutContent"
+            android:layout_marginRight="@dimen/margin15dp"
+            android:layout_toRightOf="@+id/circularChatMessage"
+            android:ellipsize="end"
+            android:maxLines="3" />
+    </RelativeLayout>
+
+
+    <View
+        android:layout_marginTop="@dimen/margin10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/lineColor"></View>
+</LinearLayout>

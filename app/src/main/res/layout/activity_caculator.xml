@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.CaculatorActivity">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+        <ScrollView
+            android:fillViewport="true"
+            android:background="@color/white"
+            android:layout_below="@+id/vg_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/back_grey">
+
+                <RadioGroup
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin70dp"
+                    android:layout_marginTop="@dimen/margin10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioJobInjury"
+                        style="@style/style_radio_caculator"
+                        android:text="工伤赔偿" />
+
+                    <RadioButton
+                        android:text="交通人身赔偿"
+                        android:id="@+id/radioTraffic"
+                        style="@style/style_radio_caculator"
+                        />
+
+                    <RadioButton
+                        android:text="律师费计算"
+                        android:id="@+id/radioLawyear"
+                        style="@style/style_radio_caculator"
+                        />
+
+                    <RadioButton
+                        android:text="诉讼费计算"
+                        android:id="@+id/radioLitigation"
+                        style="@style/style_radio_caculator"
+                        />
+                </RadioGroup>
+                <FrameLayout
+                    android:background="@color/white"
+                    android:id="@+id/framlayout_fragment"
+                    android:layout_marginTop="@dimen/margin10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></FrameLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+</RelativeLayout>

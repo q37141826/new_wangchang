@@ -1,0 +1,5 @@
+<resources>
+    <!--<string name="app_name">欧伶猪法务试用版</string>-->
+    <string name="app_name">欧伶猪法务咨询</string>
+    <string name="title_activity_cost_record_activtiy">消费记录</string>
+</resources>

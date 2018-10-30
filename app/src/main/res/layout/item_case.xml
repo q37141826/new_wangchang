@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin215dp"
+            android:layout_margin="@dimen/margin10dp"
+            app:cardCornerRadius="@dimen/margin5dp">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/imageViewHeadCase"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/textViewContentHead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/txt_8D8D8D"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textViewGotoDetailsHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:background="@drawable/btn_orange_bg"
+            android:padding="@dimen/margin3dp"
+            android:paddingLeft="@dimen/margin8dp"
+            android:paddingRight="@dimen/margin8dp"
+            android:text="查看详情"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:background="@color/back_grey"></View>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearlayoutCaseLayout"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin15dp">
+
+        <TextView
+            android:layout_width="@dimen/margin4dp"
+            android:layout_height="@dimen/margin15dp"
+            android:background="@color/theme_color" />
+
+        <TextView
+            android:id="@+id/textViewCasename"
+            android:layout_marginLeft="@dimen/margin3dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            style="@style/text_normal"
+            android:text="热门案例" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin120dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/margin15dp">
+
+            <TextView
+                android:textColor="@color/txt_8D8D8D"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:id="@+id/textViewCaseContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin20dp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textViewGotoDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin6dp"
+                android:background="@drawable/btn_orange_bg"
+                android:padding="@dimen/margin3dp"
+                android:paddingLeft="@dimen/margin8dp"
+                android:paddingRight="@dimen/margin8dp"
+                android:text="查看详情"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageViewCaseItem"
+            android:layout_width="0px"
+            android:layout_height="@dimen/margin80dp"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin15dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:background="@color/back_grey"></View>
+</LinearLayout>

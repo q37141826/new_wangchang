@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/mark_start_alpa"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:gravity="center"
+        android:text="合计/元（仅为勾选项的总和）"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textViewCaculationResultHead"
+        android:layout_marginBottom="@dimen/margin10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:gravity="center"
+        android:text="5000"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+    <View
+        android:background="@color/back_grey"
+        android:layout_height="@dimen/margin7dp"
+        android:layout_width="match_parent"></View>
+
+    <LinearLayout
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin50dp">
+        <TextView
+            android:textSize="10sp"
+            android:id="@+id/textViewAddresHead"
+            android:text="地区：广东"
+            android:background="@drawable/back_grey_line_radius"
+            android:textColor="@color/font_grey"
+            android:padding="@dimen/margin3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="10sp"
+            android:id="@+id/textViewCashHead"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:text="工资：8000"
+            android:background="@drawable/back_grey_line_radius"
+            android:textColor="@color/font_grey"
+            android:padding="@dimen/margin3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="10sp"
+            android:id="@+id/textViewAgeHead"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:text="工资：8000"
+            android:background="@drawable/back_grey_line_radius"
+            android:textColor="@color/font_grey"
+            android:padding="@dimen/margin3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="10sp"
+            android:id="@+id/textViewLevelHead"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:text="等级：二级"
+            android:background="@drawable/back_grey_line_radius"
+            android:textColor="@color/font_grey"
+            android:padding="@dimen/margin3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

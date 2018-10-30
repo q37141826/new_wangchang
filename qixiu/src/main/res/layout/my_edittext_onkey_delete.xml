@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageView_myedittext"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:layout_marginLeft="@dimen/margin5dp"
+            android:layout_toRightOf="@+id/imageView_myedittext"
+            android:singleLine="true"
+            android:layout_marginRight="@dimen/margin25dp"
+            android:textScaleX="1"
+            android:background="@null"
+            android:id="@+id/edittext_onekey_delete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:padding="@dimen/margin4dp"
+            android:id="@+id/imageView_myEdittextDeleteBtn"
+            style="@style/style_login_regist_clean_input_iv"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+</merge>

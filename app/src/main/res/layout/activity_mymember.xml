@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:id="@+id/sv_member"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/vg_title"-->
+        <!--android:background="@color/back_grey"-->
+        <!--android:scrollbars="none">-->
+
+        <LinearLayout
+            android:layout_below="@+id/vg_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/back_grey"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/my_vip_banner2x" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin10dp"
+                android:background="@drawable/shape_home_module_bg"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/margin19dp"
+                android:paddingLeft="@dimen/margin17dp"
+                android:paddingRight="@dimen/margin17dp"
+                android:paddingTop="@dimen/margin14dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_dredge_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="当前状态 : 未开通"
+                        android:textColor="@color/txt_4D4D4D"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin160dp"
+                    android:layout_marginLeft="@dimen/margin7dp"
+                    android:layout_marginRight="@dimen/margin7dp"
+                    android:layout_marginTop="@dimen/margin12dp"
+                    android:background="@mipmap/mine_card_bg2x"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/tomy_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circular_head_mine"
+                            android:layout_width="@dimen/margin70dp"
+                            android:layout_height="@dimen/margin70dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="@dimen/margin20dp"
+                            android:layout_marginTop="@dimen/margin20dp"
+                            android:src="@mipmap/headplace" />
+
+                        <TextView
+                            android:id="@+id/textView_nickname_mine"
+                            android:layout_width="@dimen/margin75dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/circular_head_mine"
+                            android:layout_marginLeft="@dimen/margin20dp"
+                            android:layout_marginTop="@dimen/margin10dp"
+                            android:gravity="center"
+                            android:text="名称"
+                            android:textColor="@color/txt_fafafa"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin20dp"
+                        android:layout_toRightOf="@+id/tomy_right"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/margin15dp"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/margin50dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="欧伶猪"
+                                android:textColor="@color/theme_color"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/textView_member_level"
+                                android:layout_width="@dimen/margin78dp"
+                                android:layout_height="@dimen/margin20dp"
+                                android:layout_marginLeft="@dimen/margin30dp"
+                                android:background="@mipmap/mine_member2x"
+                                android:gravity="right|center_vertical"
+                                android:paddingRight="@dimen/margin10dp"
+                                android:text="会员"
+                                android:textColor="@color/theme_color"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/margin55dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_member_number"
+                                style="@style/text_normal"
+                                android:text="会员编号 : "
+                                android:textColor="@color/white"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tv_validity"
+                                style="@style/text_normal"
+                                android:layout_marginTop="@dimen/margin5dp"
+                                android:text="有效日期 : "
+                                android:textColor="@color/white"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0px"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:layout_marginLeft="@dimen/margin50dp"
+                    android:layout_weight="1"
+                    android:background="@color/txt_4D4D4D"></View>
+
+                <TextView
+                    android:layout_width="@dimen/margin70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="会员特权" />
+
+                <View
+                    android:layout_width="0px"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:layout_marginRight="@dimen/margin50dp"
+                    android:layout_weight="1"
+                    android:background="@color/txt_4D4D4D"></View>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/belowme"
+                android:layout_marginBottom="@dimen/margin15dp"
+                android:background="@drawable/shape_home_module_bg"
+                android:orientation="vertical"
+                android:paddingRight="@dimen/margin10dp">
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/rule"
+                    android:drawablePadding="@dimen/margin5dp"
+                    android:text="会员规则"
+                    android:textColor="@color/txt_4D4D4D"
+                    android:textSize="13sp" />
+
+                <WebView
+                    android:id="@+id/webViewMenber"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin220dp"></WebView>
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:drawableLeft="@mipmap/member_equity"
+                    android:drawablePadding="@dimen/margin5dp"
+                    android:text="特权说明"
+                    android:textColor="@color/txt_4D4D4D"
+                    android:textSize="13sp" />
+
+                <WebView
+                    android:id="@+id/webViewMenberInroduction"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin170dp"></WebView>
+
+                <LinearLayout
+                    android:paddingRight="@dimen/margin25dp"
+                    android:paddingLeft="@dimen/margin25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/margin30dp">
+
+                    <TextView
+                        android:id="@+id/tv_dredge_member"
+                        android:layout_width="0px"
+                        android:layout_height="@dimen/margin30dp"
+                        android:layout_weight="1"
+                        android:background="@mipmap/btn_nor_left2x"
+                        android:gravity="center"
+                        android:text="开通会员"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_buy_member"
+                        android:layout_width="0px"
+                        android:layout_height="@dimen/margin30dp"
+                        android:layout_weight="1"
+                        android:background="@mipmap/btn_pressed_right2x"
+                        android:gravity="center"
+                        android:text="购买问题"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    <!--</android.support.v4.widget.NestedScrollView>-->
+
+</RelativeLayout>
+

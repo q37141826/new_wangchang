@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/vg_title"
+        android:background="@color/back_grey"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginTop="@dimen/margin10dp"
+
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutInroduce"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin60dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin15dp">
+
+                <ImageView
+                    android:id="@+id/tomyright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/consulting_check2x" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:layout_toRightOf="@+id/tomyright"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="查看流程："
+                        android:textColor="@color/txt_4D4D4D" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/tomy_right"
+                        android:gravity="center_vertical"
+                        android:text="图解流程，直观易懂"
+                        android:textColor="@color/txt_8D8D8D" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnStudy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin10dp"
+                    android:background="@drawable/btn_little_theme_bg"
+                    android:text="快速入门"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="@dimen/margin5dp"
+                android:background="@color/lineColor"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin60dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin15dp">
+
+                <ImageView
+                    android:id="@+id/imageViewIntroduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/consulting2x" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:layout_toRightOf="@+id/imageViewIntroduce"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textIntroduceHead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="查看流程："
+                        android:textColor="@color/txt_4D4D4D" />
+
+                    <TextView
+                        android:id="@+id/textIntroduce"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="图解流程，直观易懂"
+                        android:textColor="@color/txt_8D8D8D" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:background="@drawable/shape_home_module_bg"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_marginRight="@dimen/margin15dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+
+                    <EditText
+                        android:id="@+id/et_answers_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/margin10dp"
+                        android:background="@drawable/shape_release_edit_bg"
+                        android:gravity="top"
+                        android:hint="请简单描述您的服务需求（500字以内）"
+                        android:maxLength="500"
+                        android:minLines="10"
+                        android:padding="@dimen/margin5dp"
+                        android:textSize="@dimen/margin12dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/margin15dp">
+
+                    <View
+                        android:layout_width="@dimen/margin2dp"
+                        android:layout_height="@dimen/margin15dp"
+                        android:background="@color/theme_color" />
+
+                    <TextView
+                        style="@style/text_normal"
+                        android:text="温馨提示" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:textColor="@color/font_grey"
+                    android:id="@+id/webviewIntroduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_marginRight="@dimen/margin15dp"
+                    android:background="@color/album_Transparent"></TextView>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_release"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin20dp"
+        android:layout_marginLeft="@dimen/margin15dp"
+        android:layout_marginRight="@dimen/margin15dp"
+        android:layout_marginTop="@dimen/margin70dp"
+        android:background="@mipmap/btn_bg2x"
+        android:text="提交"
+        android:textColor="@color/white" />
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.mine.MyprofileActivity">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+    <LinearLayout
+        android:background="@color/back_grey"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_marginTop="@dimen/margin10dp"
+            android:background="@color/back_grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp">
+            <com.qixiu.widget.LineControllerView
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:leftIcon="@mipmap/my_head_portrait2x"
+                app:textPrimary="头像"
+                app:textPrimarySize="16sp"
+                app:textSecondarySize="14sp" />
+            <com.qixiu.widget.CircleImageView
+                android:layout_marginRight="@dimen/margin25dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/margin35dp"
+                android:layout_height="@dimen/margin35dp" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1dp"></View>
+        <com.qixiu.widget.LineControllerView
+            style="@style/LineControllerView.ShowArrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:leftIcon="@mipmap/my_nickname2x"
+            app:textPrimary="昵称"
+            app:textPrimarySize="16sp"
+            app:textSecondarySize="14sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1dp"></View>
+        <com.qixiu.widget.LineControllerView
+            style="@style/LineControllerView.ShowArrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:leftIcon="@mipmap/my_gender2x"
+            app:textPrimary="性别"
+            app:textPrimarySize="16sp"
+            app:textSecondarySize="14sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1dp"></View>
+        <com.qixiu.widget.LineControllerView
+            style="@style/LineControllerView.ShowArrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:leftIcon="@mipmap/my_area2x"
+            app:textPrimary="地区"
+            app:textPrimarySize="16sp"
+            app:textSecondarySize="14sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1dp"></View>
+        <com.qixiu.widget.LineControllerView
+            style="@style/LineControllerView.ShowArrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:leftIcon="@mipmap/my_mobile2x"
+            app:textPrimary="手机"
+            app:textPrimarySize="16sp"
+            app:textSecondarySize="14sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1dp"></View>
+        <com.qixiu.widget.LineControllerView
+            style="@style/LineControllerView.ShowArrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:leftIcon="@mipmap/my_email2x"
+            app:textPrimary="邮箱"
+            app:textPrimarySize="16sp"
+            app:textSecondarySize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

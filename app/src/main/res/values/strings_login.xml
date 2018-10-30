@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="regist_txt">注册</string>
+    <string name="phone_format_error">手机号码格式不正确</string>
+    <string name="phone_notnull">请输入注册手机号</string>
+    <string name="checkcode_notnull">请输入验证码</string>
+    <string name="pasword_notnull">请输入注册密码</string>
+
+    <string name="message_granted">All permissions have been granted.</string>
+    <string name="message_denied">Permission \"%1$s\" has been denied.</string>
+    <string name="not_netwroking">请检查您的网络</string>
+    <string name="input_content">请输入评价内容</string>
+    <string name="share_notqqclient">您没有安装QQ客户端呦~</string>
+    <string name="share_notqzoneclient">您没有安装QQ空间客户端呦~</string>
+    <string name="share_notsinaclient">您没有安装新浪微博客户端哟~</string>
+    <string name="share_notwxclient">您没有安装微信客户端哟~</string>
+    <string name="share_success">分享成功</string>
+    <string name="share_cancel">分享关闭</string>
+    <string name="share_error">分享错误</string>
+    <string name="header_text">The Header</string>
+    <string name="footer_text">The Footer</string>
+    <!--footer-->
+    <string name="list_footer_loading">正在加载中…</string>
+    <string name="list_footer_network_error">点击重新加载</string>
+    <string name="list_footer_end">已经到底了</string>
+    <string name="cancel">关闭</string>
+
+
+
+</resources>

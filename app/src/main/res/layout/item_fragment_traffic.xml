@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_caculator_head" />
+
+        <TextView
+            android:id="@+id/textViewAdrees"
+            style="@style/text_caculator"
+            android:text="选择地区:" />
+        <TextView
+            android:id="@+id/textViewRegiste"
+            style="@style/text_caculator"
+            android:text="选择户口:" />
+        <TextView
+            android:id="@+id/textViewInjury"
+            style="@style/text_caculator"
+            android:text="伤残等级:" />
+
+        <LinearLayout style="@style/layout_caculator">
+            <TextView
+                style="@style/text_normal"
+                android:text="年龄：    " />
+            <com.qixiu.wigit.myedittext.MyEditTextView
+                android:id="@+id/ediitextAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="number"/>
+        </LinearLayout>
+
+
+        <include layout="@layout/layout_fragment_caculator_btn"></include>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

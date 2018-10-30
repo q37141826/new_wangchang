@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_myprofile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_changehead"
+            style="@style/my_center_relativelayout">
+
+            <TextView
+                style="@style/my_center_textview"
+                android:layout_width="@dimen/margin60dp"
+                android:drawableLeft="@mipmap/my_head_portrait2x"
+                android:text="头像:" />
+
+            <ImageView
+                android:id="@+id/tomyleft"
+                style="@style/my_center_imageview"
+                android:src="@mipmap/mine_right_go2x" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circular_head_edit"
+                android:layout_width="@dimen/margin30dp"
+                android:layout_height="@dimen/margin30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin5dp"
+                android:layout_marginRight="@dimen/margin20dp"
+                android:layout_toLeftOf="@+id/tomyleft"
+                android:src="@mipmap/headplace" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/style_horizontal_line"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"></View>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_changenickname"
+            style="@style/my_center_relativelayout">
+
+            <TextView
+                style="@style/my_center_textview"
+                android:layout_width="@dimen/margin60dp"
+                android:drawableLeft="@mipmap/my_nickname2x"
+
+                android:text="昵称:" />
+
+            <ImageView
+                android:id="@+id/tomyleft01"
+                style="@style/my_center_imageview"
+                android:src="@mipmap/mine_right_go2x" />
+
+            <TextView
+                android:gravity="center_vertical|right"
+                android:singleLine="true"
+                android:id="@+id/textView_nickname_change"
+                style="@style/my_center_textview"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:layout_toLeftOf="@+id/tomyleft01" />
+
+        </RelativeLayout>
+
+        <View
+            android:visibility="gone"
+            style="@style/style_horizontal_line"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"></View>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/relativeLayout_changeTrueName"
+            style="@style/my_center_relativelayout">
+
+            <TextView
+                style="@style/my_center_textview"
+                android:layout_width="@dimen/margin60dp"
+
+                android:text="姓名:" />
+
+            <ImageView
+                android:id="@+id/tomyleft05"
+                style="@style/my_center_imageview"
+                android:src="@mipmap/mine_right_go2x" />
+
+            <TextView
+                android:id="@+id/textView_truename_change"
+                style="@style/my_center_textview"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:layout_toLeftOf="@+id/tomyleft05" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/style_horizontal_line"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"></View>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_changesex"
+            style="@style/my_center_relativelayout">
+
+            <TextView
+                style="@style/my_center_textview"
+                android:layout_width="@dimen/margin60dp"
+                android:drawableLeft="@mipmap/my_gender2x"
+
+                android:text="性别:" />
+
+            <ImageView
+                android:id="@+id/tomyleft02"
+                style="@style/my_center_imageview"
+                android:src="@mipmap/mine_right_go2x" />
+
+            <TextView
+                android:id="@+id/textView_sex_change"
+                style="@style/my_center_textview"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:layout_toLeftOf="@+id/tomyleft02"
+                android:gravity="right"
+                android:text="" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/style_horizontal_line"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"></View>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_address_mypro"
+            style="@style/my_center_relativelayout">
+
+            <TextView
+                style="@style/my_center_textview"
+                android:layout_width="@dimen/margin60dp"
+                android:drawableLeft="@mipmap/my_area2x"
+                android:text="地区:" />
+
+            <ImageView
+                android:id="@+id/tomyleft06"
+                style="@style/my_center_imageview"
+                android:src="@mipmap/mine_right_go2x" />
+
+            <TextView
+                android:singleLine="true"
+                android:id="@+id/textView_address_change"
+                style="@style/my_center_textview"
+                android:layout_width="@dimen/margin200dp"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:layout_toLeftOf="@+id/tomyleft06"
+                android:gravity="right"
+                android:text="地区" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/style_horizontal_line"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"></View>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_phone_mypro"
+            style="@style/my_center_relativelayout">
+
+            <TextView
+                style="@style/my_center_textview"
+                android:layout_width="@dimen/margin60dp"
+                android:drawableLeft="@mipmap/my_mobile2x"
+
+                android:text="手机:" />
+
+            <ImageView
+                android:id="@+id/tomyleft07"
+                style="@style/my_center_imageview"
+                android:src="@mipmap/mine_right_go2x" />
+
+            <TextView
+                android:textColor="@color/font_grey"
+                android:id="@+id/textView_phone_change"
+                android:layout_width="@dimen/margin200dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:layout_toLeftOf="@+id/tomyleft07"
+                android:gravity="right|center_vertical"
+                android:text="" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/style_horizontal_line"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"></View>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_mailAdrees_mypro"
+            style="@style/my_center_relativelayout">
+
+            <TextView
+                style="@style/my_center_textview"
+                android:layout_width="@dimen/margin60dp"
+                android:drawableLeft="@mipmap/my_email2x"
+                android:text="邮箱:" />
+
+            <ImageView
+                android:id="@+id/tomyleft08"
+                style="@style/my_center_imageview"
+                android:src="@mipmap/mine_right_go2x" />
+
+            <TextView
+                android:textColor="@color/font_grey"
+                android:layout_width="@dimen/margin200dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:id="@+id/textView_mailAdress_change"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:layout_toLeftOf="@+id/tomyleft08"
+                android:text="" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/style_horizontal_line"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"></View>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_changepsw"
+            style="@style/my_center_relativelayout"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/my_center_textview"
+                android:text="密码修改:" />
+
+            <ImageView
+                android:id="@+id/tomyleft03"
+                style="@style/my_center_imageview"
+                android:src="@mipmap/mine_right_go2x" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/style_horizontal_line"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"
+            android:visibility="gone"></View>
+
+        <Button
+            android:id="@+id/btn_confirm_edituser"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:layout_marginLeft="@dimen/margin40dp"
+            android:layout_marginRight="@dimen/margin40dp"
+            android:layout_marginTop="@dimen/margin90dp"
+            android:text="修改"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/imageView_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>
+

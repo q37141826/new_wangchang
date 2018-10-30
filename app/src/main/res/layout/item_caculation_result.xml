@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/viewTop05Line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:background="@color/lineColor"
+        android:visibility="gone"></View>
+
+    <View
+        android:id="@+id/viewTop8Line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin8dp"
+        android:background="@color/back_grey"
+        android:visibility="gone"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin45dp">
+
+            <ImageView
+                android:id="@+id/imageViewSelecte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:src="@mipmap/select2x" />
+
+            <TextView
+                android:id="@+id/textViewItemTitle"
+                style="@style/text_normal"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageViewSelecte"
+                android:textColor="@color/txt_737373" />
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                style="@style/text_normal"
+                android:layout_width="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin150dp"
+                android:layout_marginRight="@dimen/margin40dp"
+                android:gravity="right" />
+
+            <ImageView
+                android:id="@+id/imageViewRightGo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:src="@mipmap/mine_right_go2x" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:background="@color/back_grey"
+            android:paddingLeft="@dimen/margin60dp"
+            android:id="@+id/linearlayoutFamily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerviewFamily"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               ></android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/textViewTotoal"
+                style="@style/text_normal"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:background="@color/back_grey"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/linearlayoutInroduce"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin100dp">
+            <TextView
+                android:text="根据"
+               style="@style/text_normal"/>
+            <TextView
+                android:gravity="center"
+                android:height="@dimen/margin15dp"
+                android:textColor="@color/theme_color"
+                android:id="@+id/textViewRulesName"
+                style="@style/text_normal" />
+            <TextView
+                android:text="文件计算，结果仅供参考"
+                style="@style/text_normal"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/viewBottom05Line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:background="@color/lineColor"
+        app:layout_constraintBottom_toBottomOf="parent"></View>
+
+    <View
+        android:id="@+id/viewBottom5Line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin8dp"
+        android:background="@color/back_grey"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"></View>
+
+
+</android.support.constraint.ConstraintLayout>

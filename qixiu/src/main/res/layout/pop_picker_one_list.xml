@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_back_for_dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:background="#000000"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin200dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <View
+            android:visibility="gone"
+            android:id="@+id/belowme_02"
+            style="@style/style_horizontal_line"
+            android:layout_below="@+id/belowme01"
+            android:background="@color/txt_4D4D4D"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/belowme_02"
+            android:orientation="horizontal">
+
+            <com.qixiu.wigit.picker.PickerView
+                android:paddingLeft="@dimen/margin80dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/pickview_time_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/belowme01"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/textView_left_pop_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:gravity="center_vertical"
+                android:text="关闭"
+                android:textColor="@color/txt_4D4D4D" />
+            <TextView
+                android:id="@+id/textView_picker_title"
+                android:textColor="@color/txt_4D4D4D"
+                android:text="请选择"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textView_right_pop_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:gravity="center_vertical"
+                android:text="确定"
+                android:textColor="@color/txt_4D4D4D" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

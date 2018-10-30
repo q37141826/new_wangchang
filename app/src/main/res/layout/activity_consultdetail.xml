@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/vg_title"
+        android:background="@color/txt_EBECF8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/txt_EBECF8"
+            android:orientation="vertical"
+            android:padding="@dimen/margin10dp">
+
+
+            <LinearLayout
+                style="@style/style_consult_detail_status_outer_ll"
+                android:layout_weight="1.2"
+
+                >
+
+                <TextView
+                    style="@style/style_consult_detail_status_title_tv"
+                    android:drawableLeft="@mipmap/consult_detail_status"
+
+                    android:text="问题状态" />
+
+                <View style="@style/style_consult_detail_status_title_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin7dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_status_one"
+                        style="@style/style_consult_detail_status_ll">
+
+                        <ImageView style="@style/style_consult_detail_status_iv" />
+
+                        <TextView
+                            android:id="@+id/tv_time_one"
+                            style="@style/style_consult_detail_status_tv" />
+
+                        <TextView
+                            android:id="@+id/tv_content_one"
+                            style="@style/style_consult_detail_status_content_tv"
+                            android:text="提出问题" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_status_two"
+                        style="@style/style_consult_detail_status_ll">
+
+                        <ImageView style="@style/style_consult_detail_status_iv" />
+
+                        <TextView
+                            android:id="@+id/tv_time_two"
+                            style="@style/style_consult_detail_status_tv" />
+
+                        <TextView
+                            android:id="@+id/tv_content_two"
+                            style="@style/style_consult_detail_status_content_tv"
+                            android:text="律师 xx 跟进处理" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_status_three"
+                        style="@style/style_consult_detail_status_ll"
+                        android:visibility="invisible">
+
+                        <ImageView style="@style/style_consult_detail_status_iv" />
+
+                        <TextView
+                            android:id="@+id/tv_time_three"
+                            style="@style/style_consult_detail_status_tv" />
+
+                        <TextView
+                            android:id="@+id/tv_content_three"
+                            style="@style/style_consult_detail_status_content_tv"
+                            android:text="处理完毕" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/style_consult_detail_status_outer_ll"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_weight="3">
+
+                <TextView
+                    style="@style/style_consult_detail_status_title_tv"
+                    android:drawableLeft="@mipmap/consult_detail"
+                    android:text="问题详情" />
+
+                <View style="@style/style_consult_detail_status_title_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin20dp">
+
+                    <TextView
+                        style="@style/style_consult_detail_status_content_tv"
+                        android:layout_gravity="top"
+                        android:text="问题描述 : " />
+
+                    <TextView
+                        android:id="@+id/tv_describe_content"
+                        style="@style/style_consult_detail_status_tv"
+                        android:lineSpacingExtra="@dimen/margin4dp"
+                        android:maxLines="6"
+                        android:minLines="6"
+                        android:text="" />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_picture_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin71dp"
+                    android:layout_marginTop="@dimen/margin43dp">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/tv_picture_hint"
+                    style="@style/style_consult_detail_status_tv"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:text="图片左滑查看更多"
+                    android:visibility="invisible" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                style="@style/style_consult_detail_status_outer_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_normal"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:drawableLeft="@mipmap/judgepoint2x"
+                    android:drawablePadding="@dimen/margin5dp"
+                    android:text="评分"
+                    android:textSize="15sp" />
+
+                <View
+                    style="@style/style_horizontal_line"
+                    android:layout_marginTop="@dimen/margin10dp"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/text_normal"
+                        android:layout_marginLeft="@dimen/margin20dp"
+                        android:text="专业性" />
+
+                    <com.qixiu.wigit.five_star.FiveStarView
+                        android:id="@+id/fiveStar_speciality_judy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/margin30dp"
+                        android:layout_marginLeft="@dimen/margin10dp"
+                        app:not_selected_image="@mipmap/comments_star_grey2x"
+                        app:selected_image="@mipmap/comments_star_orange2x"></com.qixiu.wigit.five_star.FiveStarView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/text_normal"
+                        android:layout_marginLeft="@dimen/margin20dp"
+                        android:text="服务态度" />
+
+                    <com.qixiu.wigit.five_star.FiveStarView
+                        android:id="@+id/fiveStar_serviceAttitude_judy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/margin30dp"
+                        android:layout_marginLeft="@dimen/margin10dp"
+                        app:not_selected_image="@mipmap/comments_star_grey2x"
+                        app:selected_image="@mipmap/comments_star_orange2x"></com.qixiu.wigit.five_star.FiveStarView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/bt_complete"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin38dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin47dp"
+                android:layout_marginLeft="@dimen/margin30dp"
+                android:layout_marginRight="@dimen/margin30dp"
+                android:layout_marginTop="@dimen/margin50dp"
+                android:background="@drawable/shape_reselt_bt_bg"
+                android:text="完成"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

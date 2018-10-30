@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="style_login_regist_clean_input_iv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/margin5dp</item>
+
+        <item name="android:src">@mipmap/edit_show_clean</item>
+        <item name="android:layout_alignParentRight">true</item>
+
+        <item name="android:layout_centerVertical">true</item>
+
+
+    </style>
+    <style name="login_input_edittext">
+        <item name="android:layout_marginLeft">@dimen/margin10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/margin30dp</item>
+        <item name="my_edittext_hint_color">@color/theme_unselect_font</item>
+        <item name="my_edittext_text_size">15sp</item>
+
+    </style>
+
+    <style name="line_style">
+
+
+        <item name="android:layout_marginRight">@dimen/margin20dp</item>
+        <item name="android:layout_marginLeft">@dimen/margin20dp</item>
+        <item name="android:background">@color/theme_color</item>
+        <item name="android:layout_marginTop">@dimen/margin15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/margin0.5dp</item>
+
+    </style>
+
+    <style name="Animation.Popup" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="style_horizontal_line">
+        <item name="android:layout_marginLeft">@dimen/margin10dp</item>
+        <item name="android:layout_marginRight">@dimen/margin10dp</item>
+        <item name="android:background">#aaaaaa</item>
+        <item name="android:dashGap">@dimen/margin2dp</item>
+        <item name="android:dashWidth">@dimen/margin2dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+    </style>
+
+    <style name="star_style">
+        <item name="android:layout_margin">@dimen/margin3dp</item>
+        <item name="android:layout_width">@dimen/margin20dp</item>
+        <item name="android:layout_height">@dimen/margin20dp</item>
+    </style>
+
+</resources>

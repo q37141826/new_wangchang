@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="please_select_address">选择地区：</string>
+    <string name="please_select_level">伤残等级：</string>
+
+
+</resources>

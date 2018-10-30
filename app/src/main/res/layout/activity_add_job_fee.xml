@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.AddJobFeeActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/vg_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/back_grey"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <View
+                android:layout_marginTop="@dimen/margin5dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin0.5dp"></View>
+            <LinearLayout
+                android:background="@color/white"
+                android:paddingRight="@dimen/margin15dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin45dp"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin15dp">
+
+                <TextView
+                    android:id="@+id/textViewWork"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="误工月收入："
+                    android:textColor="@color/txt_4D4D4D" />
+                <View
+                    android:background="@color/lineColor"
+                    android:layout_width="@dimen/margin0.5dp"
+                    android:layout_height="match_parent"></View>
+                <EditText
+                    android:inputType="number"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:id="@+id/editextWages"
+                    android:layout_weight="1"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"></EditText>
+            </LinearLayout>
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin0.5dp"></View>
+            <LinearLayout
+                android:background="@color/white"
+                android:paddingRight="@dimen/margin15dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin45dp"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin15dp">
+
+                <TextView
+                    android:id="@+id/textViewTimes"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="误工时长（月）："
+                    android:textColor="@color/txt_4D4D4D" />
+                <View
+                    android:background="@color/lineColor"
+                    android:layout_width="@dimen/margin0.5dp"
+                    android:layout_height="match_parent"></View>
+                <EditText
+                    android:inputType="number"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:id="@+id/editextNum"
+                    android:layout_weight="1"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"></EditText>
+            </LinearLayout>
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin0.5dp"></View>
+        </LinearLayout>
+        </LinearLayout>
+
+    <Button
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/btnStartCaculate"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/theme_color"
+        android:text="计算"
+        android:textColor="@color/white" />
+</android.support.constraint.ConstraintLayout>

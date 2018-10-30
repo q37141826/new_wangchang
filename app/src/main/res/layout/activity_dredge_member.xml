@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/title_back"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/txt_EBECF8"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin10dp"
+            android:background="@drawable/shape_home_module_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/margin15dp"
+                android:paddingLeft="@dimen/margin18dp"
+                android:paddingRight="@dimen/margin18dp"
+                android:paddingTop="@dimen/margin15dp">
+
+                <TextView
+                    style="@style/style_dredge_member_tv"
+                    android:text="会员类型 : "
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_dredge_member"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                </android.support.v7.widget.RecyclerView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:layout_marginTop="@dimen/margin30dp"
+                    android:background="@color/txt_E5E5E5"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin30dp">
+
+                    <TextView
+                        style="@style/style_dredge_member_tv"
+                        android:text="会员年费 : "/>
+
+                    <TextView
+
+                        android:id="@+id/tv_member_year_price"
+                        style="@style/style_dredge_member_tv"
+
+                        android:text=""
+
+                        android:textColor="@color/red"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin27dp">
+
+                    <TextView
+
+                        style="@style/style_dredge_member_tv"
+
+
+                        android:text="有  效  期 : "/>
+
+                    <TextView
+                        android:id="@+id/tv_time_limit"
+                        style="@style/style_dredge_member_tv"
+
+                        android:text=""/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin30dp">
+
+                    <TextView
+                        style="@style/style_dredge_member_tv"
+                        android:text="费用总计 : "/>
+
+                    <TextView
+                        android:id="@+id/tv_totalprice"
+                        style="@style/style_dredge_member_tv"
+                        android:text=""
+                        android:textColor="@color/red"
+
+                        />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/bt_pay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin38dp"
+                android:layout_marginLeft="@dimen/margin30dp"
+                android:layout_marginRight="@dimen/margin30dp"
+            android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin50dp"
+                android:background="@drawable/shape_reselt_bt_bg"
+                android:text="立即支付"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

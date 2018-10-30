@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qixiu.wanchang">
+
+    <!-- Required  环信需要用到的权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name="com.qixiu.newoulingzhu.application.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <!-- 极光推送的接收者 -->
+        <receiver
+            android:name="com.qixiu.newoulingzhu.receiver.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent1106488973" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- alipay sdk begin -->
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <!-- alipay sdk end -->
+
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.MainActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.chat.ChatActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.guidepage.StartPageActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.guidepage.GuidePageActivity"
+            android:screenOrientation="portrait" />
+        <!-- 这个监听服务放到一个独立进程中去 -->
+        <service
+            android:name="com.qixiu.newoulingzhu.service.HyReceiveService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.LoginActivity"
+            android:launchMode="singleTask" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.MyprofileActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.ChangePasswordActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.edit.EditSingleProfileActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.edit.ResetPhoneActivity" />
+
+        <provider
+            android:name="com.qixiu.newoulingzhu.utils.MyFileProvider"
+            android:authorities="com.qixiu.myfileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/my_file_provider" />
+        </provider>
+
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.MyOrderActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.ConsultActivity" />
+        <!-- 这个监听服务放到一个独立进程中去 -->
+        <service
+            android:name="com.qixiu.newoulingzhu.service.HyReceiveService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <!-- 播放声音的服务 -->
+        <service
+            android:name="com.qixiu.newoulingzhu.service.PlayMusicService"
+            android:enabled="true"
+            android:exported="true" />
+        <!-- 版本更新的服务 -->
+        <service android:name="com.qixiu.newoulingzhu.service.UpdateVersionService" />
+        <service android:name="com.qixiu.newoulingzhu.service.DownloadService" />
+
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.cases.ClasicCaseActivity"
+            android:label="经典案例" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.template.WritTemplateActivity"
+            android:label="文书模板" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.template.WritTemplateSearchActivity"
+            android:label="文书模板" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.template.confidentiality.ConfidentialityActivity"
+            android:label="发送到邮箱" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.template.NewTemplateActivity"
+            android:label="文书模板" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.SettingActivity"
+            android:label="设置" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.FeedBackActivity"
+            android:label="意见反馈" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.pay.AliWeixinPayActivity"
+            android:label="支付界面" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.member.MyMemberActivity"
+            android:label="我的会员"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.member.DredgeMemberActivity"
+            android:label="升级会员" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.base.GoToActivity"
+            android:label="网页" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.OboutUsActivity"
+            android:label="关于我们" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.ProblemPaymentActivity"
+            android:label="购买问题"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.UserRuleActivity"
+            android:label="用户须知"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.edit.BindPhoneActivity"
+            android:label="绑定手机" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.CostRecordActivtiy"
+            android:label="@string/title_activity_cost_record_activtiy"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.chat.ProblemDetailActivity"
+            android:label="咨询详情" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.myorderdetails.OrderDetailsActivity"
+           android:launchMode="singleTask"
+            />
+        <activity
+            android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.CaculatorActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomizationListActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomCommtActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.result.InjuryResultActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomMeetingActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.result.TrafficResultActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.AddRaiseActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+
+
+        </activity>
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.AddJobFeeActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.myorderdetails.AppointDetailsActivity" android:launchMode="singleTask"></activity>
+    </application>
+
+</manifest>

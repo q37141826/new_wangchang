@@ -1,0 +1,17 @@
+<!--<?xml version="1.0" encoding="utf-8"?>--><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="match_parent"--><!--android:orientation="vertical"--><!--android:layout_height="wrap_content">-->
+
+<!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="@dimen/margin40dp"--><!--android:gravity="center"--><!--android:orientation="horizontal">-->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textViewTitle"
+    style="@style/text_normal"
+    android:layout_marginTop="@dimen/margin5dp"
+    android:layout_width="match_parent"
+    android:gravity="center" />
+
+    <!--<TextView--><!--android:visibility="gone"--><!--android:id="@+id/textViewMoney"--><!--style="@style/text_normal"--><!--android:textColor="@color/theme_color" />-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;--><!--&lt;!&ndash;style="@style/text_normal"&ndash;&gt;--><!--&lt;!&ndash;android:text="元" />&ndash;&gt;--><!--</LinearLayout>--><!--<LinearLayout--><!--android:visibility="gone"--><!--android:gravity="center"--><!--android:orientation="horizontal"--><!--android:id="@+id/linearlayoutInroduce"--><!--android:layout_width="match_parent"--><!--android:layout_height="@dimen/margin100dp">--><!--<TextView--><!--android:text="根据"--><!--style="@style/text_normal"/>--><!--<TextView--><!--android:textColor="@color/theme_color"--><!--android:id="@+id/textViewRulesName"--><!--style="@style/text_normal" />--><!--<TextView--><!--android:text="文件计算，结果仅供参考"--><!--style="@style/text_normal"/>--><!--</LinearLayout>-->
+
+
+    <!--</LinearLayout>-->

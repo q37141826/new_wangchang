@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.mine.myorderdetails.AppointDetailsActivity">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+      >
+
+        <LinearLayout
+            android:background="@color/back_grey"
+            android:paddingLeft="@dimen/margin15dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/margin3dp"
+                android:layout_height="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin5dp"
+                android:background="@color/theme_color" />
+
+            <TextView
+                style="@style/text_normal"
+                android:text="预约信息" />
+            <RelativeLayout
+                android:id="@+id/relativeFinished"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin45dp"
+                android:gravity="right|center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/triangle2x" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:text="已完成"
+                    android:textColor="@color/theme_color" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/lineColor"></View>
+
+        <LinearLayout
+            android:paddingLeft="@dimen/margin25dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                style="@style/text_normal"
+                android:drawableLeft="@mipmap/meeting_date"
+                android:text="预约时间：" />
+
+            <TextView
+                android:id="@+id/textxViewTime"
+                style="@style/text_normal" />
+        </LinearLayout>
+        <View
+            android:layout_marginRight="@dimen/margin20dp"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/lineColor"></View>
+
+        <LinearLayout
+            android:paddingLeft="@dimen/margin25dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                style="@style/text_normal"
+                android:drawableLeft="@mipmap/meeting_address"
+                android:text="预约地点：" />
+
+            <TextView
+                android:id="@+id/textxViewAddress"
+                style="@style/text_normal" />
+        </LinearLayout>
+        <View
+            android:layout_marginRight="@dimen/margin20dp"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/lineColor"></View>
+
+        <LinearLayout
+            android:paddingLeft="@dimen/margin25dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                style="@style/text_normal"
+                android:drawableLeft="@mipmap/meetingperson"
+                android:text="联系人：" />
+
+            <TextView
+                android:id="@+id/textxViewName"
+                style="@style/text_normal" />
+        </LinearLayout>
+        <View
+            android:layout_marginRight="@dimen/margin20dp"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/lineColor"></View>
+
+        <LinearLayout
+            android:paddingLeft="@dimen/margin25dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                style="@style/text_normal"
+                android:drawableLeft="@mipmap/meeting_phone"
+                android:text="联系电话：" />
+
+            <TextView
+                android:id="@+id/textxViewPhone"
+                style="@style/text_normal" />
+        </LinearLayout>
+        <View
+            android:layout_marginRight="@dimen/margin20dp"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/lineColor"></View>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnGotoCommunicate"
+                android:layout_marginBottom="@dimen/margin50dp"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/white"
+                android:text="去沟通"
+                android:background="@mipmap/btn_bg2x"
+                android:layout_marginRight="@dimen/margin40dp"
+                android:layout_marginLeft="@dimen/margin40dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

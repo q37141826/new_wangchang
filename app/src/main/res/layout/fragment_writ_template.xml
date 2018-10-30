@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/margin10dp"
+              android:paddingLeft="@dimen/margin10dp"
+              android:paddingRight="@dimen/margin10dp"
+              android:paddingTop="@dimen/margin10dp">
+
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin10dp"
+        android:background="@drawable/shape_home_module_bg"
+        android:padding="@dimen/margin15dp"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin30dp"
+
+            android:layout_weight="1"
+
+            android:gravity="center_vertical"
+            android:hint="请输入关键字"
+            android:paddingLeft="@dimen/margin15dp"
+            android:paddingRight="@dimen/margin15dp"
+            android:singleLine="true"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_writ_template"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_home_module_bg">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/rv_writ_template"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/margin5dp"
+            android:paddingLeft="@dimen/margin6dp"
+            android:paddingRight="@dimen/margin6dp"
+            android:paddingTop="@dimen/margin2dp">
+
+        </com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_grey">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/vg_title"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_clean_setting"
+                style="@style/my_center_relativelayout"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:text="清除缓存" />
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin10dp"
+                    android:text="确定清除" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_messageNotice_setting"
+                style="@style/my_center_relativelayout"
+                android:background="@color/white"
+                android:descendantFocusability="afterDescendants">
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:text="消息提示" />
+
+                <ImageView
+                    android:id="@+id/imageView_messageNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/margin5dp"
+                    android:layout_marginRight="@dimen/margin10dp"
+                    android:src="@mipmap/setting_switch_close2x" />
+
+                <View
+                    style="@style/style_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_marginRight="@dimen/margin15dp"></View>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_voice_setting"
+                style="@style/my_center_relativelayout"
+                android:background="@color/white"
+                android:descendantFocusability="afterDescendants">
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:text="声音提示" />
+
+                <ImageView
+                    android:id="@+id/imageView_voiceNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/margin5dp"
+                    android:layout_marginRight="@dimen/margin10dp"
+                    android:src="@mipmap/setting_switch_close2x" />
+
+                <View
+                    style="@style/style_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_marginRight="@dimen/margin15dp"></View>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relativeLayout_shockNotice_setting"
+                style="@style/my_center_relativelayout"
+                android:background="@color/white"
+                android:descendantFocusability="afterDescendants">
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:text="震动提示" />
+
+                <ImageView
+                    android:id="@+id/imageView_shockNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/margin5dp"
+                    android:layout_marginRight="@dimen/margin10dp"
+                    android:src="@mipmap/setting_switch_close2x" />
+
+
+            </RelativeLayout>
+            <View
+                android:background="@color/back_grey"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin10dp"></View>
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/relativeLayout_feedback_setting"
+                style="@style/my_center_relativelayout">
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:text="意见反馈" />
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin10dp"
+                    android:text="" />
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/relativeLayout_oboutus_setting"
+                style="@style/my_center_relativelayout">
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:text="关于我们" />
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin10dp"
+                    android:text="" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:id="@+id/relativeLayout_changepsw"
+                style="@style/my_center_relativelayout"
+                >
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:text="修改密码" />
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/mine_right_go2x"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+
+                <View
+                    style="@style/style_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_marginRight="@dimen/margin15dp"></View>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:id="@+id/relativeLayout_versionCheck_setting"
+                style="@style/my_center_relativelayout"
+               >
+
+                <TextView
+                    style="@style/my_center_textview"
+                    android:text="当前版本" />
+
+                <TextView
+                    android:gravity="right"
+                    android:id="@+id/textViewVersionSetting"
+                    style="@style/my_center_textview"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin10dp" />
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:id="@+id/btn_out_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin110dp"
+                android:layout_marginLeft="@dimen/margin40dp"
+                android:layout_marginRight="@dimen/margin40dp"
+                android:layout_marginTop="@dimen/margin50dp"
+                android:background="@drawable/shape_login_input_bg"
+                android:text="退出账号"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

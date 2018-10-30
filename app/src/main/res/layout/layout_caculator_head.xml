@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="@dimen/margin50dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="@dimen/margin80dp"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/lineColor"></View>
+
+        <TextView
+            style="@style/text_normal"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:text="计算条件"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="@dimen/margin80dp"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/lineColor"></View>
+    </LinearLayout>
+
+</RelativeLayout>

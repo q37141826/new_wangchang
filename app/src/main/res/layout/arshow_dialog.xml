@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="150dp"
+    android:fitsSystemWindows="true"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="提示"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:maxHeight="300dp"
+        android:scrollbars="none" >
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="你确定要退出应用吗？"
+            android:textColor="@color/txt_737373" />
+    </ScrollView>
+
+    <include layout="@layout/v_line_e5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/blue" />
+
+        <View
+            android:id="@+id/single_line"
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="@color/txt_E5E5E5" />
+
+        <TextView
+            android:id="@+id/tv_neutral"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="隐藏"
+            android:textColor="@color/blue" />
+
+        <View
+            android:id="@+id/second_line"
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="@color/txt_E5E5E5" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/blue" />
+    </LinearLayout>
+
+</LinearLayout>

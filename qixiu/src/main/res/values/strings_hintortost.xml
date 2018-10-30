@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="edittext_login_input_id_input_rule_hint">请输入您的手机号</string>
+    <string name="edittext_login_input_id_input_rule_input_nothing">请输入手机号</string>
+    <string name="edittext_login_input_id_input_rule_input_illegal">请输入正确的手机号</string>
+    <string name="edittext_login_input_psw_input_rule_hint">请输入您的密码</string>
+    <string name="edittext_login_input_psw_input_rule_input_nothing">请输入密码！</string>
+    <string name="edittext_login_input_psw_input_rule_input_illegal">密码含有非法字符！</string>
+    <string name="edittext_login_input_psw_input_rule_input_length">请输入长度为8-20的密码!</string>
+    <string name="edittext_register_input_verrycode_input_rule_input_nothing">请输入验证码</string>
+    <string name="edittext_register_input_verrycode_input_rule_hint">请输入验证码</string>
+    <string name="edittext_register_input_verrycode_input_rule_not_send">请先发送验证码</string>
+    <string name="btn_register_get_verrycode_input_rule_hint">获取验证码</string>
+    <string name="btn_register_user_rules_input_rule_not_selected">请仔细阅读《用户协议》, 并同意</string>
+    <string name="edittext_changge_psw_confirm_psw_input_rule_not_same">两次输入密码不一致</string>
+    <string name="edittext_changge_psw_confirm_psw_input_rule_input_nothing">请再次输入新密码</string>
+
+</resources>

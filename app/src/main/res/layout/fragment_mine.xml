@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/margin15dp"
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin140dp">
+        <RelativeLayout
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_width="@dimen/margin110dp"
+            android:layout_height="@dimen/margin110dp">
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/margin110dp"
+                android:layout_height="@dimen/margin110dp"
+                android:src="@mipmap/head_portrait_bg2x" />
+
+            <com.qixiu.widget.CircleImageView
+                android:id="@+id/circularHeadMine"
+                android:layout_width="@dimen/margin85dp"
+                android:layout_height="@dimen/margin85dp"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/textViewNicknameMine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin30dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:text="姓名"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin30dp"
+            android:background="@color/back_grey">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin40dp"
+                android:background="@color/back_grey"
+                android:divider="@drawable/divider_offset_start_56"
+                android:orientation="vertical">
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/myProfile"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:onClick="myProfile"
+                    app:leftIcon="@mipmap/mine_personal_data2x"
+                    app:textPrimary="个人资料"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:background="@color/back_grey"></View>
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/myOrder"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:onClick="myOrder"
+                    app:leftIcon="@mipmap/mine_order2x"
+                    app:textPrimary="我的订单"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin5dp"
+                    android:background="@color/back_grey"></View>
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/questionBuy"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:onClick="questionBuy"
+                    app:leftIcon="@mipmap/mine_buy2x"
+                    app:textPrimary="问题购买"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:background="@color/back_grey"></View>
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/myMember"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:onClick="myMember"
+                    app:leftIcon="@mipmap/mine_vip2x"
+                    app:textPrimary="我的会员"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin5dp"
+                    android:background="@color/back_grey"></View>
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/myFeedBack"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:onClick="myFeedBack"
+                    app:leftIcon="@mipmap/mine_opinion2x"
+                    app:textPrimary="意见反馈"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:background="@color/back_grey"></View>
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/payRecord"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:onClick="payRecord"
+                    app:leftIcon="@mipmap/mine_records2x"
+                    app:textPrimary="消费记录"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:background="@color/back_grey"></View>
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/aboutUs"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:onClick="aboutUs"
+                    app:leftIcon="@mipmap/mine_about_us2x"
+                    app:textPrimary="关于我们"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin5dp"
+                    android:background="@color/back_grey"></View>
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/myShare"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:onClick="myShare"
+                    app:leftIcon="@mipmap/mine_share2x"
+                    app:textPrimary="欧伶猪分享"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin130dp"></View>
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin60dp"
+            android:layout_marginLeft="@dimen/margin5dp"
+            android:layout_marginRight="@dimen/margin5dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:text="会员等级"
+                   style="@style/text_normal" />
+                <TextView
+                    android:id="@+id/textViewMyMenber"
+                    android:textColor="@color/theme_color"
+                    android:textSize="15sp"
+                    android:text="荣耀会员"
+                    style="@style/text_normal" />
+
+            </LinearLayout>
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="@dimen/margin0.5dp"
+                android:layout_height="@dimen/margin30dp"></View>
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:text="会员编号"
+                    style="@style/text_normal" />
+                <TextView
+                    android:id="@+id/textViewMemberCode"
+                    android:textColor="@color/theme_color"
+                    android:textSize="15sp"
+                    android:text="007"
+                    style="@style/text_normal" />
+
+            </LinearLayout>
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="@dimen/margin0.5dp"
+                android:layout_height="@dimen/margin50dp"></View>
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:text="有效日期"
+                    style="@style/text_normal" />
+                <TextView
+                    android:id="@+id/textViewLimiteDate"
+                    android:textColor="@color/theme_color"
+                    android:textSize="15sp"
+                    android:text="2018.01.01"
+                    style="@style/text_normal" />
+
+            </LinearLayout>
+            <View
+                android:background="@color/lineColor"
+                android:layout_width="@dimen/margin0.5dp"
+                android:layout_height="@dimen/margin50dp"></View>
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:text="问题数量"
+                    style="@style/text_normal" />
+                <TextView
+                    android:id="@+id/textViewQuestionNum"
+                    android:textColor="@color/theme_color"
+                    android:textSize="15sp"
+                    android:text="2"
+                    style="@style/text_normal" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

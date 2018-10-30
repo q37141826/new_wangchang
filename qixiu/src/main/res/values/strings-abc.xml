@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="abc_load_more">加载更多</string>
+    <string name="abc_load_loading">加载中…</string>
+    <string name="abc_load_fail">加载失败，点击重试</string>
+    <string name="abc_load_completed">暂无数据</string>
+    <string name="abc_affirm">确认</string>
+    <string name="abc_title_detail">详情</string>
+    <string name="abc_submit">提交</string>
+
+    <!--支付-->
+    <string name="wx">微信</string>
+    <string name="alipay">支付宝</string>
+    <string name="offline_pay">线下</string>
+    <string name="wx_uninstalled">微信未安装</string>
+    <string name="wx_scope">snsapi_userinfo</string>
+    <string name="wx_state">lejia_wx_login</string>
+
+    <!--图片选择-->
+    <string name="rationale_image_pick_storage">此功能需要存储权限</string>
+    <string name="rationale_image_pick_camera">此功能需要相机权限</string>
+    <string name="rationale_app_setting">此功能需要%s权限，请前往设置界面开启</string>
+    <string name="perm_storage">存储</string>
+    <string name="perm_camera">存储和相机</string>
+    <string name="title_image_pick_setting">权限请求</string>
+    <string name="positive_setting">去设置</string>
+    <string name="title_image_picker">选择图片操作</string>
+
+    <string name="share_success">分享成功</string>
+    <string name="share">分享</string>
+    <string name="share_failure">分享失败</string>
+    <string name="share_cancel">分享取消</string>
+    <string name="login_failure">登录失败</string>
+
+    <string name="pay_failure">支付失败</string>
+    <string name="pay_cancel">支付取消</string>
+    <string name="pay_success">支付成功</string>
+
+    <string name="abc_yes">是</string>
+    <string name="abc_no">否</string>
+    <string name="abc_refresh">刷新</string>
+
+
+</resources>

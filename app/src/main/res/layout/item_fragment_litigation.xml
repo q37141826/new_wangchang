@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_caculator_head" />
+
+
+        <TextView
+            android:id="@+id/textViewCaseType"
+            style="@style/text_caculator"
+            android:text="案件类型：" />
+
+        <TextView
+            android:id="@+id/textViewIsAsseets"
+            style="@style/text_caculator"
+            android:text="涉及财产：" />
+
+        <LinearLayout style="@style/layout_caculator">
+
+            <TextView
+                style="@style/text_normal"
+                android:text="诉讼标的（元）：    " />
+
+            <com.qixiu.wigit.myedittext.MyEditTextView
+                android:id="@+id/ediitextMoney"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="number" />
+        </LinearLayout>
+
+
+        <include layout="@layout/layout_fragment_caculator_btn"></include>
+
+
+        <LinearLayout
+            android:id="@+id/linearlayoutResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin7dp"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:background="@color/back_grey"></View>
+
+            <include layout="@layout/layout_caculator_foot" />
+
+            <LinearLayout
+                android:padding="@dimen/margin5dp"
+                android:background="@drawable/back_grey_line_radius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin15dp"
+                android:layout_marginLeft="@dimen/margin50dp"
+                android:layout_marginRight="@dimen/margin50dp"
+                android:layout_marginTop="@dimen/margin15dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin80dp">
+                <TextView
+                    android:id="@+id/textViewRulesName"
+                    style="@style/text_normal" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

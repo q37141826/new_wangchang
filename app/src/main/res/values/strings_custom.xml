@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="custom_contract">合同订制</string>
+    <string name="custom_review">合同审查</string>
+    <string name="custom_lawyer_letter">律师函</string>
+    <string name="custom_notification">告知函</string>
+    <string name="custom_documents">诉讼文书</string>
+    <string name="custom_meeting">会面咨询</string>
+
+    <string name="custom_contract_short_introduce">专业律师为您定制，严格把控每一个细节</string>
+    <string name="custom_review_short_introduce">专业律师为您审查合同，成立合同，确保合同目的实现</string>
+    <string name="custom_lawyer_letter_short_introduce">专业律师为您指导，提供专业法律意见及法律函件</string>
+    <string name="custom_notification_short_introduce">专业律师为您撰写更规范的告知函件，有效保障权利主张</string>
+    <string name="custom_documents_short_introduce">专业律师为您定制文书，起草协议，提供各类法律意见</string>
+    <string name="custom_meeting_short_introduce">专业律师面对面，为您排忧解惑</string>
+</resources>

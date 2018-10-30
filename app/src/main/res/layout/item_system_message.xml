@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/shape_home_module_bg"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/margin14dp"
+              android:paddingLeft="@dimen/margin12dp"
+              android:paddingRight="@dimen/margin12dp"
+              android:paddingTop="@dimen/margin14dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_system_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/txt_4D4D4D"
+            android:textSize="13sp"/>
+
+        <TextView
+
+            android:id="@+id/tv_addtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/txt_4D4D4D"
+            android:textSize="13sp"/>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_system_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/txt_4D4D4D"
+        android:textSize="12sp"/>
+</LinearLayout>

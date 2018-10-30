@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--不要在这里设置白色背景，可以在你使用的位置设置背景-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/listPreferredItemHeightSmall"
+    android:paddingLeft="?attr/listPreferredItemPaddingLeft"
+    android:paddingRight="?attr/listPreferredItemPaddingRight"
+    tools:ignore="RtlHardcoded">
+
+    <!--左边icon-->
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        tools:ignore="ContentDescription" />
+
+    <!--右边箭头-->
+    <ImageView
+        android:id="@+id/right_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        tools:ignore="ContentDescription" />
+
+    <!--主要文字-->
+    <TextView
+        android:id="@+id/text_primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="?attr/listPreferredItemPaddingLeft"
+        android:layout_marginRight="?attr/listPreferredItemPaddingRight"
+        android:layout_toRightOf="@id/icon"
+        android:maxLength="12"
+        android:maxLines="1"
+        android:textColor="?android:attr/textColorPrimary" />
+
+    <!--右边次要文字-->
+    <TextView
+        android:id="@+id/text_secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/right_arrow"
+        tools:ignore="RelativeOverlap" />
+
+    <Switch
+        android:id="@+id/switch_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

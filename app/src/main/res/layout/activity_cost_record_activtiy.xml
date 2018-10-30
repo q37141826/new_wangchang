@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.mine.CostRecordActivtiy">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/vg_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></RelativeLayout>
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--<android.support.v4.widget.SwipeRefreshLayout-->
+                <!--android:id="@+id/swipCostRecord"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+
+                <com.jcodecraeer.xrecyclerview.XRecyclerView
+                    android:id="@+id/recyclerCostRecord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+            <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin45dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin45dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin30dp"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:hint="请输入关键字"
+            android:paddingLeft="@dimen/margin15dp"
+            android:paddingRight="@dimen/margin15dp"
+            android:singleLine="true"
+            android:textColorHint="@color/txt_DBDBDB"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+</RelativeLayout>

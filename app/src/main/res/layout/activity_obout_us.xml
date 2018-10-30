@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_obout_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:background="@color/back_grey"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:background="@drawable/shape_home_module_bg"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin15dp"
+            android:layout_marginBottom="@dimen/margin25dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <WebView
+            android:layout_margin="@dimen/margin15dp"
+            android:id="@+id/webview_obout_us"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></WebView>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

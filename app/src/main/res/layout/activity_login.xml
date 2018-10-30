@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_bg"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin50dp">
+
+            <ImageView
+                android:layout_width="@dimen/margin130dp"
+                android:layout_height="@dimen/margin130dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/login_logo2x" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30dp"
+            android:layout_marginRight="@dimen/margin30dp"
+            android:layout_marginTop="@dimen/margin10dp"
+            app:cardCornerRadius="@dimen/margin5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin50dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioLogin"
+                        android:layout_width="0px"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/login_selector"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="登录"
+                        android:textColor="@color/login_selector_color" />
+
+                    <RadioButton
+                        android:id="@+id/radioRegiste"
+                        android:layout_width="0px"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/login_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="注册"
+                        android:textColor="@color/login_selector_color" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/linearlayoutLoginPart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                   >
+
+                    <LinearLayout style="@style/login_input_layout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/login_mobile2x" />
+
+                        <com.qixiu.wigit.myedittext.MyEditTextView
+                            app:my_edittext_max_lenth="11"
+                            android:id="@+id/edittextLoginPhone"
+                            style="@style/login_input_edittext"
+                            app:input_type="number"
+                            app:my_edittext_hint="请输入手机号"></com.qixiu.wigit.myedittext.MyEditTextView>
+
+                    </LinearLayout>
+
+                    <View style="@style/line_style"></View>
+
+                    <LinearLayout style="@style/login_input_layout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/login_password2x" />
+
+                        <com.qixiu.wigit.myedittext.MyEditTextView
+                            android:id="@+id/edittextLoginPsw"
+                            style="@style/login_input_edittext"
+                            app:input_type="text_password"
+                            app:my_edittext_hint="请输入密码"></com.qixiu.wigit.myedittext.MyEditTextView>
+
+                    </LinearLayout>
+
+                    <View style="@style/line_style"></View>
+
+                    <LinearLayout
+                        style="@style/login_input_layout"
+                        android:layout_marginRight="@dimen/margin10dp"
+                        android:gravity="right">
+
+                        <TextView
+                            android:id="@+id/textView_forget_password"
+                            style="@style/text_normal"
+                            android:padding="@dimen/margin10dp"
+                            android:text="忘记密码？" />
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_marginTop="@dimen/margin10dp"
+                        android:id="@+id/btnLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin60dp"
+                        android:background="@color/theme_color"
+                        android:text="登录"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/linearlayout_registe_part"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout style="@style/login_input_layout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/login_mobile2x" />
+
+                        <com.qixiu.wigit.myedittext.MyEditTextView
+                            app:my_edittext_max_lenth="11"
+                            style="@style/login_input_edittext"
+                            android:id="@+id/edittextRegistPhone"
+                            app:input_type="number"
+                            app:my_edittext_hint="请输入手机号"></com.qixiu.wigit.myedittext.MyEditTextView>
+
+                    </LinearLayout>
+
+                    <View style="@style/line_style"></View>
+
+                    <LinearLayout style="@style/login_input_layout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/login_ver_code2x" />
+
+                        <com.qixiu.wigit.myedittext.MyEditTextView
+                            android:id="@+id/edittextRegistVercode"
+                            style="@style/login_input_edittext"
+                            android:layout_width="@dimen/margin130dp"
+                            app:input_type="number"
+                            app:my_edittext_hint="请输入验证码"></com.qixiu.wigit.myedittext.MyEditTextView>
+
+                        <TextView
+                            android:id="@+id/textViewGetVercode"
+                            style="@style/text_normal"
+                            android:layout_height="@dimen/margin38dp"
+                            android:background="@drawable/shape_vercode"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/margin3dp"
+                            android:paddingRight="@dimen/margin3dp"
+                            android:text="获取验证码"
+                            android:textColor="@color/theme_color" />
+                    </LinearLayout>
+
+                    <View style="@style/line_style"></View>
+
+
+                    <LinearLayout style="@style/login_input_layout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/login_password2x" />
+
+                        <com.qixiu.wigit.myedittext.MyEditTextView
+                            app:my_edittext_max_lenth="20"
+                            android:id="@+id/edittextRegistPsw"
+                            style="@style/login_input_edittext"
+                            app:input_type="text_password"
+                            app:my_edittext_hint="请输入密码"></com.qixiu.wigit.myedittext.MyEditTextView>
+
+                    </LinearLayout>
+
+                    <View style="@style/line_style"></View>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/margin20dp"
+                        style="@style/login_input_layout"
+                        android:gravity="center">
+
+                        <TextView
+                            style="@style/text_normal"
+                            android:text="点击注册即表示同意" />
+
+                        <TextView
+                            android:id="@+id/textViewUserRuls"
+                            style="@style/text_normal"
+                            android:text="《用户使用协议》"
+                            android:textColor="@color/theme_color" />
+                    </LinearLayout>
+                    <Button
+                        android:layout_marginTop="@dimen/margin20dp"
+                        android:id="@+id/btnRegiste"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin60dp"
+                        android:background="@color/theme_color"
+                        android:text="注册"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/linearlayoutAppLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin30dp"
+                android:layout_marginRight="@dimen/margin30dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0px"
+                    android:layout_height="@dimen/margin1dp"
+                    android:layout_weight="1"
+                    android:background="@color/theme_color"></View>
+
+                <TextView
+                    style="@style/text_normal"
+                    android:layout_width="0px"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="其他登录方式"
+                    android:textColor="@color/theme_color" />
+
+                <View
+                    android:layout_width="0px"
+                    android:layout_height="@dimen/margin1dp"
+                    android:layout_weight="1"
+                    android:background="@color/theme_color"></View>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin80dp"
+                android:layout_marginLeft="@dimen/margin50dp"
+                android:layout_marginRight="@dimen/margin50dp"
+                android:layout_marginTop="@dimen/margin20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewWeiBo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/login_weibo2x" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewQQ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/login_qq2x" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewWeiChat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/login_wechat2x" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

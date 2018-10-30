@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_caculator_head" />
+
+        <TextView
+            android:id="@+id/textViewSelectAddress"
+            style="@style/text_caculator"
+            android:text="@string/please_select_address" />
+
+        <TextView
+            android:id="@+id/textViewInjureLevel"
+            style="@style/text_caculator"
+            android:text="@string/please_select_level" />
+
+        <LinearLayout style="@style/layout_caculator">
+
+            <TextView
+                style="@style/text_normal"
+                android:text="本人工资（月）：    " />
+
+            <com.qixiu.wigit.myedittext.MyEditTextView
+                android:id="@+id/editextWages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="number" />
+        </LinearLayout>
+
+
+        <include layout="@layout/layout_fragment_caculator_btn"></include>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ali_weixin_pay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout style="@style/activity_fragment_bg_style">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_home_module_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginLeft="@dimen/margin20dp"
+                android:layout_marginRight="@dimen/margin20dp">
+
+                <TextView
+                    style="@style/text_normal"
+                    android:layout_centerVertical="true"
+                    android:text="支付费用"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView_money_ailiweixinpay"
+                    style="@style/text_normal"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/lineColor"></View>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/margin10dp"
+                android:descendantFocusability="afterDescendants"
+                android:id="@+id/relative_layout_alipay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginLeft="@dimen/margin20dp"
+                android:layout_marginRight="@dimen/margin20dp">
+                <ImageView
+                    android:id="@+id/image_tomyright"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/zhifuba02x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_toRightOf="@+id/image_tomyright"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    style="@style/text_normal"
+                    android:layout_centerVertical="true"
+                    android:text="支付宝支付"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imageView_circle_ali"
+                    style="@style/text_normal"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/margin10dp"
+                android:descendantFocusability="afterDescendants"
+                android:id="@+id/relative_layout_weixinpay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginLeft="@dimen/margin20dp"
+                android:layout_marginRight="@dimen/margin20dp">
+                <ImageView
+                    android:id="@+id/image_tomyright01"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/weixin2x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_toRightOf="@+id/image_tomyright01"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    style="@style/text_normal"
+                    android:layout_centerVertical="true"
+                    android:text="微信支付"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imageView_circle_weixin"
+                    style="@style/text_normal"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+            <Button
+                android:id="@+id/btn_aliweixinPay"
+                android:layout_marginTop="@dimen/margin86dp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginBottom="@dimen/margin110dp"
+                android:layout_marginLeft="@dimen/margin40dp"
+                android:layout_marginRight="@dimen/margin40dp"
+                android:background="@drawable/shape_login_input_bg"
+                android:text="去支付"
+                android:textColor="@color/white"
+                android:textSize="15sp"  />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:id="@+id/relativeLayout_pop_dismiss"
+        android:alpha="0.3"
+        android:background="@color/txt_4D4D4D"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/margin150dp"
+        android:layout_marginLeft="@dimen/margin30dp"
+        android:layout_marginRight="@dimen/margin30dp"
+        android:background="@drawable/sharp_background_line1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_changetitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:padding="@dimen/margin10dp"
+            android:singleLine="true"
+            android:text="修改用户名"
+            android:textColor="@color/txt_4D4D4D"
+            android:textSize="18sp"/>
+        <!--<View-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@color/font_grey"-->
+            <!--/>-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:maxLength="11"
+                android:id="@+id/editText_edituser"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin35dp"
+                android:layout_gravity="center"
+               android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin30dp"
+                android:layout_marginRight="@dimen/margin30dp"
+                android:background="@drawable/edit_bg"
+                android:textColor="#333333"/>
+
+            <CalendarView
+                android:id="@+id/calenderView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"></CalendarView>
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:background="@color/txt_8D8D8D"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_cancleEdit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="取消"
+                android:textColor="@color/blue"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="@dimen/margin1dp"
+                android:layout_height="match_parent"
+                android:background="@color/yancy_grey200"/>
+
+            <Button
+                android:id="@+id/button_confirmEdit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="确定"
+                android:textColor="@color/blue"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

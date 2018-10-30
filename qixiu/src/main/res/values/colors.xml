@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffff</color>
+    <color name="txt_4D4D4D">#4D4D4D</color>
+    <color name="txt_8D8D8D">#8D8D8D</color>
+    <color name="theme_unselect_font">#f7c276</color>
+    <color name="theme_color">#fe9e46</color>
+    <color name="mark_start">#fe6602</color>
+    <color name="txt_fe9e46">#fe9e46</color>
+
+</resources>

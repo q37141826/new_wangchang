@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical"
+    tools:context="com.qixiu.newoulingzhu.mvp.view.activity.mine.MyOrderActivity">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_grey"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioOnTheWay"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/login_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="处理中"
+                android:textColor="@color/login_selector_color02" />
+
+            <RadioButton
+                android:id="@+id/radioFinished"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/login_selector"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="已完成"
+                android:textColor="@color/login_selector_color02" />
+
+        </RadioGroup>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--<android.support.v4.widget.SwipeRefreshLayout-->
+                <!--android:id="@+id/swipOrder"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+                <com.jcodecraeer.xrecyclerview.XRecyclerView
+                    android:id="@+id/recyclerViewOder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </com.jcodecraeer.xrecyclerview.XRecyclerView>
+            <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+            <ImageView
+                android:src="@mipmap/order_nothing"
+                android:id="@+id/imageViewNothing"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
