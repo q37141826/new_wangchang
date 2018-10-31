@@ -49,6 +49,7 @@ import com.qixiu.qixiu.request.bean.C_CodeBean;
 import com.qixiu.qixiu.utils.CommonUtils;
 import com.qixiu.qixiu.utils.TimeDataUtil;
 import com.qixiu.wanchang.R;
+import com.qixiu.wanchang.wxapi.WeiChatInstallCheckUtils;
 import com.qixiu.wanchang.wxapi.WeixinPayModel;
 import com.qixiu.wigit.myedittext.MyEditTextView;
 import com.qixiu.wigit.picker.AddressBean;
@@ -256,6 +257,7 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
     }
 
     private void startWeixinPay(WeixinPayModel bean) {
+        WeiChatInstallCheckUtils.checkWXIsInstalled();
         IWXAPI wxapi = WXAPIFactory.createWXAPI(mContext, PlatformConfigConstant.WEIXIN_APP_ID);
         wxapi.registerApp(PlatformConfigConstant.WEIXIN_APP_ID);
         PayReq payReq = new PayReq();

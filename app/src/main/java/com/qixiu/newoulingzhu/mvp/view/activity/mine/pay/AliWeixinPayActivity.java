@@ -25,6 +25,7 @@ import com.qixiu.qixiu.request.OKHttpRequestModel;
 import com.qixiu.qixiu.request.OKHttpUIUpdataListener;
 import com.qixiu.qixiu.request.bean.C_CodeBean;
 import com.qixiu.wanchang.R;
+import com.qixiu.wanchang.wxapi.WeiChatInstallCheckUtils;
 import com.qixiu.wanchang.wxapi.WeixinPayModel;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -149,6 +150,7 @@ public class AliWeixinPayActivity extends TitleActivity implements OKHttpUIUpdat
     }
 
     private void startWeixinPay(WeixinPayModel bean) {
+        WeiChatInstallCheckUtils.checkWXIsInstalled();
         IWXAPI wxapi = WXAPIFactory.createWXAPI(mContext, PlatformConfigConstant.WEIXIN_APP_ID);
         wxapi.registerApp(PlatformConfigConstant.WEIXIN_APP_ID);
         PayReq payReq = new PayReq();

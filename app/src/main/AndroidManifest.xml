@@ -24,6 +24,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:largeHeap="true"
         android:name="com.qixiu.newoulingzhu.application.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -112,8 +113,9 @@
         <activity
             android:name="com.qixiu.newoulingzhu.mvp.view.activity.chat.ChatActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden"
             android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
+            />
         <activity
             android:name="com.qixiu.newoulingzhu.mvp.view.activity.guidepage.StartPageActivity"
             android:screenOrientation="portrait">
@@ -187,6 +189,8 @@
             android:label="设置" />
         <activity
             android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.FeedBackActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden"
             android:label="意见反馈" />
         <activity
             android:name="com.qixiu.newoulingzhu.mvp.view.activity.mine.pay.AliWeixinPayActivity"
@@ -230,7 +234,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomizationListActivity" />
-        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomCommtActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomCommtActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            />
         <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.result.InjuryResultActivity" />
         <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomMeetingActivity" />
         <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.result.TrafficResultActivity" />

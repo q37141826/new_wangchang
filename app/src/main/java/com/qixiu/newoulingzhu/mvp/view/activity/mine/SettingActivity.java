@@ -135,18 +135,15 @@ public class SettingActivity extends TitleActivity implements OKHttpUIUpdataList
                 setDialog("是否退出登录");
                 break;
             case R.id.relativeLayout_versionCheck_setting:
-                VersionCheckUtil.setCall(new VersionCheckUtil.IsNewVerSion() {
+
+                VersionCheckUtil.checkVersion(this, this, new VersionCheckUtil.IsNewVerSion() {
                     @Override
-                    public void call() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                ToastUtil.toast("当前已是最新版本");
-                            }
-                        });
+                    public void call(boolean isNew) {
+                        if(isNew){
+                            ToastUtil.toast("当前已是最新版本");
+                        }
                     }
                 });
-                VersionCheckUtil.checkVersion(this, this);
                 break;
 
             case R.id.relativeLayout_messageNotice_setting:

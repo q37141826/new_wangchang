@@ -44,6 +44,8 @@ public class EmojiconGridAdapter extends ArrayAdapter<EaseEmojicon>{
 
         if(EaseSmileUtils.DELETE_KEY.equals(emojicon.getEmojiText())){
             imageView.setImageResource(R.drawable.ease_delete_expression);
+            //todo 隐藏这个东西
+            imageView.setVisibility(View.INVISIBLE);
         }else{
             if(emojicon.getIcon() != 0){
 //                imageView.setImageResource(emojicon.getIcon());

@@ -25,7 +25,7 @@ public class VersionCheckUtil {
     private static final String KEY_DOWNLOAD_URL = "DOWNLOAD_URL";
     private static final String KEY_FILE_PATH = "FILE_PATH";
     private  static  IsNewVerSion listenner;
-    public static void checkVersion(Context context, final Activity activity) {
+    public static void checkVersion(Context context, final Activity activity,IsNewVerSion listenner) {
         OkHttpUtils.get().url(ConstantUrl.versionUrl)
                 .build().execute(new StringCallback() {
             @Override
@@ -39,6 +39,9 @@ public class VersionCheckUtil {
                     VersionBean bean = new Gson().fromJson(s, VersionBean.class);
                     if (!bean.getO().getName().equals(ArshowContextUtil.getVersionName(activity))) {
                         setDialog("检测到新版本", bean.getO(), activity, bean.getO().getType());
+                        listenner.call(false);
+                    }else {
+                        listenner.call(true);
                     }
                 } catch (Exception e) {
                 }
@@ -98,7 +101,7 @@ public class VersionCheckUtil {
         builder.show();
     }
     public interface IsNewVerSion{
-        void call();
+        void call(boolean isNew);
     }
 
 }

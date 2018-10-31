@@ -54,7 +54,7 @@ public class HyEngine {
         options.setAutoTransferMessageAttachments(true);
 // 是否自动下载附件类消息的缩略图等，默认为 true 这里和上边这个参数相关联
         options.setAutoDownloadThumbnail(true);
-//        options.setAppKey("1168171106178080#wanchanglawfirms");
+//        options.setAppKey("1168171106178080#wanchanglawfirms");//IS_GROUP 如果是单聊用这个，群聊用下面的这个
         options.setAppKey("1168171106178080#groupchat");
 
         return options;

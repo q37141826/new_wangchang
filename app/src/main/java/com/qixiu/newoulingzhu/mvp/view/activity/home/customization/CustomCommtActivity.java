@@ -46,6 +46,7 @@ import com.qixiu.qixiu.request.bean.BaseBean;
 import com.qixiu.qixiu.request.bean.C_CodeBean;
 import com.qixiu.qixiu.utils.CommonUtils;
 import com.qixiu.wanchang.R;
+import com.qixiu.wanchang.wxapi.WeiChatInstallCheckUtils;
 import com.qixiu.wanchang.wxapi.WeixinPayModel;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -101,6 +102,11 @@ public class CustomCommtActivity extends RequstActivity implements IPay {
         Intent intent = new Intent(context, CustomCommtActivity.class);
         intent.putExtra(IntentDataKeyConstant.DATA, bean);
         context.startActivity(intent);
+    }
+
+    @Override
+    public void adustTitle() {
+//        super.adustTitle();
     }
 
     @Override
@@ -269,6 +275,7 @@ public class CustomCommtActivity extends RequstActivity implements IPay {
     }
 
     private void startWeixinPay(WeixinPayModel bean) {
+        WeiChatInstallCheckUtils.checkWXIsInstalled();
         IWXAPI wxapi = WXAPIFactory.createWXAPI(mContext, PlatformConfigConstant.WEIXIN_APP_ID);
         wxapi.registerApp(PlatformConfigConstant.WEIXIN_APP_ID);
         PayReq payReq = new PayReq();

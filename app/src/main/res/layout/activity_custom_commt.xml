@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/title_back"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -191,19 +192,20 @@
 
 
             </LinearLayout>
+            <Button
+                android:id="@+id/bt_release"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin20dp"
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_marginTop="@dimen/margin70dp"
+                android:background="@mipmap/btn_bg2x"
+                android:text="提交"
+                android:textColor="@color/white" />
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/bt_release"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/margin40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/margin20dp"
-        android:layout_marginLeft="@dimen/margin15dp"
-        android:layout_marginRight="@dimen/margin15dp"
-        android:layout_marginTop="@dimen/margin70dp"
-        android:background="@mipmap/btn_bg2x"
-        android:text="提交"
-        android:textColor="@color/white" />
+
 </RelativeLayout>

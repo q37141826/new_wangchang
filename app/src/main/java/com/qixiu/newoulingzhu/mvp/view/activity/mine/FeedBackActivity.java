@@ -60,6 +60,11 @@ public class FeedBackActivity extends UploadPictureActivityNew implements TextWa
     }
 
     @Override
+    public void adustTitle() {
+//        super.adustTitle();
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_confirm_feedback:

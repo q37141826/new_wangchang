@@ -3,6 +3,7 @@
 
     >
 
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <application>
 
         <provider

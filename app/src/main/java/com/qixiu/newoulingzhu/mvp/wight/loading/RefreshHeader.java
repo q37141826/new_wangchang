@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.hyphenate.easeui.adapter.GlideCacheUtil;
 import com.jcodecraeer.xrecyclerview.ArrowRefreshHeader;
 import com.jcodecraeer.xrecyclerview.SimpleViewSwitcher;
 import com.qixiu.wanchang.R;
@@ -33,7 +34,7 @@ public class RefreshHeader extends ArrowRefreshHeader {
 //        super.setArrowImageView(resid);
         imageview = (ImageView)findViewById(R.id.listview_header_arrow);
         progressBar = (SimpleViewSwitcher)findViewById(com.jcodecraeer.xrecyclerview.R.id.listview_header_progressbar);
-
+        GlideCacheUtil.getInstance().clearImageAllCache(getContext());
         Glide.with(context).load(resid).into(imageview);
 
     }

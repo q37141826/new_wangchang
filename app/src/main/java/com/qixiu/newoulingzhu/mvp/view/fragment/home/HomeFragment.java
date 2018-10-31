@@ -33,6 +33,7 @@ import com.qixiu.newoulingzhu.mvp.view.activity.home.template.NewTemplateActivit
 import com.qixiu.newoulingzhu.mvp.view.adapter.homne.ImageUrlAdapter;
 import com.qixiu.newoulingzhu.mvp.view.fragment.base.BaseFragment;
 import com.qixiu.newoulingzhu.mvp.wight.loading.RefreshHeader;
+import com.qixiu.newoulingzhu.mvp.wight.loading.ZProgressHUD;
 import com.qixiu.newoulingzhu.utils.Preference;
 import com.qixiu.newoulingzhu.utils.ToastUtil;
 import com.qixiu.newoulingzhu.utils.XrecyclerViewUtil;
@@ -87,7 +88,7 @@ public class HomeFragment extends BaseFragment implements XRecyclerView.LoadingL
     public void setListenner(RecyclerBaseAdapter.ClickListenner listenner) {
         this.listenner = listenner;
     }
-
+    ZProgressHUD zProgressHUD;
     HotInformationAdapter adapter = new HotInformationAdapter();
 
     @Override
@@ -106,6 +107,7 @@ public class HomeFragment extends BaseFragment implements XRecyclerView.LoadingL
 
     @Override
     protected void onInitView(View view) {
+        zProgressHUD=new ZProgressHUD(getContext());
         recyclerHome = view.findViewById(R.id.recycler_home);
         imageViewRollMask = view.findViewById(R.id.imageViewRollMask);
 //        swipRefreshHome = view.findViewById(R.id.swipRefreshHome);
@@ -216,6 +218,7 @@ public class HomeFragment extends BaseFragment implements XRecyclerView.LoadingL
             adapter.refreshData(bean.getO().getList());
         }
         if (data instanceof HomeServiceBean) {
+            zProgressHUD.dismiss();
             HomeServiceBean homeServicebean = (HomeServiceBean) data;
             Bundle bundle = new Bundle();
             bundle.putString(EaseConstant.PROBLEM, "");
@@ -245,6 +248,7 @@ public class HomeFragment extends BaseFragment implements XRecyclerView.LoadingL
 //        swipRefreshHome.setRefreshing(false);
         recyclerHome.loadMoreComplete();
         recyclerHome.refreshComplete();
+        zProgressHUD.dismiss();
     }
 
     @Override
@@ -253,6 +257,7 @@ public class HomeFragment extends BaseFragment implements XRecyclerView.LoadingL
         recyclerHome.loadMoreComplete();
         recyclerHome.refreshComplete();
         ToastUtil.toast(c_codeBean.getM());
+        zProgressHUD.dismiss();
     }
 
     private void disposePostInfo() {
@@ -299,6 +304,7 @@ public class HomeFragment extends BaseFragment implements XRecyclerView.LoadingL
                 break;
             case R.id.rl_bottom_four:
                 //跳转客服
+                zProgressHUD.show();
                 getRightData();
                 break;
             case R.id.linearlayoutGotoData:

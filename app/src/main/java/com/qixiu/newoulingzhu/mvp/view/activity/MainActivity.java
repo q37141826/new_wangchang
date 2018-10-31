@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
@@ -71,7 +72,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
@@ -144,9 +145,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         return R.layout.activity_main;
     }
 
+    public class ProtectRunnable implements Runnable {
+        @Override
+        public void run() {
+            textViewHomeBottom.setEnabled(true);
+            textViewPersonBottom.setEnabled(true);
+            imageViewHomeBottom.setEnabled(true);
+        }
+    }
+    Handler handler=new Handler();
 
     @Override
     public void onClick(View v) {
+        //notice 由于消息界面需要进行遍历，非常消耗内存，所以这个地方做一个主界面点击的时间限制200毫秒内只有一次有效点击
+        textViewHomeBottom.setEnabled(false);
+        textViewPersonBottom.setEnabled(false);
+        imageViewHomeBottom.setEnabled(false);
         switch (v.getId()) {
             case R.id.textViewHomeBottom:
                 setDrawble(textViewHomeBottom, imagesSelected[0]);
@@ -165,6 +179,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 setupBottomBar(2);
                 break;
         }
+        ProtectRunnable runnable=new ProtectRunnable();
+//        MemoryUtil.clearMemory(getContext());//内存清理
+        handler.postDelayed(runnable,200);
     }
 
     private void setDrawble(TextView textView, int resouce) {
@@ -211,7 +228,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         if (totalCount > 0) {
             textViewMessageBottom.setVisibility(View.VISIBLE);
             if (totalCount > 99) {
-                textViewMessageBottom.setText(99 + StringConstants.EMPTY_STRING);
+                textViewMessageBottom.setText("  "+99 +"+  "+ StringConstants.EMPTY_STRING);
             } else {
                 textViewMessageBottom.setText(totalCount + StringConstants.EMPTY_STRING);
             }
@@ -250,7 +267,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public void getMessageUread() {
         HyEngine.loadAllConversationAndMessage();
         unreadMsgCount = HyEngine.getUnReadMsgCount();
-        setMessagePoint(unreadMsgCount+"");
+        setMessagePoint(unreadMsgCount + "");
 //        getSystemUnread();
     }
 

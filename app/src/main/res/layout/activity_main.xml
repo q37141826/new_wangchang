@@ -96,7 +96,6 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageViewHomeBottom"
             android:layout_alignRight="@+id/imageViewHomeBottom"
-            android:width="@dimen/margin25dp"
             android:background="@drawable/homne_bottom_back"
             android:gravity="center"
             android:text=""
