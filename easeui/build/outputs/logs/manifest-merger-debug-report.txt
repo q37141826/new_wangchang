@@ -1,0 +1,35 @@
+-- Merging decision tree log ---
+manifest
+ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:1:1-8:12
+INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:1:1-8:12
+INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:1:1-8:12
+	package
+		ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:1:70-100
+		INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+		INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:4:5-7:19
+activity#com.hyphenate.easeui.ui.EaseShowBigImageActivity
+ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:5:9-64
+	android:name
+		ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:5:19-62
+activity#com.hyphenate.easeui.ui.EaseShowNormalFileActivity
+ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:6:9-66
+	android:name
+		ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml:6:19-64
+uses-sdk
+INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+		ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+		INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+		ADDED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml
+		INJECTED from F:\workspace\new_wangchang\easeui\src\main\AndroidManifest.xml

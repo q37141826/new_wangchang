@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_check_album_limit">
+        <item quantity="other">您只能选择%1$d个文件</item>
+    </plurals>
+    <plurals name="album_check_album_limit_camera">
+        <item quantity="other">您只能选择%1$d个文件，请反选后再操作</item>
+    </plurals>
+    <plurals name="album_check_image_limit">
+        <item quantity="other">您只能选择%1$d张图片</item>
+    </plurals>
+    <plurals name="album_check_image_limit_camera">
+        <item quantity="other">您只能选择%1$d张图片，请反选后再操作</item>
+    </plurals>
+    <plurals name="album_check_video_limit">
+        <item quantity="other">您只能选择%1$d个视频</item>
+    </plurals>
+    <plurals name="album_check_video_limit_camera">
+        <item quantity="other">您只能选择%1$d个视频，请反选后再操作</item>
+    </plurals>
+    <string name="__picker_all_image">所有图片</string>
+    <string name="__picker_cancel">取消</string>
+    <string name="__picker_confirm_to_delete">确认删除？</string>
+    <string name="__picker_delete">删除</string>
+    <string name="__picker_deleted_a_photo">删除了一张图片</string>
+    <string name="__picker_done">完成</string>
+    <string name="__picker_done_with_count">完成(%1$d/%2$d)</string>
+    <string name="__picker_image_count">%1$d张</string>
+    <string name="__picker_image_index">%1$d/%2$d</string>
+    <string name="__picker_over_max_count_tips">你最多可以选择%1$d张图片</string>
+    <string name="__picker_title">图片</string>
+    <string name="__picker_undo">撤消</string>
+    <string name="__picker_yes">确定</string>
+    <string name="album_all_images">所有图片</string>
+    <string name="album_all_images_videos">所有图片/视频</string>
+    <string name="album_all_videos">所有视频</string>
+    <string name="album_camera_image_capture">拍照片</string>
+    <string name="album_camera_video_capture">录视频</string>
+    <string name="album_check">选择</string>
+    <string name="album_check_album_little">你还没有选择媒体文件</string>
+    <string name="album_check_image_little">你还没有选择图片</string>
+    <string name="album_check_video_little">你还没有选择视频</string>
+    <string name="album_dialog_sure">好的</string>
+    <string name="album_item_unavailable">不可用</string>
+    <string name="album_menu_camera_image">拍照片</string>
+    <string name="album_menu_camera_video">录视频</string>
+    <string name="album_menu_finish">完成</string>
+    <string name="album_not_found_album">没有发现媒体文件</string>
+    <string name="album_not_found_image">没有发现图片文件</string>
+    <string name="album_not_found_video">没有发现视频文件</string>
+    <string name="album_permission_camera_image_failed_hint">获取相机、存储权限失败，请在使用之前在系统设置中授权。</string>
+    <string name="album_permission_camera_video_failed_hint">获取相机、存储、录音权限失败，请在使用之前在系统设置中授权。</string>
+    <string name="album_permission_storage_failed_hint">获取存储权限失败，请在使用之前在系统设置中授权。</string>
+    <string name="album_title">媒体专辑</string>
+    <string name="album_title_permission_failed">没有权限</string>
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="listview_header_hint_release">释放立即刷新</string>
+    <string name="listview_header_last_time">上次更新时间：</string>
+    <string name="listview_loading">正在加载...</string>
+    <string name="loading_default_messsage">请稍等…</string>
+    <string name="nomore_loading">没有了</string>
+    <string name="permission_cancel">取消</string>
+    <string name="permission_message_permission_failed">我们需要的一些权限被您拒绝或者系统发生错误申请失败，请您到设置页面手动授权，否则功能无法正常使用！</string>
+    <string name="permission_message_permission_rationale">您已经拒绝过我们申请授权，请您同意授权，否则功能无法正常使用！</string>
+    <string name="permission_resume">继续</string>
+    <string name="permission_setting">去设置</string>
+    <string name="permission_title_permission_failed">权限申请失败</string>
+    <string name="permission_title_permission_rationale">权限已被拒绝</string>
+    <string name="refresh_done">刷新完成</string>
+    <string name="refreshing">正在刷新...</string>
+    <string name="ucrop_label_edit_photo">裁剪</string>
+    <string name="ucrop_label_original">原始比例</string>
+    <string name="ucrop_menu_crop">裁剪</string>
+</resources>
