@@ -9,7 +9,6 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-
     }
 
     lintOptions{
@@ -30,12 +29,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api "com.android.support:appcompat-v7:$SUPPORT_VERSION"
     api "com.android.support:design:$SUPPORT_VERSION"
-
 }
