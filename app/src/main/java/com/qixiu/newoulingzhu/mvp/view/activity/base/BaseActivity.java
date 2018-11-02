@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.qixiu.newoulingzhu.application.AppManager;
+import com.qixiu.newoulingzhu.application.NetStatusCheck;
 
 import butterknife.ButterKnife;
 
@@ -231,6 +232,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter("com.qixiu.example.broadcast.normal");
         intentFilter.setPriority(600);
         registerReceiver(receiver, intentFilter);
+            NetStatusCheck. checkNetWork(getContext());//检查网络状况
     }
 
     @Override

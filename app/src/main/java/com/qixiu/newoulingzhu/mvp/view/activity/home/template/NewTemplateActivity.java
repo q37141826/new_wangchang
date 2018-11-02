@@ -21,6 +21,8 @@ import com.qixiu.newoulingzhu.constant.ConstantUrl;
 import com.qixiu.newoulingzhu.constant.IntentDataKeyConstant;
 import com.qixiu.newoulingzhu.constant.StringConstants;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.RequstActivity;
+import com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomCommtActivity;
+import com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomizationListActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.home.template.confidentiality.ConfidentialityActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.mine.member.MyMemberActivity;
 import com.qixiu.newoulingzhu.mvp.wight.loading.RefreshHeader;
@@ -43,6 +45,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Call;
 
 public class NewTemplateActivity extends RequstActivity implements XRecyclerView.LoadingListener, ArshowDialogUtils.ArshowDialogListener {
@@ -98,7 +101,7 @@ public class NewTemplateActivity extends RequstActivity implements XRecyclerView
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         XrecyclerViewUtil.setXrecyclerView(recyclerTamplateList, this, this, true, 1, layoutManager);
         recyclerTamplateList.setAdapter(templateListAdapter);
-        RefreshHeader  refreshHeader=new RefreshHeader(getContext());
+        RefreshHeader refreshHeader = new RefreshHeader(getContext());
         refreshHeader.setArrowImageView(R.mipmap.refresh_head_arrow);
         recyclerTamplateList.setRefreshHeader(refreshHeader);
 
@@ -126,12 +129,12 @@ public class NewTemplateActivity extends RequstActivity implements XRecyclerView
 //                        ArshowDialogUtils.showDialog(getActivity(), "以下内容为会员权益,开通会员后可下载", notice, "取消", NewTemplateActivity.this);
 //                        return;
 //                    }
-                        Intent intent = new Intent(getActivity(), ConfidentialityActivity.class);
-                        intent.putExtra(IntentDataKeyConstant.ID, listBean.getId());
-                        intent.putExtra(IntentDataKeyConstant.FILE_PATH, listBean.getCount());
-                        intent.putExtra(IntentDataKeyConstant.IMAGE, listBean.getSmeta());
-                        intent.putExtra(IntentDataKeyConstant.TYPE, memberBean.getO().getType());
-                        startActivity(intent);
+                    Intent intent = new Intent(getActivity(), ConfidentialityActivity.class);
+                    intent.putExtra(IntentDataKeyConstant.ID, listBean.getId());
+                    intent.putExtra(IntentDataKeyConstant.FILE_PATH, listBean.getCount());
+                    intent.putExtra(IntentDataKeyConstant.IMAGE, listBean.getSmeta());
+                    intent.putExtra(IntentDataKeyConstant.TYPE, memberBean.getO().getType());
+                    startActivity(intent);
                 }
 
 
@@ -161,7 +164,7 @@ public class NewTemplateActivity extends RequstActivity implements XRecyclerView
 
     @Override
     public void onSuccess(BaseBean data, int i) {
-        super.onSuccess(data,i);
+        super.onSuccess(data, i);
         if (data instanceof MyMemberBean) {
             memberBean = (MyMemberBean) data;
             if (memberBean.getO().getType().equals("1")) {
@@ -194,11 +197,21 @@ public class NewTemplateActivity extends RequstActivity implements XRecyclerView
         }
         recyclerTamplateList.loadMoreComplete();
         recyclerTamplateList.refreshComplete();
+
+        if (data instanceof CustomizationListActivity.CustomItemBean) {
+            CustomizationListActivity.CustomItemBean bean = (CustomizationListActivity.CustomItemBean) data;
+            for (int j = 0; j <bean.getO().size() ; j++) {
+                if(bean.getO().get(j).getId().equals("7")){
+                    CustomCommtActivity.start(getContext(),bean.getO().get(j));
+                 break;
+                }
+            }
+        }
     }
 
     @Override
     public void onError(Call call, Exception e, int i) {
-        super.onError(call,e,i);
+        super.onError(call, e, i);
         recyclerTamplateList.loadMoreComplete();
         recyclerTamplateList.refreshComplete();
     }
@@ -246,6 +259,11 @@ public class NewTemplateActivity extends RequstActivity implements XRecyclerView
     @Override
     public void onClickNegative(DialogInterface dialogInterface, int which) {
 
+    }
+    @OnClick(R.id.imageViewGotoContract)
+    public void gotoContract(View view) {
+        Map<String, String> map = new HashMap<>();
+        post(ConstantUrl.customListUrl, map, new CustomizationListActivity.CustomItemBean());
     }
 
     public class TemplateMenuAdapter extends RecyclerBaseAdapter {

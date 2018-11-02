@@ -40,6 +40,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:onClick="gotoContract"
                     android:id="@+id/imageViewGotoContract"
                     android:src="@mipmap/template_contract_custom2x"
                     android:layout_marginRight="@dimen/margin10dp"

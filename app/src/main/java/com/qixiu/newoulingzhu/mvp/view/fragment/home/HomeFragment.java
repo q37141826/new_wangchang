@@ -196,6 +196,7 @@ public class HomeFragment extends BaseFragment implements XRecyclerView.LoadingL
         recyclerHome.refreshComplete();
         recyclerHome.loadMoreComplete();
         if (data instanceof HomeBean) {
+            zProgressHUD.dismiss();
             HomeBean homeBean = (HomeBean) data;
             HomeBean.HomeInfo homeInfo = homeBean.getO();
             mBanner = homeInfo.getBanner();
@@ -332,6 +333,7 @@ public class HomeFragment extends BaseFragment implements XRecyclerView.LoadingL
         Map<String, String> map = new HashMap<>();
         map.put("pageNo", 1 + "");
         map.put("pageSize", 5 + "");
+        zProgressHUD.show();
         mOkHttpRequestModel.okhHttpPost(HotInformationListURl, map, new HotInformationBean());
     }
 

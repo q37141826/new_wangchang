@@ -2,7 +2,9 @@
 
 
     <application>
-        <activity android:name=".ui.EaseShowBigImageActivity"/>
+        <activity android:name=".ui.EaseShowBigImageActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        />
         <activity android:name=".ui.EaseShowNormalFileActivity"/>
     </application>
 </manifest>

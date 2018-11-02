@@ -23,6 +23,7 @@ import com.hyphenate.easeui.utils.MD5Util;
 import com.hyphenate.util.NetUtils;
 import com.qixiu.newoulingzhu.application.AppManager;
 import com.qixiu.newoulingzhu.application.LoginStatus;
+import com.qixiu.newoulingzhu.application.NetStatusCheck;
 import com.qixiu.newoulingzhu.beans.SendCodeBean;
 import com.qixiu.newoulingzhu.beans.login.LoginBean;
 import com.qixiu.newoulingzhu.constant.ConstantString;
@@ -346,6 +347,8 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnChec
                 deviceId = tm.getDeviceId();
             } catch (Exception e) {
             }
+        }else {
+            finish();
         }
     }
 

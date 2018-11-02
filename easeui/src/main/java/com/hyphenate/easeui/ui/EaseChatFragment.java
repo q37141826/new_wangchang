@@ -950,7 +950,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             // if the message is for current conversation
             if (username.equals(toChatUsername) || message.getTo().equals(toChatUsername) || message.conversationId().equals(toChatUsername)) {
                 messageList.refreshSelectLast();
-                EaseUI.getInstance().getNotifier().vibrateAndPlayTone(message);
+//                EaseUI.getInstance().getNotifier().vibrateAndPlayTone(message);//这个是环信去提示系统的声音和消息，但是这个现在要根据后台的判断才行
 //                conversation.markMessageAsRead(message.getMsgId());//邓拼搏  本来默认是一旦进入就要把所有消息设置成已读的，但是因为一个对话被需求拆分成了两部分，所以这个地方就不标记了
             } else {
                 EaseUI.getInstance().getNotifier().onNewMsg(message);

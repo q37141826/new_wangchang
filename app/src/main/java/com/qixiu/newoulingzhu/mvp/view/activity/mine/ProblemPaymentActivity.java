@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -64,6 +65,7 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
     private int times = 1;
     private Button btn_gotoPay;
     WebView webviewInroduce;
+    TextView textViewPayRules;
     private PopupWindow popupWindow;
     private ProblemGotoPayBean bean;
     private ImageView imageViewWeichatSelect;
@@ -93,6 +95,7 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
         btn_gotoPay = (Button) findViewById(R.id.btn_gotoPay);
         imageViewAd = (ImageView) findViewById(R.id.imageViewAd);
         webviewInroduce = (WebView) findViewById(R.id.webviewInroduce);
+        textViewPayRules =  findViewById(R.id.textViewPayRules);
         textView_totoalPrice = (TextView) findViewById(R.id.textView_totoalPrice);
         btn_menber_rights = (TextView) findViewById(R.id.btn_menber_rights);
         textView_previous_price = (TextView) findViewById(R.id.textView_previous_price);
@@ -207,7 +210,7 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
             settings.setJavaScriptEnabled(true);
             settings.setDefaultFontSize(10);
             webviewInroduce.loadDataWithBaseURL(null, bean.getO().getCount(), "text/html", "utf-8", null);
-
+            textViewPayRules.setText(Html.fromHtml(bean.getO().getCount()));
 
         }
         if (data instanceof AliPayBean) {

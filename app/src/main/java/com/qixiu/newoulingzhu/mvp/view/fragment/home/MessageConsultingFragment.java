@@ -23,6 +23,7 @@ import com.qixiu.newoulingzhu.mvp.view.activity.chat.ChatActivity;
 import com.qixiu.newoulingzhu.mvp.view.adapter.message.MessageAdapter;
 import com.qixiu.newoulingzhu.mvp.view.fragment.base.BaseFragment;
 import com.qixiu.newoulingzhu.mvp.wight.loading.RefreshHeader;
+import com.qixiu.newoulingzhu.mvp.wight.loading.ZProgressHUD;
 import com.qixiu.newoulingzhu.mvp.wight.my_alterdialog.ArshowDialog;
 import com.qixiu.newoulingzhu.utils.Preference;
 import com.qixiu.newoulingzhu.utils.XrecyclerViewUtil;
@@ -62,13 +63,14 @@ public class MessageConsultingFragment extends BaseFragment implements OKHttpUIU
     private MessageListBean bean;
     //未读消息监听
     private OnUpdataMessageCountListener onUpdataMessageCountListener;
-
+    private ZProgressHUD zProgressHUD;
     public void setType(int type) {
         this.type = type;
     }
 
     @Override
     protected void onInitData() {
+        zProgressHUD=new ZProgressHUD(getContext());
         okHttpRequestModel = new OKHttpRequestModel(this);
 //        swipRefreshMessageChat.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 //            @Override
@@ -113,6 +115,7 @@ public class MessageConsultingFragment extends BaseFragment implements OKHttpUIU
         map.put("pageNo", pageNo + "");
         map.put("pageSize", pageSize + "");
         map.put("doing", type + "");
+        zProgressHUD.show();
         okHttpRequestModel.okhHttpPost(ConstantUrl.messageList, map, new MessageListBean());
     }
 
@@ -185,6 +188,7 @@ public class MessageConsultingFragment extends BaseFragment implements OKHttpUIU
 
     @Override
     public void onSuccess(Object data, int i) {
+        zProgressHUD.dismiss();
         BaseBean baseBean = (BaseBean) data;
 //        swipRefreshMessageChat.setRefreshing(false);
         recyclerChatOngoing.loadMoreComplete();
@@ -233,6 +237,7 @@ public class MessageConsultingFragment extends BaseFragment implements OKHttpUIU
 //        swipRefreshMessageChat.setRefreshing(false);
         recyclerChatOngoing.loadMoreComplete();
         recyclerChatOngoing.refreshComplete();
+        zProgressHUD.dismiss();
     }
 
     @Override
@@ -240,6 +245,7 @@ public class MessageConsultingFragment extends BaseFragment implements OKHttpUIU
 //        swipRefreshMessageChat.setRefreshing(false);
         recyclerChatOngoing.loadMoreComplete();
         recyclerChatOngoing.refreshComplete();
+        zProgressHUD.dismiss();
     }
 
     private void refreshMessageListFristCount() {

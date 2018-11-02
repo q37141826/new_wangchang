@@ -93,6 +93,8 @@ public class BaseApplication extends MultiDexApplication implements OKHttpUIUpda
 
     }
 
+
+
     public static BaseApplication getApp() {
         return app;
     }
@@ -258,6 +260,7 @@ public class BaseApplication extends MultiDexApplication implements OKHttpUIUpda
     public static BaseApplication getInstance() {
         return app;
     }
+
 
 
 }

@@ -239,7 +239,10 @@
             android:windowSoftInputMode="adjustResize|stateHidden"
             />
         <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.result.InjuryResultActivity" />
-        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomMeetingActivity" />
+        <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.customization.CustomMeetingActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
         <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.result.TrafficResultActivity" />
         <activity android:name="com.qixiu.newoulingzhu.mvp.view.activity.home.caculator.AddRaiseActivity"
             android:windowSoftInputMode="adjustResize|stateHidden"

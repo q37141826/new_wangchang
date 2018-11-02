@@ -84,19 +84,19 @@ public class HyReceiveService extends Service {
                     Notification notification = mBuilder.build();
                     NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                     mNotifyMgr.notify(1, notification);
-
-
-                    //下面是提示音
-                    if (Preference.getBoolean(ConstantString.IS_VOICE)) {
-                        Uri noticeVoice = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                        Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), noticeVoice);
-                        r.play();
-                    }
-                    if (Preference.getBoolean(ConstantString.IS_SHOCK)) {
-                        Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(getApplicationContext().VIBRATOR_SERVICE);
-                        vibrator.vibrate(1000);
-                    }
-                    //下面是震动
+                }
+                //下面是提示音
+                if (Preference.getBoolean(ConstantString.IS_VOICE)) {
+                    Uri noticeVoice = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), noticeVoice);
+                    r.play();
+                }
+                //下面是震动
+                if (Preference.getBoolean(ConstantString.IS_SHOCK)) {
+                    Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(getApplicationContext().VIBRATOR_SERVICE);
+//                    vibrator.vibrate(1000);
+                    long[] pattern = new long[] { 0, 180, 80};
+                    vibrator.vibrate(pattern,-1);
                 }
             }
 

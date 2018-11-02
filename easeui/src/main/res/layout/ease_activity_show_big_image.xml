@@ -17,6 +17,13 @@
         android:layout_height="36dp"
         android:layout_centerInParent="true"
         android:visibility="gone" />
-
+    <ImageView
+        android:layout_marginTop="@dimen/margin20dp"
+        android:src="@mipmap/titile_back3x"
+        android:id="@+id/imageViewBack"
+        android:paddingRight="@dimen/margin15dp"
+        android:paddingLeft="@dimen/margin10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

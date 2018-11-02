@@ -6,8 +6,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.hyphenate.easeui.adapter.GlideCacheUtil;
 import com.hyphenate.easeui.bean.StringConstants;
 import com.qixiu.newoulingzhu.beans.mine_bean.MyProfileBean;
 import com.qixiu.newoulingzhu.constant.ConstantString;
@@ -100,8 +99,7 @@ public class MyprofileActivity extends TitleActivity implements View.OnClickList
     String nickname = "";
     private SingleImagePicker mImagePicker;
 
-    //上传的头像转码
-    String base64 = "";
+
     //照相机路径，照相机和相册的返回码
     String FILE_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
     private final int CANMERA = 10001, ABLUM = 10002;
@@ -416,29 +414,45 @@ public class MyprofileActivity extends TitleActivity implements View.OnClickList
         if (requestCode == CODE_CAMERA_REQUEST) {
             try {
                 if (resultCode == RESULT_OK) {
-                    String thubImage = PictureCut.getThubImage(photoPath);
+                    zProgressHUD.show();
                     Glide.with(MyprofileActivity.this).load(photoPath).error(R.mipmap.headplace).into(circular_head_edit);
-                    Bitmap bitmap = BitmapFactory.decodeFile(thubImage);
-                    circular_head_edit.setImageBitmap(bitmap);
-                    base64 = PictureCut.imgToBase64(thubImage, bitmap, "JPEG");
-                    //// TODO: 2017/8/12 上传图片的方法
-                    uploadHead(base64);
+                    List<String> paths=new ArrayList<>();
+                    paths.add(photoPath);
+                    PictureCut.CompressLuban.comPress(getContext(), paths, new PictureCut.CallBack<List<File>>() {
+                        @Override
+                        public void call(List<File> files) {
+                            PictureCut.CompressLuban.toBase64s(files, new PictureCut.CallBack<List<String>>() {
+                                @Override
+                                public void call(List<String> base64s) {
+                                    uploadHead(base64s.get(0));
+                                }
+                            });
+                        }
+                    });
                 }
             } catch (Exception e) {
                 ToastUtil.toast("存储设备异常");
             }
         } else if (requestCode == ABLUM) {
             if (data != null) {//考虑到启动了但是中途取消了
+                zProgressHUD.show();
+                GlideCacheUtil.getInstance().clearImageAllCache(getContext());
                 String path = FileProviderUtil.getFilePath(this, data.getData());
                 Glide.with(this).load(path).error(R.mipmap.headplace).into(circular_head_edit);
-                String thubImage = PictureCut.getThubImage(path);
                 photoPath = path;
-                Bitmap bitmap = BitmapFactory.decodeFile(thubImage);
-                //// TODO: 2017/8/12 上传图片的方法
-                base64 = PictureCut.imgToBase64(thubImage, bitmap, "JPEG");
-                uploadHead(base64);
-            } else {
-                Glide.with(this).load(Preference.get(ConstantString.HEAD, "")).into(circular_head_edit);
+                List<String> paths=new ArrayList<>();
+                paths.add(path);
+                PictureCut.CompressLuban.comPress(getContext(), paths, new PictureCut.CallBack<List<File>>() {
+                    @Override
+                    public void call(List<File> files) {
+                        PictureCut.CompressLuban.toBase64s(files, new PictureCut.CallBack<List<String>>() {
+                            @Override
+                            public void call(List<String> base64s) {
+                                uploadHead(base64s.get(0));
+                            }
+                        });
+                    }
+                });
             }
         } else if (requestCode == IntentRequestCodeConstant.REQUESTCODE_EDITSINGLE) {
             if (resultCode == IntentRequestCodeConstant.RESULTCODE_EDITSINGLE_NICKNAME) {
@@ -465,7 +479,6 @@ public class MyprofileActivity extends TitleActivity implements View.OnClickList
         if (TextUtils.isEmpty(base64)) {
             return;
         }
-        zProgressHUD.show();
         Map<String, String> map = new HashMap<>();
         map.put("head", base64);
         map.put("uid", Preference.get(ConstantString.USERID, ""));
@@ -529,6 +542,7 @@ public class MyprofileActivity extends TitleActivity implements View.OnClickList
             if (zProgressHUD != null && zProgressHUD.isShowing()) {
                 zProgressHUD.dismissWithSuccess("修改成功");
             }
+            requstDetailsData();
         }
 
         if (ConstantUrl.editUserHead.equals(data.getUrl())) {

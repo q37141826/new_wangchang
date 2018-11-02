@@ -191,8 +191,14 @@
                         android:text="使用说明"
                         android:textSize="14sp" />
                 </LinearLayout>
-
+                <TextView
+                    android:textColor="@color/font_grey"
+                    android:id="@+id/textViewPayRules"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin200dp"
+                    />
                 <WebView
+                    android:visibility="gone"
                     android:id="@+id/webviewInroduce"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/margin200dp"

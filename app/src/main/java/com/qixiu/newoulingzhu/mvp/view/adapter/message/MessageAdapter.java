@@ -65,7 +65,7 @@ public class MessageAdapter extends RecyclerBaseAdapter {
                             tv_message_count.setVisibility(View.GONE);
                         }
                         if (parseInt > 99) {
-                            tv_message_count.setText(99 + "");
+                            tv_message_count.setText(99 + "+");
                         } else {
                             tv_message_count.setText(num);
                         }

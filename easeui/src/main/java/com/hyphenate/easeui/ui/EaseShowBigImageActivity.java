@@ -42,6 +42,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -57,7 +58,7 @@ public class EaseShowBigImageActivity extends EaseBaseActivity {
     private Bitmap bitmap;
     private boolean isDownloaded;
     private Uri uri;
-
+    private ImageView imageViewBack;
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +116,13 @@ public class EaseShowBigImageActivity extends EaseBaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        imageViewBack =findViewById(R.id.imageViewBack);
+        imageViewBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EaseShowBigImageActivity.this.finish();
             }
         });
     }

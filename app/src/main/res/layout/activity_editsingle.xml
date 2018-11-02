@@ -41,7 +41,9 @@
                     android:singleLine="true"
                     android:textSize="13sp"/>
                     <com.qixiu.wigit.myedittext.MyEditTextView
+                        android:paddingRight="@dimen/margin5dp"
                         app:my_edittext_gravity="center_vertical_right"
+                        app:my_edittext_text_size="13sp"
                         android:id="@+id/myedittext_change"
                         android:layout_toRightOf="@+id/et_editsingle"
                         android:layout_width="match_parent"

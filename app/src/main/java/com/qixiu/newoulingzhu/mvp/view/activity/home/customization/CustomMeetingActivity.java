@@ -122,6 +122,11 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
     private String mobile;
     private String dateString;
 
+    @Override
+    public void adustTitle() {
+//        super.adustTitle();
+    }
+
     public static void start(Context context, CustomizationListActivity.CustomItemBean.OBean bean) {
         Intent intent = new Intent(context, CustomMeetingActivity.class);
         intent.putExtra(IntentDataKeyConstant.DATA, bean);

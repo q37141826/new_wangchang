@@ -1,6 +1,7 @@
 package com.qixiu.newoulingzhu.mvp.view.activity.mine.edit;
 
 import android.os.Build;
+import android.os.Handler;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.qixiu.newoulingzhu.constant.ConstantUrl;
 import com.qixiu.newoulingzhu.constant.IntentDataKeyConstant;
 import com.qixiu.newoulingzhu.constant.IntentRequestCodeConstant;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.TitleActivity;
+import com.qixiu.newoulingzhu.mvp.wight.loading.ZProgressHUD;
 import com.qixiu.newoulingzhu.utils.Preference;
 import com.qixiu.newoulingzhu.utils.ToastUtil;
 import com.qixiu.qixiu.request.OKHttpRequestModel;
@@ -41,6 +43,7 @@ public class EditSingleProfileActivity extends TitleActivity implements OKHttpUI
     private String mContent;
     private MyEditTextView myedittext_change;
     private String name;
+    private ZProgressHUD zProgressHUD;
 
     @Override
     protected void onInitViewNew() {
@@ -94,7 +97,11 @@ public class EditSingleProfileActivity extends TitleActivity implements OKHttpUI
             } else {
                 mEt_editsingle.setCompoundDrawables(getResources().getDrawable(R.mipmap.my_email2x), null, null, null);
             }
-            mTitleView.setTitle("修改邮箱");
+            if(TextUtils.isEmpty(Preference.get(ConstantString.EMAIL,""))){
+                mTitleView.setTitle("绑定邮箱");
+            }else {
+                mTitleView.setTitle("修改邮箱");
+            }
             mEt_editsingle.setHint("邮箱");
             requestUrl = ConstantUrl.EditVitaEmliaURl;
 
@@ -145,7 +152,7 @@ public class EditSingleProfileActivity extends TitleActivity implements OKHttpUI
         } else if (IntentDataKeyConstant.EMAIL.equals(mEdit_type)) {
             stringMap.put("emlia", mContent);
         }
-
+            zProgressHUD.show();
         mOkHttpRequestModel.okhHttpPost(requestUrl, stringMap, new BaseBean());
     }
 
@@ -158,6 +165,8 @@ public class EditSingleProfileActivity extends TitleActivity implements OKHttpUI
     @Override
     protected void onInitData() {
         mOkHttpRequestModel = new OKHttpRequestModel(this);
+        zProgressHUD = new ZProgressHUD(this);
+
     }
 
     @Override
@@ -180,7 +189,14 @@ public class EditSingleProfileActivity extends TitleActivity implements OKHttpUI
             Preference.put(ConstantString.EMAIL, mContent);
             setResult(IntentRequestCodeConstant.RESULTCODE_EDITSINGLE_EMAIL);
         }
-        finish();
+        zProgressHUD.dismissWithSuccess("修改成功");
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+            }
+        }, 502);
     }
 
     @Override
@@ -190,6 +206,6 @@ public class EditSingleProfileActivity extends TitleActivity implements OKHttpUI
 
     @Override
     public void onFailure(C_CodeBean c_codeBean) {
-        ToastUtil.toast("修改失败l," + c_codeBean.getM());
+       zProgressHUD.dismissWithFailure( c_codeBean.getM());
     }
 }

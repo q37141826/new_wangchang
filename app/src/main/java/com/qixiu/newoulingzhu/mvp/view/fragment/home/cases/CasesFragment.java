@@ -19,6 +19,7 @@ import com.qixiu.newoulingzhu.constant.ConstantUrl;
 import com.qixiu.newoulingzhu.constant.IntentDataKeyConstant;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.GoToActivity;
 import com.qixiu.newoulingzhu.mvp.view.fragment.base.BaseFragment;
+import com.qixiu.newoulingzhu.mvp.wight.loading.MyLoadFooter;
 import com.qixiu.newoulingzhu.mvp.wight.loading.RefreshHeader;
 import com.qixiu.newoulingzhu.utils.XrecyclerViewUtil;
 import com.qixiu.qixiu.request.OKHttpRequestModel;
@@ -56,7 +57,7 @@ public class CasesFragment extends BaseFragment implements OKHttpUIUpdataListene
     private int page = 1, num = 10;
     private int currentPage;
     private String itemTitle;
-
+    private MyLoadFooter footerview;
 
 
     public void setItemTitle(String itemTitle) {
@@ -103,6 +104,8 @@ public class CasesFragment extends BaseFragment implements OKHttpUIUpdataListene
         RefreshHeader refreshHeader=new RefreshHeader(getContext());
         refreshHeader.setArrowImageView(R.mipmap.refresh_head_arrow);
         recyclerViewClasicCases.setRefreshHeader(refreshHeader);
+        footerview = new MyLoadFooter(getContext());
+        recyclerViewClasicCases.setFootView(footerview);
         adapter.setOnItemClickListener(this);
 //        swipClasicCases.setColorSchemeResources(R.color.theme_color);
     }
@@ -121,15 +124,28 @@ public class CasesFragment extends BaseFragment implements OKHttpUIUpdataListene
             } else {
                 adapter.addDatas(bean.getO().getData());
             }
+            if(page!=1&&bean.getO().getData().size()==0){
+                footerview.setIsEnd(true);
+//                recyclerViewClasicCases.setLoadingMoreEnabled(false);
+            }else {
+                footerview.setIsEnd(false);
+//                recyclerViewClasicCases.setLoadingMoreEnabled(true);
+            }
         }
 //        swipClasicCases.setRefreshing(false);
-        recyclerViewClasicCases.loadMoreComplete();
-        recyclerViewClasicCases.refreshComplete();
-        if(adapter.getDatas().size()==0){
-            imageNothing.setVisibility(View.VISIBLE);
-        }else {
-            imageNothing.setVisibility(View.GONE);
+        try {
+            //暂时不清楚这几个控件在频繁进入该界面的时候为什么会报空,用这个包裹一下
+            recyclerViewClasicCases.loadMoreComplete();
+            recyclerViewClasicCases.refreshComplete();
+            if(adapter.getDatas().size()==0){
+                imageNothing.setVisibility(View.VISIBLE);
+            }else {
+                imageNothing.setVisibility(View.GONE);
+            }
+        }catch (Exception e){
+
         }
+
     }
 
     @Override

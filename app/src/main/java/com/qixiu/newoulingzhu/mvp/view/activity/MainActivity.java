@@ -1,5 +1,6 @@
 package com.qixiu.newoulingzhu.mvp.view.activity;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 
 import com.qixiu.newoulingzhu.application.AppManager;
 import com.qixiu.newoulingzhu.application.LoginStatus;
+import com.qixiu.newoulingzhu.application.NetStatusCheck;
 import com.qixiu.newoulingzhu.beans.messge.MessageListBean;
 import com.qixiu.newoulingzhu.constant.ConstantString;
 import com.qixiu.newoulingzhu.constant.ConstantUrl;
@@ -35,6 +38,7 @@ import com.qixiu.qixiu.request.OKHttpRequestModel;
 import com.qixiu.qixiu.request.OKHttpUIUpdataListener;
 import com.qixiu.qixiu.request.bean.C_CodeBean;
 import com.qixiu.qixiu.utils.DrawableUtils;
+import com.qixiu.qixiu.utils.MemoryUtil;
 import com.qixiu.recyclerview_lib.RecyclerBaseAdapter;
 import com.qixiu.wanchang.R;
 
@@ -69,7 +73,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private MessageFragment messageFragment;
     private MineFragment mineFragment;
     BroadcastReceiver receiver;
-
+    private String permissions[]={Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA};
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -80,8 +84,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     protected void onInitData() {
         okHttpRequestModel = new OKHttpRequestModel(this);
-
         setMessageListenner();
+        if(!hasPermission(permissions)){
+            hasRequse(1,permissions);
+        }
     }
 
     private void setMessageListenner() {
@@ -180,7 +186,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 break;
         }
         ProtectRunnable runnable=new ProtectRunnable();
-//        MemoryUtil.clearMemory(getContext());//内存清理
+        MemoryUtil.clearMemory(getContext());//内存清理
         handler.postDelayed(runnable,200);
     }
 
@@ -230,7 +236,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             if (totalCount > 99) {
                 textViewMessageBottom.setText("  "+99 +"+  "+ StringConstants.EMPTY_STRING);
             } else {
-                textViewMessageBottom.setText(totalCount + StringConstants.EMPTY_STRING);
+                textViewMessageBottom.setText("  "+totalCount + StringConstants.EMPTY_STRING+"  ");
             }
 
         } else {
@@ -284,5 +290,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         map.put("pageSize", 100 + "");
         map.put("doing", 1 + "");
         okHttpRequestModel.okhHttpPost(ConstantUrl.messageList, map, new MessageListBean());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        NetStatusCheck. checkNetWork(getContext());//检查网络状况
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(!hasPermission(permissions)){
+            finish();
+        }
     }
 }
