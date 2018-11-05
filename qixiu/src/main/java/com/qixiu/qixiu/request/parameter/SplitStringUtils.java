@@ -10,8 +10,8 @@ import java.util.StringTokenizer;
  * 该工具类主要功能截取服务器返回图片字符串集
  *
  * @author gyh
- *         <p/>
- *         2016年3月7日 下午4:30:17
+ * <p/>
+ * 2016年3月7日 下午4:30:17
  */
 public class SplitStringUtils {
     /**
@@ -71,6 +71,16 @@ public class SplitStringUtils {
         return stringBuffer.toString();
     }
 
+
+    public static String cutStringPenult01(String content, String target) {
+        if (content == null && target == null) {
+            return null;
+        }
+        String str = content.substring(content.indexOf("m=") + 2, content.contains("type=") ? content.indexOf("type=") - 1 : content.length());
+        return str.replace("m=", "").replace("a=", "").replace("&","/");
+    }
+
+
     public static String replaceAllString(String[] regexs, String replacement, String content) {
         String mContent = content;
         if (!TextUtils.isEmpty(content)) {
@@ -83,4 +93,6 @@ public class SplitStringUtils {
         }
         return mContent;
     }
+
+
 }

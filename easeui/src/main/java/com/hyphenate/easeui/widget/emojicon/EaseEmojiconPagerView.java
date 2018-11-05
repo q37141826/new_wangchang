@@ -7,6 +7,7 @@ import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -106,7 +107,7 @@ public class EaseEmojiconPagerView extends ViewPager{
      */
     public List<View> getGroupGridViews(EaseEmojiconGroupEntity groupEntity){
         List<EaseEmojicon> emojiconList = groupEntity.getEmojiconList();
-        int itemSize = emojiconColumns * emojiconRows -1;
+        int itemSize = emojiconColumns * emojiconRows ;//todo  这里修改行列数
         int totalSize = emojiconList.size();
         Type emojiType = groupEntity.getType();
         if(emojiType == Type.BIG_EXPRESSION){
@@ -129,10 +130,11 @@ public class EaseEmojiconPagerView extends ViewPager{
                 list.addAll(emojiconList.subList(i * itemSize, totalSize));
             }
             if(emojiType != Type.BIG_EXPRESSION){
-                EaseEmojicon deleteIcon = new EaseEmojicon();
-                deleteIcon.setEmojiText(EaseSmileUtils.DELETE_KEY);
-                list.add(deleteIcon);
+//                EaseEmojicon deleteIcon = new EaseEmojicon();
+//                deleteIcon.setEmojiText(EaseSmileUtils.DELETE_KEY);
+//                list.add(deleteIcon);//todo 不添加退格（删除）的emoji
             }
+            Log.e("grideview",list.size()+"");
             final EmojiconGridAdapter gridAdapter = new EmojiconGridAdapter(context, 1, list, emojiType);
             gv.setAdapter(gridAdapter);
             gv.setOnItemClickListener(new OnItemClickListener() {

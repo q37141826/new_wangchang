@@ -304,7 +304,6 @@ public abstract class UploadPictureActivityNew extends TitleActivity implements 
                 }
             }
         });
-        mRcAdapter.refreshData(null);
     }
 
     @Override

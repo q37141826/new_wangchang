@@ -116,7 +116,11 @@ public class OKHttpRequestModel<T> {
         }
         PostFormBuilder builder = OkHttpUtils.post().url(url);
         if (isToken && !TextUtils.isEmpty(url)) {
-            paramenterStringMap.put("token", MD5Util.getToken(SplitStringUtils.cutStringPenult(url, "/")));
+            if(url.contains("&")){
+                paramenterStringMap.put("token", MD5Util.getToken(SplitStringUtils.cutStringPenult01(url, "&")));
+            }else {
+                paramenterStringMap.put("token", MD5Util.getToken(SplitStringUtils.cutStringPenult(url, "/")));
+            }
             paramenterStringMap.put("token_type", StringConstants.STRING_2);
         } else {
 

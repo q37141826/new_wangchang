@@ -221,6 +221,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 return;
             }
             deviceId = tm.getDeviceId();
+            Log.e("deviceId",deviceId);
         } catch (Exception e) {
         }
 

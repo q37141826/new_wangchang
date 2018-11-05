@@ -1,0 +1,2 @@
+keytool -list -v -keystore wanchang.jks
+这个是查看jks各种md5  sha1  sh256编码等等的方法
