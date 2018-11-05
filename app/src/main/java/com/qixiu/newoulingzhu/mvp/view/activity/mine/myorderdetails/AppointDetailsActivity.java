@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.hyphenate.easeui.EaseConstant;
 import com.qixiu.newoulingzhu.beans.messge.ProblemDetailBean;
+import com.qixiu.newoulingzhu.beans.mine_bean.order.MyConsultingBean;
 import com.qixiu.newoulingzhu.constant.ConstantString;
 import com.qixiu.newoulingzhu.constant.IntentDataKeyConstant;
 import com.qixiu.newoulingzhu.engine.HyEngine;
@@ -65,8 +66,21 @@ public class AppointDetailsActivity extends TitleActivity {
                 relativeFinished.setVisibility(View.VISIBLE);
                 btnGotoCommunicate.setVisibility(View.GONE);
             }
+        }else if(data instanceof MyConsultingBean.OBean.DataBean){
+            MyConsultingBean.OBean.DataBean bean= (MyConsultingBean.OBean.DataBean) data;
+            mTitleView.setTitle(bean.getTitle());
+            textxViewAddress.setText(bean.getAddress());
+            textxViewName.setText(bean.getConnect_user());
+            textxViewPhone.setText(bean.getConnect_moble());
+            textxViewTime.setText(bean.getMeet_date() + bean.getMeet_time());
+            if (bean.getType().equals("1")) {
+                relativeFinished.setVisibility(View.GONE);
+                btnGotoCommunicate.setVisibility(View.VISIBLE);
+            } else {
+                relativeFinished.setVisibility(View.VISIBLE);
+                btnGotoCommunicate.setVisibility(View.GONE);
+            }
         }
-
     }
 
     @Override
@@ -108,6 +122,20 @@ public class AppointDetailsActivity extends TitleActivity {
                 HyEngine.startConversationSingle(this, "ls" + bean.getLawyerid(), bundle, ChatActivity.class);
             }
             //
+        }else if(data instanceof MyConsultingBean.OBean.DataBean){
+            MyConsultingBean.OBean.DataBean bean= (MyConsultingBean.OBean.DataBean) data;
+            Preference.put(ConstantString.OTHER_HEAD, bean.getAvatar());
+            Preference.put(ConstantString.OTHER_NAME, bean.getUser_nicename());
+            Bundle bundle = new Bundle();
+            bundle.putString(EaseConstant.PRO_ID, bean.getId());
+            bundle.putString(EaseConstant.TOCHAT_NAME, bean.getUser_nicename());
+            bundle.putString(EaseConstant.PROBLEM, bean.getProblem());
+            bundle.putString(EaseConstant.TYPE, "1");
+            if(Preference.getBoolean(ConstantString.IS_GROUP)){
+                HyEngine.startConversationGroup(this,  bean.getGroup_id(), bundle, ChatActivity.class);
+            }else {
+                HyEngine.startConversationSingle(this, "ls" + bean.getLawyer(), bundle, ChatActivity.class);
+            }
         }
 
     }

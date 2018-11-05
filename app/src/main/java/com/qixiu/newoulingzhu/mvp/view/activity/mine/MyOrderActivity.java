@@ -23,6 +23,7 @@ import com.qixiu.newoulingzhu.constant.ConstantUrl;
 import com.qixiu.newoulingzhu.engine.HyEngine;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.RequstActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.chat.ChatActivity;
+import com.qixiu.newoulingzhu.mvp.view.activity.mine.myorderdetails.AppointDetailsActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.mine.myorderdetails.OrderDetailsActivity;
 import com.qixiu.newoulingzhu.mvp.wight.loading.RefreshHeader;
 import com.qixiu.newoulingzhu.utils.Preference;
@@ -196,7 +197,11 @@ public class MyOrderActivity extends RequstActivity implements XRecyclerView.Loa
     public void onItemClick(View v, RecyclerView.Adapter adapter, Object data) {
         if (data instanceof MyConsultingBean.OBean.DataBean) {
             MyConsultingBean.OBean.DataBean dataBean = (MyConsultingBean.OBean.DataBean) data;
-            OrderDetailsActivity.start(getContext(), dataBean);
+            if(!dataBean.getTitle().equals("会面咨询")){
+                OrderDetailsActivity.start(getContext(), dataBean);
+            }else {
+                AppointDetailsActivity.start(getContext(),dataBean);
+            }
         }
     }
 
@@ -247,7 +252,7 @@ public class MyOrderActivity extends RequstActivity implements XRecyclerView.Loa
                         @Override
                         public void onClick(View v) {
                             Preference.put(ConstantString.OTHER_HEAD, bean.getAvatar());
-                            Preference.put(ConstantString.OTHER_NAME, bean.getLawyer());
+                            Preference.put(ConstantString.OTHER_NAME, bean.getUser_nicename());
                             Bundle bundle = new Bundle();
                             bundle.putString(EaseConstant.PRO_ID, bean.getId());
                             bundle.putString(EaseConstant.TOCHAT_NAME, bean.getUser_nicename());

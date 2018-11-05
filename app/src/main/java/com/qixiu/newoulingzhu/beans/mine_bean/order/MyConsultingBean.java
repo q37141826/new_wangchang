@@ -13,7 +13,7 @@ import java.util.List;
  * Created by my on 2017/11/17.
  */
 
-public class MyConsultingBean  extends BaseBean<MyConsultingBean.OBean> {
+public class MyConsultingBean   extends BaseBean<MyConsultingBean.OBean> {
 
 
 
@@ -21,21 +21,28 @@ public class MyConsultingBean  extends BaseBean<MyConsultingBean.OBean> {
         private int page;
         private int total_page;
         /**
-         * id : 171
-         * uid : 421
-         * problem : 小号测试一下
+         * id : 973
+         * uid : 549
+         * problem :
          * img : ["http://sk.qixiuu.com/data/upload/"]
-         * addtime : 2018-08-29
+         * addtime : 2018-11-05
          * type : 1
-         * lawyer : 24
+         * lawyer : 90
          * ctime :
          * status : 1
-         * prot_id :
-         * order_num :
-         * title : 问题咨询
-         * money : 0
+         * prot_id : 8
+         * order_num : 20181105502410
+         * meet_date : 2018-11-05
+         * meet_time : am
+         * address : 深圳  南山
+         * connect_user : 小宝还得等会
+         * connect_moble : 13554540382
+         * group_id : 64993425948673
+         * title : 会面咨询
+         * money : 0.08
          * num : 1
-         * avatar : http://sk.qixiuu.com/data/upload/admin/20180411/5acdc6f859f3e.png
+         * avatar : http://sk.qixiuu.com/data/upload/admin/20181017/5bc68bd27bb58.png
+         * user_nicename : orange3
          */
 
         private List<DataBean> data;
@@ -75,29 +82,18 @@ public class MyConsultingBean  extends BaseBean<MyConsultingBean.OBean> {
             private String status;
             private String prot_id;
             private String order_num;
+            private String meet_date;
+            private String meet_time;
+            private String address;
+            private String connect_user;
+            private String connect_moble;
+            private String group_id;
             private String title;
-            private int money;
-            private int num;
+            private String money;
+            private String num;
             private String avatar;
             private String user_nicename;
             private ArrayList<String> img;
-            private String group_id;
-
-            public String getGroup_id() {
-                return group_id;
-            }
-
-            public void setGroup_id(String group_id) {
-                this.group_id = group_id;
-            }
-
-            public String getUser_nicename() {
-                return user_nicename;
-            }
-
-            public void setUser_nicename(String user_nicename) {
-                this.user_nicename = user_nicename;
-            }
 
             public String getId() {
                 return id;
@@ -179,6 +175,54 @@ public class MyConsultingBean  extends BaseBean<MyConsultingBean.OBean> {
                 this.order_num = order_num;
             }
 
+            public String getMeet_date() {
+                return meet_date;
+            }
+
+            public void setMeet_date(String meet_date) {
+                this.meet_date = meet_date;
+            }
+
+            public String getMeet_time() {
+                return meet_time;
+            }
+
+            public void setMeet_time(String meet_time) {
+                this.meet_time = meet_time;
+            }
+
+            public String getAddress() {
+                return address;
+            }
+
+            public void setAddress(String address) {
+                this.address = address;
+            }
+
+            public String getConnect_user() {
+                return connect_user;
+            }
+
+            public void setConnect_user(String connect_user) {
+                this.connect_user = connect_user;
+            }
+
+            public String getConnect_moble() {
+                return connect_moble;
+            }
+
+            public void setConnect_moble(String connect_moble) {
+                this.connect_moble = connect_moble;
+            }
+
+            public String getGroup_id() {
+                return group_id;
+            }
+
+            public void setGroup_id(String group_id) {
+                this.group_id = group_id;
+            }
+
             public String getTitle() {
                 return title;
             }
@@ -187,19 +231,19 @@ public class MyConsultingBean  extends BaseBean<MyConsultingBean.OBean> {
                 this.title = title;
             }
 
-            public int getMoney() {
+            public String getMoney() {
                 return money;
             }
 
-            public void setMoney(int money) {
+            public void setMoney(String money) {
                 this.money = money;
             }
 
-            public int getNum() {
+            public String getNum() {
                 return num;
             }
 
-            public void setNum(int num) {
+            public void setNum(String num) {
                 this.num = num;
             }
 
@@ -211,15 +255,20 @@ public class MyConsultingBean  extends BaseBean<MyConsultingBean.OBean> {
                 this.avatar = avatar;
             }
 
+            public String getUser_nicename() {
+                return user_nicename;
+            }
+
+            public void setUser_nicename(String user_nicename) {
+                this.user_nicename = user_nicename;
+            }
+
             public ArrayList<String> getImg() {
                 return img;
             }
 
             public void setImg(ArrayList<String> img) {
                 this.img = img;
-            }
-
-            public DataBean() {
             }
 
             @Override
@@ -239,13 +288,21 @@ public class MyConsultingBean  extends BaseBean<MyConsultingBean.OBean> {
                 dest.writeString(this.status);
                 dest.writeString(this.prot_id);
                 dest.writeString(this.order_num);
+                dest.writeString(this.meet_date);
+                dest.writeString(this.meet_time);
+                dest.writeString(this.address);
+                dest.writeString(this.connect_user);
+                dest.writeString(this.connect_moble);
+                dest.writeString(this.group_id);
                 dest.writeString(this.title);
-                dest.writeInt(this.money);
-                dest.writeInt(this.num);
+                dest.writeString(this.money);
+                dest.writeString(this.num);
                 dest.writeString(this.avatar);
                 dest.writeString(this.user_nicename);
                 dest.writeStringList(this.img);
-                dest.writeString(this.group_id);
+            }
+
+            public DataBean() {
             }
 
             protected DataBean(Parcel in) {
@@ -259,16 +316,21 @@ public class MyConsultingBean  extends BaseBean<MyConsultingBean.OBean> {
                 this.status = in.readString();
                 this.prot_id = in.readString();
                 this.order_num = in.readString();
+                this.meet_date = in.readString();
+                this.meet_time = in.readString();
+                this.address = in.readString();
+                this.connect_user = in.readString();
+                this.connect_moble = in.readString();
+                this.group_id = in.readString();
                 this.title = in.readString();
-                this.money = in.readInt();
-                this.num = in.readInt();
+                this.money = in.readString();
+                this.num = in.readString();
                 this.avatar = in.readString();
                 this.user_nicename = in.readString();
                 this.img = in.createStringArrayList();
-                this.group_id = in.readString();
             }
 
-            public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
+            public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
                 @Override
                 public DataBean createFromParcel(Parcel source) {
                     return new DataBean(source);

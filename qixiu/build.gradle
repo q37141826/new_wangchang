@@ -35,18 +35,18 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //网络框架
-    compile 'com.squareup.okhttp3:okhttp:3.6.0'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile files('libs/okhttputils-2_6_2.jar')
-    compile 'me.leolin:ShortcutBadger:1.1.17'
-    compile 'com.alibaba:fastjson:1.2.38'
+    api 'com.squareup.okhttp3:okhttp:3.6.0'
+    api 'com.google.code.gson:gson:2.8.0'
+    api 'com.github.bumptech.glide:glide:3.7.0'
+    api files('libs/okhttputils-2_6_2.jar')
+    api 'me.leolin:ShortcutBadger:1.1.17'
+    api 'com.alibaba:fastjson:1.2.38'
     //图片选择器
-    compile 'me.iwf.photopicker:PhotoPicker:0.8.11@aar'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'de.hdodenhof:circleimageview:2.0.0'
-    compile 'com.yanzhenjie:album:2.0.0'
-    compile 'com.yanzhenjie:permission:1.0.7'
+    api 'me.iwf.photopicker:PhotoPicker:0.8.11@aar'
+    api 'com.nineoldandroids:library:2.4.0'
+    api 'de.hdodenhof:circleimageview:2.0.0'
+    api 'com.yanzhenjie:album:2.0.0'
+    api 'com.yanzhenjie:permission:1.0.7'
     //图片裁剪
     implementation 'com.yalantis:ucrop:2.2.0'
     //权限请求
@@ -54,12 +54,12 @@ dependencies {
     implementation files('libs/sun.misc.BASE64Decoder.jar')
 
     //xutils
-    compile 'org.xutils:xutils:3.3.34'
+    api 'org.xutils:xutils:3.3.34'
     //修改webview标签属性的框架
-    compile 'org.jsoup:jsoup:1.10.1'
+    api 'org.jsoup:jsoup:1.10.1'
     //
-    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'io.reactivex.rxjava2:rxjava:2.0.1'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
     //EventBus
     api 'org.greenrobot:eventbus:3.1.1'
