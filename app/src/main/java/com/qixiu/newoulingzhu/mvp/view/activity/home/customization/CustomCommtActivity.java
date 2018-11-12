@@ -147,7 +147,7 @@ public class CustomCommtActivity extends RequstActivity implements IPay {
     private void requstData() {
         Map<String, String> map = new HashMap<>();
         map.put("type", customItemBean.getType());
-        post(ConstantUrl.customWebUrl, map, new CustomInnerBean());
+        get(ConstantUrl.customWebUrl, map, new CustomInnerBean());
     }
 
     @Override

@@ -263,7 +263,7 @@ public class NewTemplateActivity extends RequstActivity implements XRecyclerView
     @OnClick(R.id.imageViewGotoContract)
     public void gotoContract(View view) {
         Map<String, String> map = new HashMap<>();
-        post(ConstantUrl.customListUrl, map, new CustomizationListActivity.CustomItemBean());
+        get(ConstantUrl.customListUrl, map, new CustomizationListActivity.CustomItemBean());
     }
 
     public class TemplateMenuAdapter extends RecyclerBaseAdapter {

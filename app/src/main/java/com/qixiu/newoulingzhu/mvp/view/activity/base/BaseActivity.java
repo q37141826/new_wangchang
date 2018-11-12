@@ -30,6 +30,7 @@ import com.qixiu.newoulingzhu.application.AppManager;
 import com.qixiu.newoulingzhu.application.NetStatusCheck;
 
 import butterknife.ButterKnife;
+import me.leolin.shortcutbadger.ShortcutBadger;
 
 /**
  * Created by Administrator on 2017/4/11 0011.
@@ -234,6 +235,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         intentFilter.setPriority(600);
         registerReceiver(receiver, intentFilter);
             NetStatusCheck. checkNetWork(getContext());//检查网络状况
+        ShortcutBadger.applyCount(this, 0);
     }
 
     @Override

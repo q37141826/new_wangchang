@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.qixiu.newoulingzhu.constant.ConstantString;
 import com.qixiu.newoulingzhu.mvp.view.activity.LoginActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.MainActivity;
-import com.qixiu.newoulingzhu.constant.ConstantString;
 import com.qixiu.newoulingzhu.utils.Preference;
 import com.qixiu.wanchang.R;
 
@@ -53,7 +53,7 @@ public class GuidePageActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if(currentPosition==2){
                         if (Preference.get(ConstantString.USERID,"").equals("")) {
-                            LoginActivity.start(getApplication());
+                            LoginActivity.start(getApplication(),true);
                         }else {
                             MainActivity.start(GuidePageActivity.this);
                         }

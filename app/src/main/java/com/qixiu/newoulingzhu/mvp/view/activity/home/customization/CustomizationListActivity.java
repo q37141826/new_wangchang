@@ -56,7 +56,7 @@ public class CustomizationListActivity extends RequstActivity implements OnRecyc
 
     private void reqestData() {
         Map<String, String> map = new HashMap<>();
-        post(ConstantUrl.customListUrl, map, new CustomItemBean());
+        get(ConstantUrl.customListUrl, map, new CustomItemBean());
 
     }
 

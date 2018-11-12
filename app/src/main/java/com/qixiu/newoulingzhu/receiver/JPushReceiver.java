@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import java.util.Iterator;
 
 import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.service.PushService;
 
 import static com.qixiu.newoulingzhu.receiver.JPushReceiver.JPushAction.KEY_MESSAGE;
 
@@ -36,6 +37,8 @@ public class JPushReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Intent pushintent=new Intent(context,PushService.class);//启动极光推送的服务
+        context.startService(pushintent);
         this.context = context;
         Bundle bundle = intent.getExtras();
         ArshowLog.d(getClass(), "[MyReceiver] onReceive - " + intent.getAction() + ", extras: " +

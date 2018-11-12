@@ -136,4 +136,13 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin0.5dp"
         android:background="@color/back_grey"></View>
+    <TextView
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="已经全部加载完毕"
+        android:textColor="@color/font_grey"
+        android:id="@+id/textViewRecyclerFoot"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin40dp" />
 </LinearLayout>

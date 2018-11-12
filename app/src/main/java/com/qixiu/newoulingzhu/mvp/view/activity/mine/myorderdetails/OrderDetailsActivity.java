@@ -152,7 +152,7 @@ public class OrderDetailsActivity extends TitleActivity implements OnRecyclerIte
         if (datas instanceof MyConsultingBean.OBean.DataBean) {
             MyConsultingBean.OBean.DataBean bean = (MyConsultingBean.OBean.DataBean) datas;
             Preference.put(ConstantString.OTHER_HEAD, bean.getAvatar());
-            Preference.put(ConstantString.OTHER_NAME, bean.getLawyer());
+            Preference.put(ConstantString.OTHER_NAME, bean.getUser_nicename());
             Bundle bundle = new Bundle();
             bundle.putString(EaseConstant.PRO_ID, bean.getId());
             bundle.putString(EaseConstant.TOCHAT_NAME, bean.getUser_nicename());

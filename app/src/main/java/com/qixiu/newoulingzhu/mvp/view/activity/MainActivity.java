@@ -73,7 +73,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private MessageFragment messageFragment;
     private MineFragment mineFragment;
     BroadcastReceiver receiver;
-    private String permissions[]={Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA};
+    private String permissions[] = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
+
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -85,9 +86,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected void onInitData() {
         okHttpRequestModel = new OKHttpRequestModel(this);
         setMessageListenner();
-        if(!hasPermission(permissions)){
-            hasRequse(1,permissions);
+        if (!hasPermission(permissions)) {
+            hasRequse(1, permissions);
         }
+//        MobileInfoUtils.jumpStartInterface(this);//打开开机自启动界面
+
     }
 
     private void setMessageListenner() {
@@ -159,7 +162,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             imageViewHomeBottom.setEnabled(true);
         }
     }
-    Handler handler=new Handler();
+
+    Handler handler = new Handler();
 
     @Override
     public void onClick(View v) {
@@ -185,9 +189,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 setupBottomBar(2);
                 break;
         }
-        ProtectRunnable runnable=new ProtectRunnable();
+        ProtectRunnable runnable = new ProtectRunnable();
         MemoryUtil.clearMemory(getContext());//内存清理
-        handler.postDelayed(runnable,200);
+        handler.postDelayed(runnable, 200);
     }
 
     private void setDrawble(TextView textView, int resouce) {
@@ -234,9 +238,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         if (totalCount > 0) {
             textViewMessageBottom.setVisibility(View.VISIBLE);
             if (totalCount > 99) {
-                textViewMessageBottom.setText("  "+99 +"+  "+ StringConstants.EMPTY_STRING);
+                textViewMessageBottom.setText("  " + 99 + "+  " + StringConstants.EMPTY_STRING);
             } else {
-                textViewMessageBottom.setText("  "+totalCount + StringConstants.EMPTY_STRING+"  ");
+                textViewMessageBottom.setText("  " + totalCount + StringConstants.EMPTY_STRING + "  ");
             }
 
         } else {
@@ -295,13 +299,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     protected void onResume() {
         super.onResume();
-        NetStatusCheck. checkNetWork(getContext());//检查网络状况
+        NetStatusCheck.checkNetWork(getContext());//检查网络状况
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(!hasPermission(permissions)){
+        if (!hasPermission(permissions)) {
             finish();
         }
     }

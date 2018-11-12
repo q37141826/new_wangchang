@@ -164,6 +164,7 @@ public class ResetPhoneActivity extends TitleActivity implements OKHttpUIUpdataL
             } else if (ConstantUrl.eitdPhones.equals(baseBean.getUrl())) {
                 Preference.put(ConstantString.PHONE, phone);
                 setResult(IntentRequestCodeConstant.RESULTCODE_RESETPHONE);
+                ToastUtil.toast(baseBean.getM());
                 finish();
             }
         }

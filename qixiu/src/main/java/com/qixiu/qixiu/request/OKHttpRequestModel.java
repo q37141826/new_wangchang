@@ -86,7 +86,7 @@ public class OKHttpRequestModel<T> {
 
     public void okHttpGet(String url, Map<String, String> stringMap, final BaseBean<T> baseBean) {
 
-        okHttpGet(url, stringMap, baseBean, false);
+        okHttpGet(url, stringMap, baseBean, true);
     }
 
     public void okHttpGet(String url, Map<String, String> stringMap, final BaseBean<T> baseBean, boolean isToken) {
@@ -96,7 +96,14 @@ public class OKHttpRequestModel<T> {
             paramenterStringMap.putAll(stringMap);
         }
         GetBuilder getBuilder = OkHttpUtils.get().url(url);
-
+        if (isToken && !TextUtils.isEmpty(url)) {
+            if(url.contains("&")){
+                paramenterStringMap.put("token", MD5Util.getToken(SplitStringUtils.cutStringPenult01(url, "&")));
+            }else {
+                paramenterStringMap.put("token", MD5Util.getToken(SplitStringUtils.cutStringPenult(url, "/")));
+            }
+            paramenterStringMap.put("token_type", StringConstants.STRING_2);
+        }
         baseBean.setUrl(url);
         OKHttpExecutor.okHttpExecut(baseBean, OKHttpRequestParameter.addStringParameter(getBuilder, paramenterStringMap), mOkHttpUIUpdataListener);
 

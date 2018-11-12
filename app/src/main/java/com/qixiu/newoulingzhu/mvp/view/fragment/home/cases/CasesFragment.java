@@ -31,6 +31,7 @@ import com.qixiu.recyclerview_lib.RecyclerBaseHolder;
 import com.qixiu.wanchang.R;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -86,7 +87,7 @@ public class CasesFragment extends BaseFragment implements OKHttpUIUpdataListene
         map.put("typeid", id);
         map.put("page", page + "");
         map.put("num", num + "");
-        okHttpRequestModel.okhHttpPost(ConstantUrl.clasicCaseList, map, new CasesListBean());
+        okHttpRequestModel.okHttpGet(ConstantUrl.clasicCaseList, map, new CasesListBean());
 
     }
 
@@ -124,10 +125,15 @@ public class CasesFragment extends BaseFragment implements OKHttpUIUpdataListene
             } else {
                 adapter.addDatas(bean.getO().getData());
             }
+            List<CasesListBean.OBean.DataBean> datas=adapter.getDatas();
             if(page!=1&&bean.getO().getData().size()==0){
+                datas.get(datas.size()-1) .setList(true);
+                datas.get(datas.size()-1) .setLastVisbel(true);
                 footerview.setIsEnd(true);
+                adapter.notifyDataSetChanged();
 //                recyclerViewClasicCases.setLoadingMoreEnabled(false);
             }else {
+                datas.get(datas.size()-1) .setLastVisbel(false);
                 footerview.setIsEnd(false);
 //                recyclerViewClasicCases.setLoadingMoreEnabled(true);
             }
@@ -218,7 +224,7 @@ public class CasesFragment extends BaseFragment implements OKHttpUIUpdataListene
         public class CaseHolder extends RecyclerBaseHolder {
             LinearLayout linearlayout_head, linearlayout_item, linearlayoutCaseLayout;
             ImageView imageViewHeadCase;
-            TextView textViewContentHead, textViewCasename;
+            TextView textViewContentHead, textViewCasename,textViewRecyclerFoot;
 
             TextView textViewCaseContent, textViewGotoDetails;
             ImageView imageViewCaseItem;
@@ -234,6 +240,7 @@ public class CasesFragment extends BaseFragment implements OKHttpUIUpdataListene
                 textViewContentHead = itemView.findViewById(R.id.textViewContentHead);
                 imageViewCaseItem = itemView.findViewById(R.id.imageViewCaseItem);
                 imageViewHeadCase = itemView.findViewById(R.id.imageViewHeadCase);
+                textViewRecyclerFoot = itemView.findViewById(R.id.textViewRecyclerFoot);
             }
 
             @Override
@@ -260,6 +267,11 @@ public class CasesFragment extends BaseFragment implements OKHttpUIUpdataListene
                         linearlayoutCaseLayout.setVisibility(View.GONE);
                         linearlayout_head.setVisibility(View.GONE);
                         linearlayout_item.setVisibility(View.VISIBLE);
+                    }
+                    if(bean.isLastVisbel()){
+                        textViewRecyclerFoot.setVisibility(View.VISIBLE);
+                    }else {
+                        textViewRecyclerFoot.setVisibility(View.GONE);
                     }
                 }
             }

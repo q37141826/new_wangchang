@@ -84,6 +84,8 @@ public class HyReceiveService extends Service {
                     Notification notification = mBuilder.build();
                     NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                     mNotifyMgr.notify(1, notification);
+                    ShortcutBadger.applyCount(getApplicationContext(), HyEngine.getUnReadMsgCount());
+
                 }
                 //下面是提示音
                 if (Preference.getBoolean(ConstantString.IS_VOICE)) {

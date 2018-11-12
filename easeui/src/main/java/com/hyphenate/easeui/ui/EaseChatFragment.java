@@ -613,7 +613,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
         // the number of messages loaded into conversation is getChatOptions().getNumberOfMessagesLoaded
         // you can change this number
 
-        if (!isRoaming) {
+        if (!isRoaming&&conversation!=null) {
             final List<EMMessage> msgs = conversation.getAllMessages();
             int msgCount = msgs != null ? msgs.size() : 0;
             if (msgCount < conversation.getAllMsgCount() && msgCount < pagesize) {

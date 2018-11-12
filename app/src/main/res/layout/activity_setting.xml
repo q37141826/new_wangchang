@@ -48,6 +48,7 @@
                 android:descendantFocusability="afterDescendants">
 
                 <TextView
+                    android:drawableLeft="@mipmap/setting_message2x"
                     style="@style/my_center_textview"
                     android:text="消息提示" />
 
@@ -75,6 +76,7 @@
                 android:descendantFocusability="afterDescendants">
 
                 <TextView
+                    android:drawableLeft="@mipmap/setting_voice2x"
                     style="@style/my_center_textview"
                     android:text="声音提示" />
 
@@ -101,6 +103,7 @@
                 android:descendantFocusability="afterDescendants">
 
                 <TextView
+                    android:drawableLeft="@mipmap/setting_vibration2x"
                     style="@style/my_center_textview"
                     android:text="震动提示" />
 
@@ -163,6 +166,7 @@
                 >
 
                 <TextView
+                    android:drawableLeft="@mipmap/setting_password2x"
                     style="@style/my_center_textview"
                     android:text="修改密码" />
 
@@ -188,6 +192,7 @@
                >
 
                 <TextView
+                    android:drawableLeft="@mipmap/setting_current_version2x"
                     style="@style/my_center_textview"
                     android:text="当前版本" />
 

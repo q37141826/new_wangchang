@@ -7,7 +7,7 @@ package com.qixiu.newoulingzhu.constant;
 public class ConstantUrl {
     //分享跳转页面
     public static final String SHARE_CONTENT = "欧伶猪法务法律咨询，是一款由专业律师团队在线，能及时、高效的协助处理法律事务问题的在线交流平台。";
-    public static final String TITILE = "欧伶猪法务法律咨询";
+    public static final String TITILE = "欧伶猪法务咨询";
     public static String SHARE_ICON = "https://mmbiz.qlogo.cn/mmbiz_png/ibyw6gtcD9ImWPdLcBHo9V29cJ6N2LgLqnZL7vMovMWhusqpfDdVmWk6XaIic1PwVLBajGDoo14lqerb87BEnJng/0?wx_fmt=png";
     //主页  匿名的是115地址，外部网络可以访问  147的是内部网络专用
 //    public static String hosturl = "http://wc.qixiuu.com/";

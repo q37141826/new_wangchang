@@ -61,6 +61,24 @@ public class CasesListBean extends BaseBean<CasesListBean.OBean>{
             private String  articlesmeta;
             private String  summary;
             private String  type;
+            private boolean isList=false;
+            private boolean isLastVisbel=false;
+
+            public boolean isList() {
+                return isList;
+            }
+
+            public void setList(boolean list) {
+                isList = list;
+            }
+
+            public boolean isLastVisbel() {
+                return isLastVisbel;
+            }
+
+            public void setLastVisbel(boolean lastVisbel) {
+                isLastVisbel = lastVisbel;
+            }
 
             public String getType() {
                 return type;
@@ -153,6 +171,8 @@ public class CasesListBean extends BaseBean<CasesListBean.OBean>{
                 dest.writeString(this.articlesmeta);
                 dest.writeString(this.summary);
                 dest.writeString(this.type);
+                dest.writeByte(this.isList ? (byte) 1 : (byte) 0);
+                dest.writeByte(this.isLastVisbel ? (byte) 1 : (byte) 0);
             }
 
             protected DataBean(Parcel in) {
@@ -165,6 +185,8 @@ public class CasesListBean extends BaseBean<CasesListBean.OBean>{
                 this.articlesmeta = in.readString();
                 this.summary = in.readString();
                 this.type = in.readString();
+                this.isList = in.readByte() != 0;
+                this.isLastVisbel = in.readByte() != 0;
             }
 
             public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {

@@ -60,7 +60,7 @@ dependencies {
     api "com.android.support:appcompat-v7:$SUPPORT_VERSION"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     //multidex，解决方法64K问题
-    compile 'com.android.support:multidex:1.0.1'
+    implementation 'com.android.support:multidex:1.0.1'
     implementation files('libs/alipaySdk-20170922.jar')
     implementation files('libs/annotations.jar')
     implementation files('libs/libammsdk.jar')
@@ -76,12 +76,12 @@ dependencies {
     implementation files('libs/ShareSDK-Wechat-Core-2.8.3.jar')
     implementation files('libs/ShareSDK-Wechat-Favorite-2.8.3.jar')
     implementation files('libs/ShareSDK-Wechat-Moments-2.8.3.jar')
-    compile 'com.jakewharton:butterknife:8.6.0'
+    implementation 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
     //这个是升级到gradle4.0以后需要的注解依赖，黄油刀所需
 
     implementation project(':easeui')
-    compile project(path: ':common-adapter')
+    implementation project(path: ':common-adapter')
     implementation project(':common-widget')
     implementation project(':qixiu')
 

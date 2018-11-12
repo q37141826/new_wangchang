@@ -18,7 +18,6 @@ import com.hyphenate.easeui.bean.StringConstants;
 import com.hyphenate.easeui.domain.EaseAvatarOptions;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
-import com.qixiu.newoulingzhu.application.BaseApplication;
 import com.qixiu.newoulingzhu.constant.ConstantString;
 import com.qixiu.newoulingzhu.constant.IntentDataKeyConstant;
 import com.qixiu.newoulingzhu.mvp.view.activity.chat.ChatActivity;
@@ -30,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static com.qixiu.newoulingzhu.application.BaseApplication.getContext;
 import static com.qixiu.newoulingzhu.constant.IntentRequestCodeConstant.REQUESTCODE_START_CHAT;
 
 
@@ -63,12 +63,12 @@ public class HyEngine {
     public static void init() {
 //初始化
         EMOptions emOptions = initChatOptions();
-        EMClient.getInstance().init(BaseApplication.getContext(), emOptions);
+        EMClient.getInstance().init(getContext(), emOptions);
 //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
         EMClient.getInstance().setDebugMode(true);
         //EaseUI 初始化
         EaseUI easeUI = EaseUI.getInstance();
-        if (easeUI.init(BaseApplication.getContext(), emOptions)) {
+        if (easeUI.init(getContext(), emOptions)) {
             setEaseUIProviders(easeUI);
         }
         EMClient.getInstance().chatManager().loadAllConversations();//加载记录
@@ -109,9 +109,7 @@ public class HyEngine {
                             zProgressHUD.dismiss();
                         }
                     });
-
                 }
-
             }
 
             @Override

@@ -177,6 +177,7 @@
                     android:background="@color/txt_4D4D4D"></View>
 
                 <TextView
+                    android:textColor="@color/font_grey"
                     android:layout_width="@dimen/margin70dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"

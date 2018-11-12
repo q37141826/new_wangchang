@@ -38,6 +38,7 @@ public class StartPageActivity extends AppCompatActivity {
         Preference.put(ConstantString.broadCastMessageCount, 0);
         BaseApplication.NOTICE_NUM = 0;
         ShortcutBadger.applyCount(this, 0);
+
         try {
             if (!Preference.getBoolean(ConstantString.IS_FIRST_LOGIN)) {
                 GuidePageActivity.start(this);

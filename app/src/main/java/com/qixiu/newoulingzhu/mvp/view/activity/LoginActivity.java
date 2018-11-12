@@ -2,6 +2,7 @@ package com.qixiu.newoulingzhu.mvp.view.activity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,7 +24,6 @@ import com.hyphenate.easeui.utils.MD5Util;
 import com.hyphenate.util.NetUtils;
 import com.qixiu.newoulingzhu.application.AppManager;
 import com.qixiu.newoulingzhu.application.LoginStatus;
-import com.qixiu.newoulingzhu.application.NetStatusCheck;
 import com.qixiu.newoulingzhu.beans.SendCodeBean;
 import com.qixiu.newoulingzhu.beans.login.LoginBean;
 import com.qixiu.newoulingzhu.constant.ConstantString;
@@ -38,6 +38,9 @@ import com.qixiu.newoulingzhu.mvp.presenter.SendCodePresense;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.BaseActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.GoToActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.mine.ChangePasswordActivity;
+import com.qixiu.newoulingzhu.mvp.wight.my_alterdialog.ArshowDialog;
+import com.qixiu.newoulingzhu.utils.ArshowDialogUtils;
+import com.qixiu.newoulingzhu.utils.MobileInfoUtils;
 import com.qixiu.newoulingzhu.utils.Preference;
 import com.qixiu.newoulingzhu.utils.ToastUtil;
 import com.qixiu.qixiu.request.OKHttpRequestModel;
@@ -47,6 +50,7 @@ import com.qixiu.qixiu.request.bean.C_CodeBean;
 import com.qixiu.qixiu.utils.CommonUtils;
 import com.qixiu.wanchang.R;
 import com.qixiu.wigit.myedittext.MyEditTextView;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -109,12 +113,34 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnChec
 
     public static void start(Context context) {
         Intent intent = new Intent(context, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
+    public static void start(Context context, boolean isFirst) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.putExtra(IntentDataKeyConstant.DATA, isFirst);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+
     @Override
     protected void onInitData() {
+        boolean isfirst = getIntent().getBooleanExtra(IntentDataKeyConstant.DATA, false);
+        if (isfirst) {
+            ArshowDialogUtils.showDialog(this, "是否设置为自启动应用", new ArshowDialogUtils.ArshowDialogListener() {
+                @Override
+                public void onClickPositive(DialogInterface dialogInterface, int which) {
+                    MobileInfoUtils.jumpStartInterface(getContext());
+                }
+
+                @Override
+                public void onClickNegative(DialogInterface dialogInterface, int which) {
+
+                }
+            });
+        }
         okHttpRequestModel = new OKHttpRequestModel(this);
         refreshState();
         engine = new PlatformLoginEngine(this);
@@ -347,7 +373,7 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnChec
                 deviceId = tm.getDeviceId();
             } catch (Exception e) {
             }
-        }else {
+        } else {
             finish();
         }
     }
@@ -381,6 +407,7 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnChec
     public class MyConnectionListener implements EMConnectionListener {
         @Override
         public void onConnected() {
+            MiPushClient.setAlias(getContext(), deviceId, null);
         }
 
         @Override
@@ -421,4 +448,9 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnChec
         okHttpRequestModel.okhHttpPost(ConstantUrl.outLoginUrl, map, new BaseBean());
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        MiPushClient.unsetAlias(getContext(), deviceId, null);//取消小米的推送
+    }
 }

@@ -308,7 +308,7 @@ public abstract class UploadPictureActivityNew extends TitleActivity implements 
 
     @Override
     public String doInBackground(Object... params) {
-        mOkHttpRequestModel.okhHttpPost(mUrl, mMap, uploadbean == null ? new BaseBean() : uploadbean, false);
+        mOkHttpRequestModel.okhHttpPost(mUrl, mMap, uploadbean == null ? new BaseBean() : uploadbean );
         return "";
     }
 

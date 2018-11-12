@@ -34,6 +34,8 @@ public class EaseChatFilePresenter extends EaseChatRowPresenter {
         File file = new File(filePath);
         if (file.exists()) {
             // open files if it exist
+//          File tobe=  new File(PictureCut.creatPath());
+//            PictureCut.cutFile(file,tobe);
             FileUtils.openFile(file, (Activity) getContext());
         } else {
             // download the file
