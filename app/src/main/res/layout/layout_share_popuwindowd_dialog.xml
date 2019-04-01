@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:id="@+id/framelayout_sharesdk"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@drawable/bg_transparent"
-             android:fitsSystemWindows="true">
+    android:id="@+id/framelayout_sharesdk"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_transparent"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:id="@+id/ll_share_community"
@@ -35,8 +35,7 @@
 
                     android:src="@mipmap/weibo_detail"
                     android:text="微博"
-                    android:textColor="@color/dark_gray"
-                    />
+                    android:textColor="@color/dark_gray" />
 
 
                 <ImageView
@@ -48,7 +47,7 @@
                     android:gravity="center"
                     android:src="@mipmap/weixin_detail"
                     android:text="微信"
-                    android:textColor="@color/dark_gray"/>
+                    android:textColor="@color/dark_gray" />
 
                 <ImageView
                     android:id="@+id/imageView_share_weichatcore"
@@ -59,20 +58,22 @@
 
                     android:src="@mipmap/friend_detail"
                     android:text="朋友圈"
-                    android:textColor="@color/dark_gray"/>
+                    android:textColor="@color/dark_gray" />
             </LinearLayout>
+
             <RelativeLayout
                 android:id="@+id/rl_close"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
                 android:layout_width="@dimen/margin30dp"
-                android:layout_height="@dimen/margin30dp">
-                <ImageView
-                    android:layout_centerInParent="true"
-                    android:layout_width="wrap_content"
-                    android:src="@mipmap/goods_detail_exit_icon"
+                android:layout_height="@dimen/margin30dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true">
 
-                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+
+                    android:src="@mipmap/goods_detail_exit_icon" />
 
             </RelativeLayout>
         </RelativeLayout>
@@ -95,7 +96,7 @@
                 android:gravity="center"
                 android:src="@mipmap/qq_detail"
                 android:text="QQ"
-                android:textColor="@color/dark_gray"/>
+                android:textColor="@color/dark_gray" />
 
             <ImageView
                 android:id="@+id/imageView_share_qzon"
@@ -106,7 +107,7 @@
 
                 android:src="@mipmap/qq_zone_detail"
                 android:text="QQ空间"
-                android:textColor="@color/dark_gray"/>
+                android:textColor="@color/dark_gray" />
 
 
             <TextView
@@ -117,20 +118,20 @@
 
                 android:gravity="center"
                 android:text=""
-                android:textColor="@color/dark_gray"/>
+                android:textColor="@color/dark_gray" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_close"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/dialog_shape"
             android:gravity="center"
             android:text="取消"
             android:textColor="@color/dark_gray"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </LinearLayout>
 
 </FrameLayout>

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.EMConnectionListener;
 import com.hyphenate.EMMessageListener;
@@ -12,6 +14,7 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMOptions;
+import com.hyphenate.chat.EMTextMessageBody;
 import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.EaseUI;
 import com.hyphenate.easeui.bean.StringConstants;
@@ -220,6 +223,7 @@ public class HyEngine {
         intent.putExtra(EaseConstant.PRO_ID, extBundle.getString(EaseConstant.PRO_ID));
         activity.startActivityForResult(intent, REQUESTCODE_START_CHAT);
     }
+
     public static void startConversationGroup(Activity activity, String toChatId, Bundle extBundle, Class<?> activtiyClass) {
         Intent intent = new Intent(activity, activtiyClass);
         intent.putExtra(EaseConstant.EXTRA_USER_ID, toChatId);
@@ -231,6 +235,7 @@ public class HyEngine {
         intent.putExtra(EaseConstant.PRO_ID, extBundle.getString(EaseConstant.PRO_ID));
         activity.startActivityForResult(intent, REQUESTCODE_START_CHAT);
     }
+
     public static int getUnReadMsgCount() {
         int unreadMsgCount = 0;
         Map<String, EMConversation> allConversations = EMClient.getInstance().chatManager().getAllConversations();
@@ -255,14 +260,13 @@ public class HyEngine {
         if (allConversations != null && allConversations.size() > 0) {
             for (String key : allConversations.keySet()) {
                 EMConversation emConversation = allConversations.get(key);
-                if(emConversation.getType().toString().equals(EMConversation.EMConversationType.Chat.toString())){
+                if (emConversation.getType().toString().equals(EMConversation.EMConversationType.Chat.toString())) {
                     unreadMsgCount += emConversation.getUnreadMsgCount();
                 }
             }
         }
         return unreadMsgCount;
     }
-
 
 
     //删除某个对话的所有消息记录  username是对话的ID
@@ -338,7 +342,8 @@ public class HyEngine {
     public static void addMessageListenner(EMMessageListener msgListener) {
         EMClient.getInstance().chatManager().addMessageListener(msgListener);
     }
-    public  static  void removeMessageListenner(EMMessageListener msgListener){
+
+    public static void removeMessageListenner(EMMessageListener msgListener) {
 //        记得在不需要的时候移除listener，如在activity的onDestroy()时
         EMClient.getInstance().chatManager().removeMessageListener(msgListener);
     }
@@ -354,6 +359,7 @@ public class HyEngine {
 
 
     }
+
     public static void onConversationInit(EMConversation conversation) {
         int pagesize = 20;
         final List<EMMessage> msgs = conversation.getAllMessages();
@@ -366,4 +372,42 @@ public class HyEngine {
             conversation.loadMoreMsgFromDB(msgId, pagesize - msgCount);
         }
     }
+
+
+    public static void receiveMessage() {
+        // 这里只是一 TXT 消息为例，IMAGE FILE 等类型的消息设置方法相同
+        EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
+        EMTextMessageBody txtBody = new EMTextMessageBody("您有新消息!");
+        message.setTo("6006");
+// 设置自定义推送提示
+        JSONObject extObject = new JSONObject();
+        try {
+            extObject.put("em_push_name", "欧伶猪法务");
+            extObject.put("em_push_content", "您有新消息!");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+// 将推送扩展设置到消息中
+        message.setAttribute("em_apns_ext", String.valueOf(extObject));
+// 设置消息回调
+        message.setMessageStatusCallback(new EMCallBack() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError(int i, String s) {
+
+            }
+
+            @Override
+            public void onProgress(int i, String s) {
+
+            }
+        });
+// 发送消息
+        EMClient.getInstance().chatManager().sendMessage(message);
+    }
+
 }

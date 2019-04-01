@@ -1,1 +1,2 @@
 include ':app', ':easeui', ':qixiu', ":recyclerview_lib", ":common-widget",":common-adapter"
+//include ':huawei'

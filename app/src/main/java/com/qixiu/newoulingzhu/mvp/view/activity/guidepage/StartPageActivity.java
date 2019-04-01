@@ -35,9 +35,13 @@ public class StartPageActivity extends AppCompatActivity {
 
     protected void onInitData() {
         //// TODO: 2017/8/2 清空app角标，后续可以改到具体位置
-        Preference.put(ConstantString.broadCastMessageCount, 0);
-        BaseApplication.NOTICE_NUM = 0;
-        ShortcutBadger.applyCount(this, 0);
+        try {
+            Preference.put(ConstantString.broadCastMessageCount, 0);
+            BaseApplication.NOTICE_NUM = 0;
+            ShortcutBadger.applyCount(this, 0);
+        }catch (Exception e){
+
+        }
 
         try {
             if (!Preference.getBoolean(ConstantString.IS_FIRST_LOGIN)) {
@@ -61,7 +65,6 @@ public class StartPageActivity extends AppCompatActivity {
 
     //跳转的延迟线程
     Handler handeler = new Handler();
-
     class MyRunnable implements Runnable {
         private int type;
 

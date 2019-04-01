@@ -165,10 +165,19 @@ public class ChangePasswordActivity extends TitleActivity implements View.OnClic
             ToastUtil.showToast(this, R.string.edittext_login_input_id_input_rule_input_illegal);
             return true;
         }
+
         if (IS_SENDCODE) {
             return false;
         }
-
+        if (TextUtils.isEmpty(verify_id)) {
+            ToastUtil.showToast(this, R.string.edittext_register_input_verrycode_input_rule_not_send);
+            return true;
+        }
+        code = edittext_code_changepsw.getText().toString();
+        if (TextUtils.isEmpty(code)) {
+            ToastUtil.showToast(this, R.string.edittext_register_input_verrycode_input_rule_input_nothing);
+            return true;
+        }
         psw = edittext_newPsw_changepsw.getText().toString();
         if (TextUtils.isEmpty(psw)) {
             ToastUtil.showToast(this, R.string.edittext_login_input_psw_input_rule_input_nothing);
@@ -189,15 +198,7 @@ public class ChangePasswordActivity extends TitleActivity implements View.OnClic
             return true;
         }
 
-        code = edittext_code_changepsw.getText().toString();
-        if (TextUtils.isEmpty(code)) {
-            ToastUtil.showToast(this, R.string.edittext_register_input_verrycode_input_rule_input_nothing);
-            return true;
-        }
-        if (TextUtils.isEmpty(verify_id)) {
-            ToastUtil.showToast(this, R.string.edittext_register_input_verrycode_input_rule_not_send);
-            return true;
-        }
+
         return false;
     }
 

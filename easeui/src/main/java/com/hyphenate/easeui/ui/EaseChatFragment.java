@@ -519,7 +519,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             if (EaseUserUtils.getUserInfo(toChatUsername) != null) {
                 EaseUser user = EaseUserUtils.getUserInfo(toChatUsername);
                 if (user != null) {
-                    titleBar.setTitle(user.getNick());
+                    titleBar.setTitle(user.getNickname());
                 }
             }
             // titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
@@ -1053,7 +1053,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
         EaseAtMessageHelper.get().addAtUser(username);
         EaseUser user = EaseUserUtils.getUserInfo(username);
         if (user != null) {
-            username = user.getNick();
+            username = user.getNickname();
         }
         if (autoAddAtSymbol)
             inputMenu.insertText("@" + username + " ");
@@ -1505,7 +1505,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             });
         }
 
-        @Override
+
         public void onRemovedFromChatRoom(final String roomId, final String roomName, final String participant) {
             getActivity().runOnUiThread(new Runnable() {
                 public void run() {
@@ -1541,6 +1541,21 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
                     }
                 });
             }
+        }
+
+        @Override
+        public void onRemovedFromChatRoom(int i, String roomId, String s1, String s2) {
+            getActivity().runOnUiThread(new Runnable() {
+                public void run() {
+                    if (roomId.equals(toChatUsername)) {
+                        Toast.makeText(getActivity(), R.string.quiting_the_chat_room, Toast.LENGTH_LONG).show();
+                        Activity activity = getActivity();
+                        if (activity != null && !activity.isFinishing()) {
+                            activity.finish();
+                        }
+                    }
+                }
+            });
         }
 
 

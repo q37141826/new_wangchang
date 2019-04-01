@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,6 +26,9 @@ import com.qixiu.recyclerview_lib.OnRecyclerItemListener;
 import com.qixiu.recyclerview_lib.RecyclerBaseAdapter;
 import com.qixiu.recyclerview_lib.RecyclerBaseHolder;
 import com.qixiu.wanchang.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,7 +75,8 @@ public class OrderDetailsActivity extends TitleActivity implements OnRecyclerIte
         recyclerViewImage.setAdapter(adapter);
         if (datas instanceof MyConsultingBean.OBean.DataBean) {
             MyConsultingBean.OBean.DataBean dataBean = (MyConsultingBean.OBean.DataBean) datas;
-            adapter.refreshData(dataBean.getImg());
+            List<String> list = removeBadData(dataBean.getImg());
+            adapter.refreshData(list);
             adapter.setOnItemClickListener(this);
             textViewContent.setText(dataBean.getProblem());
             textViewNameOrderDetails.setText(dataBean.getUser_nicename());
@@ -107,6 +112,16 @@ public class OrderDetailsActivity extends TitleActivity implements OnRecyclerIte
         }
 
 
+    }
+
+    private List<String> removeBadData(ArrayList<String> img) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < img.size(); i++) {
+            if (!TextUtils.isEmpty(img.get(i))) {
+                list.add(img.get(i));
+            }
+        }
+        return list;
     }
 
     @Override

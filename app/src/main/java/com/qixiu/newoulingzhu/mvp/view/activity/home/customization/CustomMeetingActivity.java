@@ -121,6 +121,7 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
     private String user;
     private String mobile;
     private String dateString;
+    private Button btnPaySoon;
 
     @Override
     public void adustTitle() {
@@ -157,7 +158,7 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
 
     private void reqestAddress() {
         Map<String,String> map=new HashMap<>();
-        post(ConstantUrl.getAddressUrl,map,new AddressBean());
+        get(ConstantUrl.getAddressUrl,map,new AddressBean());
     }
 
     private void requestPrice() {
@@ -171,7 +172,7 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
     private void requstData() {
         Map<String, String> map = new HashMap<>();
         map.put("type", customItemBean.getType());
-        post(ConstantUrl.customWebUrl, map, new CustomInnerBean());
+        get(ConstantUrl.customWebUrl, map, new CustomInnerBean());
     }
 
     @Override
@@ -259,6 +260,7 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
         CommonUtils.putDataIntoMap(map, "time", time);
         CommonUtils.putDataIntoMap(map, "address",textViewAddressSelect.getText().toString().trim() );
         post(ConstantUrl.customPayUrl, map, paymethod.equals("1") ? new WeixinPayModel() : new AliPayBean());
+        btnPaySoon.setEnabled(false);
     }
 
     private void startWeixinPay(WeixinPayModel bean) {
@@ -403,12 +405,18 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
         imageViewWeichatSelect.setImageResource(R.mipmap.select2x);
         imageViewAliSelect = contentView.findViewById(R.id.imageViewAliSelect);
         imageViewAliSelect.setImageResource(R.mipmap.no_selected2x);
-        Button btnPaySoon = contentView.findViewById(R.id.btnPaySoon);
+        btnPaySoon = contentView.findViewById(R.id.btnPaySoon);
         relative_weichat_pop.setOnClickListener(this);
         relative_alipay_pop.setOnClickListener(this);
         btnPaySoon.setOnClickListener(this);
         textViewPreviusPrice.setText("¥" + priceBean.getO().getPrice() + "");
         textViewRealPrice.setText("¥" + priceBean.getO().getMoney() + "");
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                btnPaySoon.setEnabled(true);
+            }
+        });
     }
 
     @Override
@@ -427,7 +435,7 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
 
     @Override
     public void onFailure(PayResult payResult) {
-
+        btnPaySoon.setEnabled(true);
     }
 
     public boolean getAllDataOk() {
@@ -470,5 +478,14 @@ public class CustomMeetingActivity extends RequstActivity implements IPay, Compo
     @Override
     public void setOnAddressPickListene(String province, String city, String count) {
         textViewAddressSelect.setText(city+"        "+count);
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if(btnPaySoon!=null){
+            btnPaySoon.setEnabled(true);
+        }
     }
 }

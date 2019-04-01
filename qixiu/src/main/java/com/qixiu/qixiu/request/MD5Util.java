@@ -87,6 +87,17 @@ public class MD5Util {
         Log.e("lenth", len + "");
         return token;
     }
+    public static String getToken(String Tag,String time) {
+
+        String sentens = Tag + time + "wclsecret8532532jiaw3252jh32532532";
+        String changgeSentences = sentens.toLowerCase();
+        String token = md5(changgeSentences);//MD5加密字符串
+        int len = token.length();
+        Log.e("lenth", len + "");
+        return token;
+    }
+
+
 
     public static String md5(String string) {
         if (TextUtils.isEmpty(string)) {

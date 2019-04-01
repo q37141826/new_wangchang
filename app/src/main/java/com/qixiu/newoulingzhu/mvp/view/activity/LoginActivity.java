@@ -38,7 +38,6 @@ import com.qixiu.newoulingzhu.mvp.presenter.SendCodePresense;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.BaseActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.GoToActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.mine.ChangePasswordActivity;
-import com.qixiu.newoulingzhu.mvp.wight.my_alterdialog.ArshowDialog;
 import com.qixiu.newoulingzhu.utils.ArshowDialogUtils;
 import com.qixiu.newoulingzhu.utils.MobileInfoUtils;
 import com.qixiu.newoulingzhu.utils.Preference;
@@ -232,10 +231,16 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnChec
                     ToastUtil.showToast(this, R.string.edittext_register_input_verrycode_input_rule_not_send);
                     return;
                 }
+
                 if (TextUtils.isEmpty(edittextRegistPsw.getText().toString())) {
                     ToastUtil.showToast(this, R.string.edittext_changge_psw_confirm_psw_input_rule_input_nothing);
                     return;
                 }
+                if ((edittextRegistPsw.getText().toString().trim().length() < 8 || ((edittextRegistPsw.getText().toString().trim().length() > 20)))) {
+                    ToastUtil.showToast(this, R.string.edittext_login_input_psw_input_rule_input_length);
+                    return ;
+                }
+
                 Map<String, String> mapRegister = new HashMap<>();
                 mapRegister.put("phone", edittextRegistPhone.getText().toString());
                 mapRegister.put("password", MD5Util.MD5(edittextRegistPsw.getText().toString().trim()));

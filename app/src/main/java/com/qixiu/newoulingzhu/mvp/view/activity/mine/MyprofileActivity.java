@@ -49,6 +49,7 @@ import com.qixiu.qixiu.request.OKHttpUIUpdataListener;
 import com.qixiu.qixiu.request.bean.BaseBean;
 import com.qixiu.qixiu.request.bean.C_CodeBean;
 import com.qixiu.qixiu.utils.FileProviderUtil;
+import com.qixiu.qixiu.utils.PhotoBitmapUtils;
 import com.qixiu.qixiu.utils.PictureCut;
 import com.qixiu.qixiu.utils.camera.SingleImagePicker;
 import com.qixiu.wanchang.R;
@@ -415,6 +416,7 @@ public class MyprofileActivity extends TitleActivity implements View.OnClickList
             try {
                 if (resultCode == RESULT_OK) {
                     zProgressHUD.show();
+                    photoPath= PhotoBitmapUtils.amendRotatePhoto(photoPath, getContext());
                     Glide.with(MyprofileActivity.this).load(photoPath).error(R.mipmap.headplace).into(circular_head_edit);
                     List<String> paths=new ArrayList<>();
                     paths.add(photoPath);

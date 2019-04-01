@@ -29,6 +29,7 @@ import com.qixiu.newoulingzhu.constant.ConstantUrl;
 import com.qixiu.newoulingzhu.constant.PlatformConfigConstant;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.TitleActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.mine.member.MyMemberActivity;
+import com.qixiu.newoulingzhu.mvp.wight.loading.ZProgressHUD;
 import com.qixiu.newoulingzhu.mvp.wight.my_alterdialog.ArshowDialog;
 import com.qixiu.newoulingzhu.utils.Preference;
 import com.qixiu.newoulingzhu.utils.ToastUtil;
@@ -73,13 +74,14 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
     private String paymethod = 1 + "";//1 微信pay  2 支付宝
     private ImageView imageViewAd;
     private View contentView;
-
+    ZProgressHUD zProgressHUD;
     public static void start(Context context) {
         context.startActivity(new Intent(context, ProblemPaymentActivity.class));
     }
 
     @Override
     protected void onInitData() {
+        zProgressHUD=new ZProgressHUD(getContext());
         okmdol = new OKHttpRequestModel(this);
         getBuyData();//购买的价钱折扣等数据
         getIntroduce();//说明部分
@@ -163,6 +165,7 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
                 paymethod = "2";
                 break;
             case R.id.btnPaySoon:
+                zProgressHUD.show();
                 startProblemPay();
                 break;
             case R.id.imageViewCloseAd:
@@ -250,13 +253,18 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
 
     @Override
     public void onError(Call call, Exception e, int i) {
-
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
     }
 
     @Override
     public void onFailure(C_CodeBean c_codeBean) {
         if (c_codeBean.getUrl().equals(is_info_enough) || c_codeBean.getUrl().equals(ConstantUrl.startProblemPayUrl)) {
             setDialog(c_codeBean.getM());
+        }
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
         }
     }
 
@@ -289,6 +297,9 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
     protected void onStart() {
         super.onStart();
         getBuyData();
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
     }
 
     public void getBuyData() {
@@ -342,12 +353,17 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
     @Override
     public void onSuccess(String msg) {
         popupWindow.dismiss();
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
     }
 
     @Override
     public void onFailure(PayResult payResult) {
         popupWindow.dismiss();
-
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
     }
 
     @Override
@@ -356,4 +372,6 @@ public class ProblemPaymentActivity extends TitleActivity implements OKHttpUIUpd
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
+
+
 }

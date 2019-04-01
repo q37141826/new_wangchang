@@ -6,9 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qixiu.newoulingzhu.application.AppManager;
 import com.qixiu.newoulingzhu.application.LoginStatus;
@@ -26,6 +30,7 @@ import com.qixiu.newoulingzhu.constant.ConstantUrl;
 import com.qixiu.newoulingzhu.constant.IntentDataKeyConstant;
 import com.qixiu.newoulingzhu.constant.StringConstants;
 import com.qixiu.newoulingzhu.engine.HyEngine;
+import com.qixiu.newoulingzhu.engine.mipush.MiPushEngin;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.BaseActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.chat.ChatActivity;
 import com.qixiu.newoulingzhu.mvp.view.fragment.base.BaseFragment;
@@ -34,6 +39,7 @@ import com.qixiu.newoulingzhu.mvp.view.fragment.home.MessageConsultingFragment;
 import com.qixiu.newoulingzhu.mvp.view.fragment.home.MessageFragment;
 import com.qixiu.newoulingzhu.mvp.view.fragment.home.MineFragment;
 import com.qixiu.newoulingzhu.utils.Preference;
+import com.qixiu.newoulingzhu.utils.VersionCheckUtil;
 import com.qixiu.qixiu.request.OKHttpRequestModel;
 import com.qixiu.qixiu.request.OKHttpUIUpdataListener;
 import com.qixiu.qixiu.request.bean.C_CodeBean;
@@ -73,7 +79,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private MessageFragment messageFragment;
     private MineFragment mineFragment;
     BroadcastReceiver receiver;
-    private String permissions[] = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
+    private String permissions[] = {Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
 
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -88,10 +94,36 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         setMessageListenner();
         if (!hasPermission(permissions)) {
             hasRequse(1, permissions);
+        } else {
+            MiPushEngin.reInitPush(getContext());
+            MiPushEngin.setAlies(getContext(), deviceId);
+            HyEngine.receiveMessage();
+//            boolean init = HMSAgent.init(getApplication());
+//            HMSAgent.connect(this, new ConnectHandler() {
+//                @Override
+//                public void onConnect(int rst) {
+//                    LogUtils.warn("HMS connect end:" + rst);
+//                    HMSAgent.Push.getToken(new GetTokenHandler() {
+//                        @Override
+//                        public void onResult(int rst) {
+//                            LogUtils.warn("HMS get token: end" + rst);
+//                            EMClient.getInstance().sendHMSPushTokenToServer("100223649", String.valueOf(rst));
+//                        }
+//                    });
+//                }
+//            });
+
+            Log.e("userid",Preference.get(ConstantString.USERID,""));
         }
 //        MobileInfoUtils.jumpStartInterface(this);//打开开机自启动界面
+        VersionCheckUtil.checkVersion(getContext(), getActivity(), new VersionCheckUtil.IsNewVerSion() {
+            @Override
+            public void call(boolean isNew) {
 
+            }
+        });
     }
+
 
     private void setMessageListenner() {
         //改变下面消息数量状态的接收者
@@ -214,8 +246,39 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         super.onStart();
         setupBottomBar(0);
         getMessageUread();
+        checkInstall();//安卓8.0检查能否更新安装
     }
 
+    private void checkInstall() {
+        //兼容8.0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            boolean hasInstallPermission = getApplicationContext().getPackageManager().canRequestPackageInstalls();
+            if (!hasInstallPermission) {
+                toInstallPermissionSettingIntent();
+                return;
+            }
+        }
+    }
+    /**
+     * 跳转到设置-允许安装未知来源-页面
+     */
+    /**
+     * 开启安装未知来源权限
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void toInstallPermissionSettingIntent() {
+        Uri packageURI = Uri.parse("package:"+getPackageName());
+        Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,packageURI);
+        startActivityForResult(intent, 1000);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == 1000) {
+            Toast.makeText(this,"安装应用",Toast.LENGTH_SHORT).show();
+        }
+    }
 
     int systemMessageCount = 0;
 
@@ -307,6 +370,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (!hasPermission(permissions)) {
             finish();
+        } else {
+            MiPushEngin.reInitPush(getContext());
+            MiPushEngin.setAlies(getContext(), deviceId);
+            HyEngine.receiveMessage();
         }
     }
 }

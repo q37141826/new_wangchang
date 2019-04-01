@@ -19,6 +19,7 @@ import com.qixiu.newoulingzhu.constant.IntentDataKeyConstant;
 import com.qixiu.newoulingzhu.constant.PlatformConfigConstant;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.TitleActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.mine.member.MyMemberActivity;
+import com.qixiu.newoulingzhu.mvp.wight.loading.ZProgressHUD;
 import com.qixiu.newoulingzhu.utils.Preference;
 import com.qixiu.newoulingzhu.utils.ToastUtil;
 import com.qixiu.qixiu.request.OKHttpRequestModel;
@@ -47,9 +48,10 @@ public class AliWeixinPayActivity extends TitleActivity implements OKHttpUIUpdat
     private String order, id;
     private TextView textView_money_ailiweixinpay;
     private String money;
-
+    ZProgressHUD zProgressHUD;
     @Override
     protected void onInitData() {
+        zProgressHUD=new ZProgressHUD(getContext());
         type = getIntent().getStringExtra(IntentDataKeyConstant.TYPE);
         id = getIntent().getStringExtra(IntentDataKeyConstant.ID);
         order = getIntent().getStringExtra(IntentDataKeyConstant.ORDER_ID);
@@ -95,6 +97,7 @@ public class AliWeixinPayActivity extends TitleActivity implements OKHttpUIUpdat
         switch (v.getId()) {
             case R.id.btn_aliweixinPay:
                 if (TextUtils.isEmpty(order)) {
+
                     startProblemPay();
                     return;
                 }
@@ -118,7 +121,7 @@ public class AliWeixinPayActivity extends TitleActivity implements OKHttpUIUpdat
         map.put("order", order + "");
         map.put("paymethod", paymethod + "");
         okmdol.okhHttpPost(ConstantUrl.startPayUrl, map, paymethod.equals("1") ? new WeixinPayModel() : new AliPayBean());
-
+        zProgressHUD.show();
     }
 
     private void startProblemPay() {
@@ -128,6 +131,7 @@ public class AliWeixinPayActivity extends TitleActivity implements OKHttpUIUpdat
         map.put("money", money + "");
         map.put("paymethod", paymethod + "");
         okmdol.okhHttpPost(ConstantUrl.startProblemPayUrl, map, paymethod.equals("1") ? new WeixinPayModel() : new AliPayBean());
+        zProgressHUD.show();
     }
 
     private void setState(ImageView imageView) {
@@ -175,16 +179,24 @@ public class AliWeixinPayActivity extends TitleActivity implements OKHttpUIUpdat
 
     @Override
     public void onError(Call call, Exception e, int i) {
-
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
     }
 
     @Override
     public void onFailure(C_CodeBean c_codeBean) {
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
         ToastUtil.toast(c_codeBean.getM());
     }
 
     @Override
     public void onSuccess(String msg) {
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
         finish();
         try {
             AppManager.getAppManager().finishActivity(MyMemberActivity.class);
@@ -194,6 +206,16 @@ public class AliWeixinPayActivity extends TitleActivity implements OKHttpUIUpdat
 
     @Override
     public void onFailure(PayResult payResult) {
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
     }
 }

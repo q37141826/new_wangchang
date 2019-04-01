@@ -24,8 +24,9 @@ import okhttp3.Call;
 public class VersionCheckUtil {
     private static final String KEY_DOWNLOAD_URL = "DOWNLOAD_URL";
     private static final String KEY_FILE_PATH = "FILE_PATH";
-    private  static  IsNewVerSion listenner;
-    public static void checkVersion(Context context, final Activity activity,IsNewVerSion listenner) {
+    private static IsNewVerSion listenner;
+
+    public static void checkVersion(Context context, final Activity activity, IsNewVerSion listenner) {
         OkHttpUtils.get().url(ConstantUrl.versionUrl)
                 .build().execute(new StringCallback() {
             @Override
@@ -40,7 +41,7 @@ public class VersionCheckUtil {
                     if (!bean.getO().getName().equals(ArshowContextUtil.getVersionName(activity))) {
                         setDialog("检测到新版本", bean.getO(), activity, bean.getO().getType());
                         listenner.call(false);
-                    }else {
+                    } else {
                         listenner.call(true);
                     }
                 } catch (Exception e) {
@@ -50,8 +51,9 @@ public class VersionCheckUtil {
 
 
     }
-    public  static  void setCall(IsNewVerSion call){
-        listenner=   call;
+
+    public static void setCall(IsNewVerSion call) {
+        listenner = call;
     }
 
     public static void setDialog(String message, final VersionBean.OBean oBean, final Activity activity, String version_code) {
@@ -100,7 +102,8 @@ public class VersionCheckUtil {
         builder.setMessage(message);
         builder.show();
     }
-    public interface IsNewVerSion{
+
+    public interface IsNewVerSion {
         void call(boolean isNew);
     }
 

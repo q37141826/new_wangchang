@@ -7,8 +7,8 @@ android {
         applicationId "com.qixiu.wanchang"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 126
-        versionName "1.2.6"
+        versionCode 134
+        versionName "1.3.4"
         manifestPlaceholders = [UMENG_CHANNEL_VALUE: "default"]
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
@@ -52,7 +52,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -60,7 +63,6 @@ dependencies {
     api "com.android.support:appcompat-v7:$SUPPORT_VERSION"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     //multidex，解决方法64K问题
-    implementation 'com.android.support:multidex:1.0.1'
     implementation files('libs/alipaySdk-20170922.jar')
     implementation files('libs/annotations.jar')
     implementation files('libs/libammsdk.jar')
@@ -98,4 +100,5 @@ dependencies {
     //轮播图
     implementation 'com.jude:rollviewpager:1.4.6'
 
+//    compile project(path: ':huawei')
 }

@@ -7,7 +7,9 @@
         android:targetSdkVersion="26" />
 
     <application>
-        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity" />
     </application>
 

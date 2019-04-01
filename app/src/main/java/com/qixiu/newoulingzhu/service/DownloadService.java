@@ -10,8 +10,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
@@ -176,6 +178,14 @@ public class DownloadService extends Service {
             uri = Uri.parse("file://" + file.toString());
         }
         intent.setDataAndType(uri, "application/vnd.android.package-archive");
+        //兼容8.0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            boolean hasInstallPermission = getApplicationContext().getPackageManager().canRequestPackageInstalls();
+            if (!hasInstallPermission) {
+                startInstallPermissionSettingActivity();
+                return;
+            }
+        }
         //在服务中开启activity必须设置flag,后面解释
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -191,4 +201,17 @@ public class DownloadService extends Service {
         super.onDestroy();
         Log.d(TAG, "onDestroy: ");
     }
+
+    /**
+     * 跳转到设置-允许安装未知来源-页面
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void startInstallPermissionSettingActivity() {
+        //注意这个是8.0新API
+        Uri packageURI = Uri.parse("package:"+getPackageName());
+        Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,packageURI);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getApplicationContext().startActivity(intent);
+    }
+
 }

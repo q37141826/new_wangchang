@@ -13,6 +13,7 @@
         android:label="Tests for com.hyphenate.easeui.test"
         android:targetPackage="com.hyphenate.easeui.test" />
 
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -47,7 +48,9 @@
     <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
 
-        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity" />
 
         <provider

@@ -3,6 +3,7 @@ package com.qixiu.newoulingzhu.mvp.view.fragment.home;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -298,7 +299,7 @@ public class MessageConsultingFragment extends BaseFragment implements OKHttpUIU
         if (datas != null && datas.size() > 0) {
             for (String key : strings) {
                 for (int i = 0; i < datas.size(); i++) {
-                    if (datas.get(i).getGroup_id().equals(key)) {
+                    if (!TextUtils.isEmpty(datas.get(i).getGroup_id())&&datas.get(i).getGroup_id().equals(key)) {
                         datas.get(i).setNum(allConversations.get(key).getUnreadMsgCount() + "");
                         allUnread += allConversations.get(key).getUnreadMsgCount();
                         long lastTime = allConversations.get(key).getLastMessage().getMsgTime();
