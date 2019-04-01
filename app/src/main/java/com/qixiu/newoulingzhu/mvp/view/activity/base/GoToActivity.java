@@ -14,6 +14,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.qixiu.newoulingzhu.beans.home.HotInformationBean;
 import com.qixiu.newoulingzhu.beans.home.cases.CasesListBean;
 import com.qixiu.newoulingzhu.constant.ConstantString;
 import com.qixiu.newoulingzhu.constant.ConstantUrl;
@@ -48,18 +49,18 @@ public class GoToActivity extends TitleActivity {
                 @Override
                 public void onClick(View v) {
                     ShareLikeEngine shareLikeEngine = new ShareLikeEngine();
-//                    if(bean instanceof  HotInformationBean.OBean.ListBean){
-//                        HotInformationBean.OBean.ListBean data= (HotInformationBean.OBean.ListBean) bean;
-//                        shareLikeEngine.setShareTitle(TextUtils.isEmpty(data.getTitle())? ConstantUrl.TITILE:data.getTitle());
-//                        shareLikeEngine .releaseShareData(getActivity(),data.getSmeta(),"欧伶猪法务资讯", url, null);
-//                    }
+                    if(bean instanceof  HotInformationBean.OBean.ListBean){
+                        HotInformationBean.OBean.ListBean data= (HotInformationBean.OBean.ListBean) bean;
+                        shareLikeEngine.setShareTitle(TextUtils.isEmpty(data.getTitle())? ConstantUrl.TITILE:data.getTitle());
+                        shareLikeEngine .releaseShareData(getActivity(),data.getSmeta(),"欧伶猪法务咨询", url, null);
+                    }
                     if(bean instanceof   CasesListBean.OBean.DataBean ){
                         CasesListBean.OBean.DataBean data= (CasesListBean.OBean.DataBean) bean;
                         shareLikeEngine.setShareTitle(TextUtils.isEmpty(data.getTitle())? ConstantUrl.TITILE:data.getTitle());
                         if(data.getType().equals("case")){
-                            shareLikeEngine .releaseShareData(getActivity(),data.getThumbnail(),data.getSummary(), url, null);
+                            shareLikeEngine .releaseShareData(getActivity(),data.getThumbnail(),"欧伶猪法务咨询", url, null);
                         }else {
-                            shareLikeEngine .releaseShareData(getActivity(),data.getThumbnail(),"欧伶猪法务资讯", url, null);
+                            shareLikeEngine .releaseShareData(getActivity(),data.getThumbnail(),"欧伶猪法务咨询", url, null);
                         }
                     }
                 }
@@ -88,6 +89,9 @@ public class GoToActivity extends TitleActivity {
         settings.setSupportZoom(false);
         settings.setDisplayZoomControls(false);
         settings.setJavaScriptEnabled(true);
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
         if (url != null && !TextUtils.isEmpty(url)) {
             webView_goto.setWebViewClient(new WebViewClient() {
                 @Override

@@ -19,6 +19,7 @@ import com.qixiu.newoulingzhu.constant.StringConstants;
 import com.qixiu.newoulingzhu.mvp.view.activity.base.TitleActivity;
 import com.qixiu.newoulingzhu.mvp.view.activity.mine.pay.AliWeixinPayActivity;
 import com.qixiu.newoulingzhu.mvp.view.adapter.mine.member.DredgeMemberAdapter;
+import com.qixiu.newoulingzhu.mvp.wight.loading.ZProgressHUD;
 import com.qixiu.newoulingzhu.utils.Preference;
 import com.qixiu.newoulingzhu.utils.ToastUtil;
 import com.qixiu.qixiu.request.OKHttpRequestModel;
@@ -49,10 +50,10 @@ public class DredgeMemberActivity extends TitleActivity implements OKHttpUIUpdat
     private String mType;
     private DredgeMemberPriceBean.DredgeMemberPriceInfo mDredgeMemberPriceInfo;
     private String mMemberId;
-
+    ZProgressHUD zProgressHUD;
     @Override
     protected void onInitViewNew() {
-
+        zProgressHUD=new ZProgressHUD(getContext());
         mType = getIntent().getStringExtra(IntentDataKeyConstant.TYPE);
         if (StringConstants.STRING_1.equals(mType)) {
             mTitleView.setTitle("开通会员");
@@ -119,6 +120,7 @@ public class DredgeMemberActivity extends TitleActivity implements OKHttpUIUpdat
         }
 
         mOkHttpRequestModel.okhHttpPost(ConstantUrl.promptlyPayUrl, stringMap, new DredgeMemberPromptPayBean());
+        zProgressHUD.show();
     }
 
     @Override
@@ -140,6 +142,9 @@ public class DredgeMemberActivity extends TitleActivity implements OKHttpUIUpdat
 
     @Override
     public void onSuccess(Object data, int i) {
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
         if (data instanceof DredgeMemberBean) {
             DredgeMemberBean dredgeMemberBean = (DredgeMemberBean) data;
             List<DredgeMemberBean.DredgeMemberInfo> dredgeMemberInfos = dredgeMemberBean.getO();
@@ -191,11 +196,17 @@ public class DredgeMemberActivity extends TitleActivity implements OKHttpUIUpdat
     @Override
     public void onError(Call call, Exception e, int i) {
         ToastUtil.toast(getString(R.string.not_netwroking));
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
     }
 
     @Override
     public void onFailure(C_CodeBean c_codeBean) {
         ToastUtil.toast(c_codeBean.getM());
+        if(zProgressHUD!=null){
+            zProgressHUD.dismiss();
+        }
     }
 
     @Override

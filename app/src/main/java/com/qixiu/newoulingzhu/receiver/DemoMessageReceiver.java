@@ -2,6 +2,7 @@ package com.qixiu.newoulingzhu.receiver;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -64,6 +65,7 @@ public class DemoMessageReceiver extends PushMessageReceiver {
         if (MiPushClient.COMMAND_REGISTER.equals(command)) {
             if (message.getResultCode() == ErrorCode.SUCCESS) {
                 mRegId = cmdArg1;
+                Log.e("mipushId",mRegId);
             }
         } else if (MiPushClient.COMMAND_SET_ALIAS.equals(command)) {
             if (message.getResultCode() == ErrorCode.SUCCESS) {

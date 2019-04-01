@@ -97,6 +97,7 @@ public class CustomCommtActivity extends RequstActivity implements IPay {
     private String paymethod = "1";
     private String orderId;
     BroadcastReceiver receiver;
+    private Button btnPaySoon;
 
     public static void start(Context context, CustomizationListActivity.CustomItemBean.OBean bean) {
         Intent intent = new Intent(context, CustomCommtActivity.class);
@@ -227,6 +228,7 @@ public class CustomCommtActivity extends RequstActivity implements IPay {
         CommonUtils.putDataIntoMap(map, "paymethod", paymethod);
         CommonUtils.putDataIntoMap(map, "problem", etAnswersContent.getText().toString());
         post(ConstantUrl.customPayUrl, map, paymethod.equals("1") ? new WeixinPayModel() : new AliPayBean());
+        btnPaySoon.setEnabled(false);
     }
 
     @Override
@@ -365,12 +367,19 @@ public class CustomCommtActivity extends RequstActivity implements IPay {
         imageViewWeichatSelect.setImageResource(R.mipmap.select2x);
         imageViewAliSelect = contentView.findViewById(R.id.imageViewAliSelect);
         imageViewAliSelect.setImageResource(R.mipmap.no_selected2x);
-        Button btnPaySoon = contentView.findViewById(R.id.btnPaySoon);
+        btnPaySoon = contentView.findViewById(R.id.btnPaySoon);
         relative_weichat_pop.setOnClickListener(this);
         relative_alipay_pop.setOnClickListener(this);
         btnPaySoon.setOnClickListener(this);
         textViewPreviusPrice.setText("¥" + priceBean.getO().getPrice() + "");
         textViewRealPrice.setText("¥" + priceBean.getO().getMoney() + "");
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                btnPaySoon.setEnabled(true);
+            }
+        });
+
     }
 
     @Override
@@ -379,17 +388,25 @@ public class CustomCommtActivity extends RequstActivity implements IPay {
         map.put("uid", LoginStatus.getToken());
         map.put("ordernum", orderId);
         post(ConstantUrl.lawyerUrl, map, new LawyerBean());
+        btnPaySoon.setEnabled(true);
     }
 
     @Override
     public void onFailure(PayResult payResult) {
-
-
+        btnPaySoon.setEnabled(true);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(receiver);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if(btnPaySoon!=null){
+            btnPaySoon.setEnabled(true);
+        }
     }
 }
